@@ -27,6 +27,14 @@ const convert = (data = []) => {
       return this;
     },
 
+    addContinuousIndex() {
+      this.result = this.result.map((row, index) => ({
+        ...row,
+        index: index + 1
+      }));
+      return this;
+    },
+
     pagination(page, limit) {
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;

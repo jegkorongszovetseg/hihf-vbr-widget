@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       columns: {
-        pos: {
+        index: {
           label: '#'
         },
         name: {
@@ -90,6 +90,7 @@ export default {
     convertedData() {
       return convert(this.rows)
         .sorted(this.sort)
+        .addContinuousIndex()
         .value();
     }
   },

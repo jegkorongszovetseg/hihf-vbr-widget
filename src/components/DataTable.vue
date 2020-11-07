@@ -17,8 +17,11 @@
           @click="sortBy(column, prop)"
         >
           <slot :name="`header-${prop}`">
-            <span>{{ $t(column.label) }}</span>
+            {{ $t(column.label) }}
           </slot>
+          <span v-if="column.sortable && prop !== sort.sortTarget">#</span>
+          <span v-if="prop === sort.sortTarget && sort.sortReverse">d</span>
+          <span v-if="prop === sort.sortTarget && !sort.sortReverse">a</span>
         </th>
       </tr>
     </thead>
@@ -56,7 +59,7 @@ export default {
 
   methods: {
     sortBy(column, prop) {
-      console.log(column, prop);
+      // console.log(column, prop);
       if (!column.sortable) return;
       this.$emit('sort', prop);
     }
@@ -77,33 +80,37 @@ table {
 
     &.is-sortable {
       position: relative;
-      &:after {
-        position: absolute;
-        right: 0;
-        content: 'sortable';
-      }
+      // padding-right: 12px;
+      // &:after {
+      //   position: absolute;
+      //   right: 0;
+      //   content: url(../assets/svgs/sort-solid.svg);
+      //   width: 10px;
+      //   height: 10px;
+      // }
     }
 
     &.is-asc {
       position: relative;
-      &:after {
-        position: absolute;
-        right: 0;
-        content: 'asc';
-      }
+      // &:after {
+      //   position: absolute;
+      //   right: 0;
+      //   content: 'a';
+      // }
     }
 
     &.is-desc {
       position: relative;
-      &:after {
-        position: absolute;
-        right: 0;
-        content: 'desc';
-      }
+      // &:after {
+      //   position: absolute;
+      //   right: 0;
+      //   content: 'd';
+      // }
     }
   }
 
   td {
+    white-space: nowrap;
     &.is-active {
       background-color: lightgrey;
     }

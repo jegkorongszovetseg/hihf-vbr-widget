@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <button @click="onLocaleChange">Locale: {{ locale }}</button>
-    {{ $t('table.team.short') }}
     <Standing />
   </div>
 </template>

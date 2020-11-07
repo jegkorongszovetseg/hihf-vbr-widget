@@ -1,17 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <button @click="onLocaleChange">Locale: {{ locale }}</button>
+    {{ $t('table.team.short') }}
+    <Standing />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { i18n } from './localization';
+import Standing from './components/widgets/Standings';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
+    Standing
+  },
+
+  data() {
+    return {
+      locale: i18n.locale
+    };
+  },
+
+  methods: {
+    onLocaleChange() {
+      const currentLocale = i18n.locale;
+      i18n.locale = currentLocale === 'hu' ? 'en' : 'hu';
+      this.locale = i18n.locale;
+    }
   }
 };
 </script>

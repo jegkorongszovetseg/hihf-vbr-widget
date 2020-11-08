@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
-import hu from './languages/hu';
-import en from './languages/en';
+import hu from './loacles/hu';
+import en from './loacles/en';
 
 const messages = {
   hu,

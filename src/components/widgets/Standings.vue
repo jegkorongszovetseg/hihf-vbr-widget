@@ -1,7 +1,15 @@
 <template>
-  <ResponsiveTable>
-    <DataTable :columns="columns" :rows="convertedData" :sort="sort" @sort="onSort"></DataTable>
-  </ResponsiveTable>
+  <div class="vbr-widget">
+    <ResponsiveTable>
+      <DataTable
+        class="vbr-widget-standings"
+        :columns="columns"
+        :rows="convertedData"
+        :sort="sort"
+        @sort="onSort"
+      ></DataTable>
+    </ResponsiveTable>
+  </div>
 </template>
 
 <script>
@@ -9,10 +17,14 @@ import convert from '../../services/convert';
 import DataTable from '../DataTable';
 import ResponsiveTable from '../ResponsiveTable';
 import { fetchVBRData } from '../../services/http-sevices';
-import { i18n } from '../../localization';
+import commonMessages from '../../localization/common';
 
 export default {
   name: 'Standings',
+
+  i18n: {
+    sharedMessages: commonMessages
+  },
 
   components: {
     DataTable,
@@ -97,7 +109,7 @@ export default {
 
   mounted() {
     this.getData();
-    i18n.locale = this.lang;
+    this.$i18n.locale = this.lang;
   },
 
   methods: {
@@ -106,7 +118,7 @@ export default {
         const response = await fetchVBRData({ championshipId: 2051, division: 'Alapszakasz', type: 'standings' });
         this.rows = response;
       } catch (error) {
-        console.log('ERROR:', error);
+        // console.log('ERROR:', error);
       }
     },
 

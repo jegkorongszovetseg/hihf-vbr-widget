@@ -5,12 +5,9 @@ import { i18n } from './localization';
 
 Vue.config.productionTip = false;
 
+const StandingsElement = wrap(Vue, Standings);
+window.customElements.define('vbr-standings', StandingsElement);
+
 export default {
   i18n
 };
-
-const CustomElement = wrap(Vue, Standings);
-window.customElements.define('vbr-standings', CustomElement);
-
-// const HelloElement = wrap(Vue, HelloWorldApp);
-// window.customElements.define("vue-widget-hello", HelloElement);

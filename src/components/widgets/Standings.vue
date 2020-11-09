@@ -17,14 +17,14 @@ import convert from '../../services/convert';
 import DataTable from '../DataTable';
 import ResponsiveTable from '../ResponsiveTable';
 import { fetchVBRData } from '../../services/http-sevices';
-import commonMessages from '../../localization/common';
+// import commonMessages from '../../localization/common';
 
 export default {
   name: 'Standings',
 
-  i18n: {
-    sharedMessages: commonMessages
-  },
+  // i18n: {
+  //   sharedMessages: commonMessages
+  // },
 
   components: {
     DataTable,
@@ -51,18 +51,22 @@ export default {
         },
         name: {
           label: 'table.team.short',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         m: {
           label: 'M',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         p3: {
           label: 'GY',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         p2: {
           label: 'GYH',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         p1: {
@@ -131,3 +135,5 @@ export default {
   }
 };
 </script>
+
+<!-- style src="../../assets/scss/main.scss" lang="scss"></-->

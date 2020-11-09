@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import { i18n } from './localization';
-import './styles/main.scss';
+import './assets/scss/main.scss';
 
 Vue.config.productionTip = false;
 

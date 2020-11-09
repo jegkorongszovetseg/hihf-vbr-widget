@@ -2,7 +2,7 @@
   <div class="table-responsive"><slot /></div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .table-responsive {
   width: 100%;
   overflow-x: auto;

@@ -14,6 +14,12 @@
               'is-asc': prop === sort.sortTarget && !sort.sortReverse
             }
           ]"
+          v-tooltip="{
+            content: $t(column.tooltip),
+            placement: 'top',
+            boundariesElement: 'body',
+            offset: -2
+          }"
           @click="sortBy(column, prop)"
         >
           <slot :name="`header-${prop}`">
@@ -37,6 +43,11 @@
   </table>
 </template>
 <script>
+import Vue from 'vue';
+import { VTooltip } from 'v-tooltip';
+
+Vue.directive('tooltip', VTooltip);
+
 export default {
   name: 'DataTable',
 

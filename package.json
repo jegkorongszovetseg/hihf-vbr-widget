@@ -6,11 +6,17 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-bundle": "vue-cli-service build --inline-vue --target wc --name vbr-official-bundle src/bundle.js"
+    "bundle-test": "serve -s server-dist",
+    "build-bundle-inline": "vue-cli-service build --inline-vue --target wc --name vbr-official-bundle src/bundle.js",
+    "build-bundle": "vue-cli-service build --target wc --name vbr-official-bundle src/bundle.js",
+    "build-custom-bundle": "vue-cli-service build --target lib --name vbr-official-bundle src/custom-bundle.js",
+    "build-custom-bundle2": "vue-cli-service build --inline-vue --target lib --name vbr-official-bundle src/custom-bundle.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "v-tooltip": "^2.0.3",
     "vue": "^2.6.11",
+    "vue-custom-element": "^3.2.14",
     "vue-i18n": "^8.22.1"
   },
   "devDependencies": {

@@ -14,20 +14,15 @@
               'is-asc': prop === sort.sortTarget && !sort.sortReverse
             }
           ]"
-          v-tooltip="{
-            content: $t(column.tooltip),
-            placement: 'top',
-            boundariesElement: 'body',
-            offset: -2
-          }"
+          v-tooltip="{ content: $t(column.tooltip) }"
           @click="sortBy(column, prop)"
         >
           <slot :name="`header-${prop}`">
-            {{ $t(column.label) }}
+            <span>{{ $t(column.label) }}</span>
           </slot>
-          <span v-if="column.sortable && prop !== sort.sortTarget">#</span>
-          <span v-if="prop === sort.sortTarget && sort.sortReverse">d</span>
-          <span v-if="prop === sort.sortTarget && !sort.sortReverse">a</span>
+          <IconSort v-if="column.sortable && prop !== sort.sortTarget" class="icon-sort"></IconSort>
+          <IconSortAsc v-if="prop === sort.sortTarget && sort.sortReverse" class="icon-sort"></IconSortAsc>
+          <IconSortDesc v-if="prop === sort.sortTarget && !sort.sortReverse" class="icon-sort"></IconSortDesc>
         </th>
       </tr>
     </thead>
@@ -40,16 +35,26 @@
         </td>
       </tr>
     </tbody>
+    <tfoot v-if="rows.length === 0">
+      <tr>
+        <td :colspan="columnCount">Nincs megjeleníthető adat</td>
+      </tr>
+    </tfoot>
   </table>
 </template>
 <script>
-import Vue from 'vue';
-import { VTooltip } from 'v-tooltip';
-
-Vue.directive('tooltip', VTooltip);
+import IconSort from './icons/IconSort';
+import IconSortAsc from './icons/IconSortAsc';
+import IconSortDesc from './icons/IconSortDesc';
 
 export default {
   name: 'DataTable',
+
+  components: {
+    IconSort,
+    IconSortAsc,
+    IconSortDesc
+  },
 
   props: {
     columns: {
@@ -68,9 +73,14 @@ export default {
     }
   },
 
+  computed: {
+    columnCount() {
+      return Object.keys(this.columns).length;
+    }
+  },
+
   methods: {
     sortBy(column, prop) {
-      // console.log(column, prop);
       if (!column.sortable) return;
       this.$emit('sort', prop);
     }

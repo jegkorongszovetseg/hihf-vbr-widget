@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import { i18n } from './localization';
 import Standing from './components/widgets/Standings';
 
 export default {
@@ -17,15 +16,15 @@ export default {
 
   data() {
     return {
-      locale: i18n.locale
+      locale: this.$i18n.locale
     };
   },
 
   methods: {
     onLocaleChange() {
-      const currentLocale = i18n.locale;
-      i18n.locale = currentLocale === 'hu' ? 'en' : 'hu';
-      this.locale = i18n.locale;
+      const currentLocale = this.$i18n.locale;
+      this.$i18n.locale = currentLocale === 'hu' ? 'en' : 'hu';
+      this.locale = this.$i18n.locale;
     }
   }
 };
@@ -38,6 +37,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   // text-align: center;
   // color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 60px;
 }
 </style>

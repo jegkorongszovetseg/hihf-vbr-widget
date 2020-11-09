@@ -1,6 +1,8 @@
 <template>
   <div class="vbr-widget">
-    <ResponsiveTable>
+    <ErrorNotice v-if="error" :error="error"></ErrorNotice>
+
+    <ResponsiveTable v-else>
       <DataTable
         class="vbr-widget-standings"
         :columns="columns"
@@ -16,18 +18,15 @@
 import convert from '../../services/convert';
 import DataTable from '../DataTable';
 import ResponsiveTable from '../ResponsiveTable';
+import ErrorNotice from '../ErrorNotice';
 import { fetchVBRData } from '../../services/http-sevices';
-// import commonMessages from '../../localization/common';
 
 export default {
   name: 'Standings',
 
-  // i18n: {
-  //   sharedMessages: commonMessages
-  // },
-
   components: {
     DataTable,
+    ErrorNotice,
     ResponsiveTable
   },
 
@@ -45,6 +44,7 @@ export default {
 
   data() {
     return {
+      error: '',
       columns: {
         index: {
           label: '#'
@@ -52,7 +52,8 @@ export default {
         name: {
           label: 'table.team.short',
           tooltip: 'table.team.tooltip',
-          sortable: true
+          sortable: true,
+          class: 'text-left'
         },
         m: {
           label: 'M',
@@ -71,26 +72,32 @@ export default {
         },
         p1: {
           label: 'VH',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         p0: {
           label: 'V',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         plus: {
           label: 'SZG',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         minus: {
           label: 'KG',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         gk: {
           label: 'GK',
+          tooltip: 'table.team.tooltip',
           sortable: true
         },
         p: {
           label: 'P',
+          tooltip: 'table.team.tooltip',
           sortable: true
         }
       },
@@ -122,7 +129,7 @@ export default {
         const response = await fetchVBRData({ championshipId: 2051, division: 'Alapszakasz', type: 'standings' });
         this.rows = response;
       } catch (error) {
-        // console.log('ERROR:', error);
+        this.error = error.message;
       }
     },
 
@@ -136,4 +143,4 @@ export default {
 };
 </script>
 
-<!-- style src="../../assets/scss/main.scss" lang="scss"></-->
+<style src="../../assets/scss/main.scss" lang="scss"></style>

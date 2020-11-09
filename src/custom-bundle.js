@@ -1,11 +1,14 @@
 import Vue from 'vue';
 import vueCustomElement from 'vue-custom-element';
-
+import VTooltip from 'v-tooltip';
 import { i18n } from './localization';
+import { DEFAULT_TOOLTIP_OPTIONS } from './constatnts';
 
 import Standings from './components/widgets/Standings.vue';
 
 Vue.use(vueCustomElement);
+
+Vue.use(VTooltip, DEFAULT_TOOLTIP_OPTIONS);
 
 Standings.i18n = i18n;
 

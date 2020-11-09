@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <button @click="onLocaleChange">Locale: {{ locale }}</button>
-    <Standing />
+    <Standing lang="en" championship-id="2051" />
   </div>
 </template>
 

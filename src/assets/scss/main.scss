@@ -17,7 +17,6 @@
     border-spacing: 0;
 
     th {
-      padding: 8px;
       width: var(--table-default-column-width);
       background-color: var(--table-header-bg-color);
       font-size: var(--table-header-font-size);
@@ -56,6 +55,10 @@
         height: 11px;
         margin-left: 5px;
       }
+
+      .w-auto {
+        width: auto;
+      }
     }
   
     td {
@@ -64,10 +67,24 @@
       &.is-active {
         background-color: lightgrey;
       }
+
+      .vbr-widget-image {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin-right: 20px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
     }
 
     th,
     td {
+      padding: 8px;
       white-space: nowrap;
       vertical-align: middle;
 

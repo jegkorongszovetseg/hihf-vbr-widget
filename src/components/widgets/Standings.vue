@@ -10,7 +10,15 @@
         :sort="sort"
         :is-loading="isLoading"
         @sort="onSort"
-      ></DataTable>
+      >
+        <template v-slot:cell-name="{ row }">
+          <VbrImage
+            class="vbr-widget-image"
+            :src="`https://jegkorongszovetseg.hu/_upload/editor/db/team-logos/211/${row.id}.png`"
+          />
+          {{ row.name }}
+        </template>
+      </DataTable>
     </ResponsiveTable>
   </div>
 </template>
@@ -18,14 +26,16 @@
 <script>
 import convert from '../../services/convert';
 import DataTable from '../DataTable';
-import ResponsiveTable from '../ResponsiveTable';
 import ErrorNotice from '../ErrorNotice';
+import ResponsiveTable from '../ResponsiveTable';
+import VbrImage from '../Image';
 import { fetchVBRData } from '../../services/http-sevices';
 
 export default {
   name: 'Standings',
 
   components: {
+    VbrImage,
     DataTable,
     ErrorNotice,
     ResponsiveTable
@@ -48,13 +58,14 @@ export default {
       error: '',
       columns: {
         index: {
-          label: '#'
+          label: '#',
+          class: 'text-left'
         },
         name: {
           label: 'table.team.short',
           tooltip: 'table.team.tooltip',
           sortable: true,
-          class: 'text-left'
+          class: 'text-left w-auto'
         },
         m: {
           label: 'M',
@@ -129,9 +140,13 @@ export default {
     async getData() {
       try {
         this.isLoading = true;
-        const response = await fetchVBRData({ championshipId: 2051, division: 'Alapszakasz', type: 'standings' });
+        const response = await fetchVBRData({
+          championshipId: this.championshipId,
+          division: 'Alapszakasz',
+          type: 'standings'
+        });
         this.isLoading = false;
-        this.rows = response;
+        this.rows = response ? response : [];
       } catch (error) {
         this.error = error.message;
         this.isLoading = false;

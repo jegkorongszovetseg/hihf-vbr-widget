@@ -8,6 +8,7 @@
         :columns="columns"
         :rows="convertedData"
         :sort="sort"
+        :is-loading="isLoading"
         @sort="onSort"
       ></DataTable>
     </ResponsiveTable>
@@ -105,7 +106,8 @@ export default {
       sort: {
         sortTarget: null,
         sortReverse: null
-      }
+      },
+      isLoading: false
     };
   },
 
@@ -126,18 +128,29 @@ export default {
   methods: {
     async getData() {
       try {
+        this.isLoading = true;
         const response = await fetchVBRData({ championshipId: 2051, division: 'Alapszakasz', type: 'standings' });
+        this.isLoading = false;
         this.rows = response;
       } catch (error) {
         this.error = error.message;
+        this.isLoading = false;
       }
     },
 
     onSort(column) {
+      const sortReverse = this.setSortReverse(this.sort.sortReverse);
       this.sort = {
-        sortTarget: column,
-        sortReverse: !this.sort.sortReverse
+        sortTarget: sortReverse === null ? null : column,
+        sortReverse
       };
+    },
+
+    setSortReverse(sortReverse) {
+      const pos = [true, false, null].indexOf(sortReverse);
+      let next = pos + 1;
+      if (next > 2) next = 0;
+      return [true, false, null][next];
     }
   }
 };

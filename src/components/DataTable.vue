@@ -35,9 +35,12 @@
         </td>
       </tr>
     </tbody>
-    <tfoot v-if="rows.length === 0">
-      <tr>
+    <tfoot>
+      <tr v-if="rows.length === 0 && !isLoading">
         <td :colspan="columnCount">Nincs megjeleníthető adat</td>
+      </tr>
+      <tr v-if="isLoading">
+        <td :colspan="columnCount">Töltődés...</td>
       </tr>
     </tfoot>
   </table>
@@ -70,6 +73,11 @@ export default {
     sort: {
       type: Object,
       default: () => ({})
+    },
+
+    isLoading: {
+      type: Boolean,
+      default: false
     }
   },
 

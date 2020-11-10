@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <button @click="onLocaleChange">Locale: {{ locale }}</button>
-    <Standing lang="en" championship-id="2051" division="Alapszakasz"/>
+    <Standing lang="en" championship-id="2051" division="Alapszakasz" />
+    <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" />
   </div>
 </template>
 
 <script>
 import Standing from './components/widgets/Standings';
+import LeaderFieldPlayers from './components/widgets/LeaderFieldPlayers';
 
 export default {
   name: 'App',
   components: {
-    Standing
+    Standing,
+    LeaderFieldPlayers
   },
 
   data() {

@@ -12,7 +12,7 @@
         @sort="onSort"
       >
         <template v-slot:cell-name="{ row }">
-          <VbrImage
+          <ImageBase
             class="vbr-widget-image"
             :src="`https://jegkorongszovetseg.hu/_upload/editor/db/team-logos/211/${row.id}.png`"
           />
@@ -25,17 +25,18 @@
 
 <script>
 import convert from '../../services/convert';
+// import sortObject from '../../services/sortObject';
 import DataTable from '../DataTable';
 import ErrorNotice from '../ErrorNotice';
 import ResponsiveTable from '../ResponsiveTable';
-import VbrImage from '../Image';
+import ImageBase from '../ImageBase';
 import { fetchVBRData } from '../../services/http-sevices';
 
 export default {
   name: 'Standings',
 
   components: {
-    VbrImage,
+    ImageBase,
     DataTable,
     ErrorNotice,
     ResponsiveTable
@@ -85,12 +86,14 @@ export default {
         p1: {
           label: 'VH',
           tooltip: 'table.team.tooltip',
-          sortable: true
+          sortable: true,
+          defaultSort: false
         },
         p0: {
           label: 'V',
           tooltip: 'table.team.tooltip',
-          sortable: true
+          sortable: true,
+          defaultSort: false
         },
         plus: {
           label: 'SZG',
@@ -100,7 +103,8 @@ export default {
         minus: {
           label: 'KG',
           tooltip: 'table.team.tooltip',
-          sortable: true
+          sortable: true,
+          defaultSort: false
         },
         gk: {
           label: 'GK',
@@ -141,7 +145,7 @@ export default {
       try {
         this.isLoading = true;
         const response = await fetchVBRData({
-          championshipId: this.championshipId,
+          championshipId: Number(this.championshipId),
           division: 'Alapszakasz',
           type: 'standings'
         });
@@ -154,18 +158,34 @@ export default {
     },
 
     onSort(column) {
-      const sortReverse = this.setSortReverse(this.sort.sortReverse);
+      const sortReverse = this.setSortReverse(this.sort, column);
       this.sort = {
+        target: column,
+        reverse: this.setReverseArray(column),
         sortTarget: sortReverse === null ? null : column,
         sortReverse
       };
     },
 
-    setSortReverse(sortReverse) {
-      const pos = [true, false, null].indexOf(sortReverse);
+    setSortReverse(sort, column) {
+      const isNewSort = sort.target !== column;
+      if (isNewSort) {
+        const defaultSort = this.columns[column].defaultSort;
+        return defaultSort === undefined ? true : defaultSort;
+      }
+      const pos = sort.reverse.indexOf(sort.sortReverse);
       let next = pos + 1;
       if (next > 2) next = 0;
-      return [true, false, null][next];
+      return sort.reverse[next];
+    },
+
+    setReverseArray(column) {
+      const defaultSort = this.columns[column].defaultSort === undefined ? true : this.columns[column].defaultSort;
+      if (defaultSort) {
+        return [true, false, null];
+      } else {
+        return [false, true, null];
+      }
     }
   }
 };

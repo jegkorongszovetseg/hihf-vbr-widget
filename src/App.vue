@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <button @click="onLocaleChange">Locale: {{ locale }}</button>
-    <Standing lang="en" championship-id="2051" />
+    <Standing lang="en" championship-id="2051" division="Alapszakasz"/>
   </div>
 </template>
 

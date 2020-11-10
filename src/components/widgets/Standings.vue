@@ -48,6 +48,11 @@ export default {
       require: true
     },
 
+    division: {
+      type: String,
+      require: true
+    },
+
     lang: {
       type: String,
       default: 'hu'
@@ -144,10 +149,9 @@ export default {
     async getData() {
       try {
         this.isLoading = true;
-        const response = await fetchVBRData({
+        const response = await fetchVBRData('/standings', {
           championshipId: Number(this.championshipId),
-          division: 'Alapszakasz',
-          type: 'standings'
+          division: this.division
         });
         this.isLoading = false;
         this.rows = response ? response : [];

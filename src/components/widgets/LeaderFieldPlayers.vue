@@ -25,7 +25,7 @@
       :page="page"
       :items-per-page="limit"
       :total-items="rows.length"
-      :range-lenght="3"
+      :range-lenght="5"
       @change="onPaginatorChange"
     />
   </div>

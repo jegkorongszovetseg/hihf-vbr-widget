@@ -1,15 +1,53 @@
 <template>
-  <ul class="pagination">
-    <li @click="pageStep(-1)">prev</li>
-    <li v-for="n in range" :key="n" :class="{ 'is-active': n === page }" @click="goTo(n)">
-      {{ n }}
+  <ul class="mjsz-vbr-pagination" v-if="pageCount > 0">
+    <li :class="{ 'is-disabled': page === 1 }">
+      <a href="#" @click.prevent="pageStep(-1)">
+        <slot name="prev">
+          <IconLeft class="icon paginator-left"></IconLeft>
+        </slot>
+      </a>
     </li>
-    <li @click="pageStep(1)">></li>
+    <li v-if="!isCompact" :class="{ 'is-disabled': page === 1 }">
+      <a href="#" type="button" @click.prevent="goTo(1)">
+        1
+      </a>
+    </li>
+    <li v-if="!isCompact" class="is-extended">
+      <span>...</span>
+    </li>
+    <li v-for="n in range" :key="n" :class="{ 'is-active': n === page }">
+      <a href="#" @click.prevent="goTo(n)">
+        {{ n }}
+      </a>
+    </li>
+    <li v-if="!isCompact" class="is-extended">
+      <span>...</span>
+    </li>
+    <li v-if="!isCompact" :class="{ 'is-disabled': page === pageCount }">
+      <a href="#" @click.prevent="goTo(pageCount)">
+        {{ pageCount }}
+      </a>
+    </li>
+    <li :class="{ 'is-disabled': page === pageCount }">
+      <a href="#" @click.prevent="pageStep(1)">
+        <slot name="next">
+          <IconRight class="icon paginator-left"></IconRight>
+        </slot>
+      </a>
+    </li>
   </ul>
 </template>
 <script>
+import IconLeft from './icons/IconLeft';
+import IconRight from './icons/IconRight';
+
 export default {
   name: 'Paginator',
+
+  components: {
+    IconLeft,
+    IconRight
+  },
 
   props: {
     page: {
@@ -44,6 +82,11 @@ export default {
       validator: value => {
         return value >= 2;
       }
+    },
+
+    isCompact: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -68,21 +111,69 @@ export default {
   methods: {
     pageStep(v) {
       const page = this.page + v;
-      this.$emit('change', page);
+      if (this.validPage(page)) this.$emit('change', page);
     },
 
     goTo(page) {
-      this.$emit('change', page);
+      if (this.validPage(page)) this.$emit('change', page);
+    },
+
+    validPage(page) {
+      return page <= this.pageCount && page > 0;
     }
   }
 };
 </script>
-<style scoped>
-ul li {
-  display: inline-block;
-  padding: 4px;
-}
-.is-active {
-  color: red;
+<style lang="scss" scoped>
+.mjsz-vbr-pagination {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 0;
+
+  li {
+    display: flex;
+
+    a,
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 12px;
+      text-decoration: none;
+      border: 1px solid #eceff1;
+      background-color: #ffffff;
+      line-height: 1.42857143;
+      margin-left: -1px;
+
+      .icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    span {
+      border: none;
+    }
+
+    &.is-disabled {
+      a,
+      span {
+        pointer-events: none;
+        cursor: default;
+        color: #eceff1;
+      }
+    }
+
+    &:focus,
+    &.is-active {
+      a {
+        color: wheat;
+        background-color: black;
+        cursor: default;
+      }
+    }
+  }
 }
 </style>

@@ -142,35 +142,46 @@ export default {
       justify-content: center;
       padding: 6px 12px;
       text-decoration: none;
-      border: 1px solid #eceff1;
-      background-color: #ffffff;
-      line-height: 1.42857143;
+      color: var(--vbr-widget-paginator-color);
+      border: 1px solid var(--vbr-widget-paginator-border-color);
+      background-color: var(--vbr-widget-paginator-bg-color);
       margin-left: -1px;
 
       .icon {
         width: 16px;
         height: 16px;
+        margin: 0 -4px;
       }
     }
 
     span {
       border: none;
+      margin-left: 0;
+    }
+
+    &:hover:not(&.is-disabled) {
+      a {
+        color: var(--vbr-widget-paginator-hover-color);
+        background-color: var(--vbr-widget-paginator-hover-bg-color);
+      }
     }
 
     &.is-disabled {
       a,
       span {
+        color: var(--vbr-widget-paginator-disabled-color);
+        background-color: var(--vbr-widget-paginator-bg-color);
         pointer-events: none;
         cursor: default;
-        color: #eceff1;
       }
     }
 
     &:focus,
     &.is-active {
       a {
-        color: wheat;
-        background-color: black;
+        color: var(--vbr-widget-paginator-active-color);
+        background-color: var(--vbr-widget-paginator-active-bg-color);
+        border-color: var(--vbr-widget-paginator-active-bg-color);
         cursor: default;
       }
     }

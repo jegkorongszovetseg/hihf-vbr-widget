@@ -25,7 +25,7 @@
 
 <script>
 import convert from '../../services/convert';
-// import sortObject from '../../services/sortObject';
+import { SortService } from '../../services/sort-service';
 import DataTable from '../DataTable';
 import ErrorNotice from '../ErrorNotice';
 import ResponsiveTable from '../ResponsiveTable';
@@ -123,9 +123,10 @@ export default {
         }
       },
       rows: [],
+      SortService: null,
       sort: {
-        sortTarget: null,
-        sortReverse: null
+        sortTarget: 'p',
+        sortReverse: false
       },
       isLoading: false
     };
@@ -138,6 +139,10 @@ export default {
         .addContinuousIndex()
         .value();
     }
+  },
+
+  created() {
+    this.SortService = new SortService(this.columns, this.sort);
   },
 
   mounted() {
@@ -162,34 +167,7 @@ export default {
     },
 
     onSort(column) {
-      const sortReverse = this.setSortReverse(this.sort, column);
-      this.sort = {
-        target: column,
-        reverse: this.setReverseArray(column),
-        sortTarget: sortReverse === null ? null : column,
-        sortReverse
-      };
-    },
-
-    setSortReverse(sort, column) {
-      const isNewSort = sort.target !== column;
-      if (isNewSort) {
-        const defaultSort = this.columns[column].defaultSort;
-        return defaultSort === undefined ? true : defaultSort;
-      }
-      const pos = sort.reverse.indexOf(sort.sortReverse);
-      let next = pos + 1;
-      if (next > 2) next = 0;
-      return sort.reverse[next];
-    },
-
-    setReverseArray(column) {
-      const defaultSort = this.columns[column].defaultSort === undefined ? true : this.columns[column].defaultSort;
-      if (defaultSort) {
-        return [true, false, null];
-      } else {
-        return [false, true, null];
-      }
+      this.sort = this.SortService.set(column).get();
     }
   }
 };

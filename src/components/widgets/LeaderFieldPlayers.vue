@@ -171,7 +171,7 @@ export default {
     async getData() {
       try {
         this.isLoading = true;
-        const response = await fetchVBRData('/standings', {
+        const response = await fetchVBRData('standings', {
           championshipId: Number(this.championshipId),
           division: this.division
         });

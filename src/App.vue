@@ -1,20 +1,26 @@
 <template>
   <div id="app">
     <button @click="onLocaleChange">Locale: {{ locale }}</button>
-    <Standing lang="en" championship-id="2051" division="Alapszakasz" />
-    <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" />
+    <!-- 5 harmad: 50521 -->
+    <!-- Büntetők  56731 -->
+    <!-- hosszabítás: 56726 -->
+    <Game game-id="50521" />
+    <!-- <Standing lang="en" championship-id="2051" division="Alapszakasz" /> -->
+    <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" /> -->
   </div>
 </template>
 
 <script>
-import Standing from './components/widgets/Standings';
-import LeaderFieldPlayers from './components/widgets/LeaderFieldPlayers';
+import Game from './components/widgets/Game';
+// import Standing from './components/widgets/Standings';
+// import LeaderFieldPlayers from './components/widgets/LeaderFieldPlayers';
 
 export default {
   name: 'App',
   components: {
-    Standing,
-    LeaderFieldPlayers
+    Game
+    // Standing,
+    // LeaderFieldPlayers
   },
 
   data() {

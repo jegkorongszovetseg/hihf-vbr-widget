@@ -1,5 +1,5 @@
 export const fetchVBRData = async (route, data) => {
-  const url = `http://localhost:3333/vbr/v1${route}?${objectToQueryString(data)}`;
+  const url = `http://localhost:3333/vbr/v1/${route}?${objectToQueryString(data)}`;
   return new Promise((resolve, reject) => {
     fetch(url, {
       method: 'GET',

@@ -1,25 +1,24 @@
 <template>
-  <div>
+  <div class="vbr-widget-game">
     GAME:
     <div>{{ gameData.homeTeamScore }} : {{ gameData.awayTeamScore }}</div>
     <div>{{ gameData.homeTeamName }} : {{ gameData.awayTeamName }}</div>
 
-    <!-- <h2>{{ gameData.period }}</h2> -->
-    <div v-for="(periodEvent, key) in convertedGameEvents" :key="key">
-      <h2>{{ key }}</h2>
-      <div v-if="periodEvent.length === 0">Nincs esemény ebben a harmadban</div>
-      <ul>
-        <li v-for="event in periodEvent" :key="event.eventId">{{ event.eventTime }} {{ event.type }} {{ key }}</li>
-      </ul>
-    </div>
+    <GameEvents :game-events="convertedGameEvents"></GameEvents>
   </div>
 </template>
 
 <script>
 import { fetchVBRData } from '../../services/http-sevices';
+import { hasInteger } from '@/utils/string';
+import GameEvents from './GameHelpers/GameEvents';
 
 export default {
   name: 'Game',
+
+  components: {
+    GameEvents
+  },
 
   props: {
     gameId: {
@@ -52,13 +51,12 @@ export default {
       for (let i = this.currentPeriod; i > 0; i--) {
         periods[`${i}. harmad`] = [];
       }
-      // console.log(periods);
       return { ...periods, ...this.gameEvents };
     },
 
     currentPeriod() {
       const splitted = (this.gameData.periodResults || '').split(',');
-      let filtered = splitted.filter(period => !period.includes('-')).length;
+      let filtered = splitted.filter(period => hasInteger(period)).length;
       if (this.gameData.isShootout) filtered = filtered - 2;
       if (this.gameData.isOvertime) filtered = filtered - 1;
       return filtered;
@@ -84,7 +82,9 @@ export default {
         const response = await fetchVBRData('gameData', {
           gameId: Number(this.gameId)
         });
-        this.gameData = response || {};
+        // console.log('getGameData:', response);
+        // this.gameData = response || {};
+        this.gameData = Object.assign({}, response);
       } catch (error) {
         console.error(error);
       }
@@ -95,6 +95,7 @@ export default {
         const response = await fetchVBRData('gameStats', {
           gameId: Number(this.gameId)
         });
+        // console.log('getGameStats:', response);
         this.gameStats = response || {};
       } catch (error) {
         console.error(error);
@@ -106,6 +107,7 @@ export default {
         const response = await fetchVBRData('gameEvents2', {
           gameId: Number(this.gameId)
         });
+        // console.log('getGameEvents:', response);
         this.gameEvents = response || [];
       } catch (error) {
         console.error(error);
@@ -118,3 +120,18 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.vbr-widget {
+  &-game {
+    .game-events {
+      .period-title {
+        padding: 10px;
+        background-color: darkslategrey;
+        color: #ffffff;
+        text-align: center;
+      }
+    }
+  }
+}
+</style>

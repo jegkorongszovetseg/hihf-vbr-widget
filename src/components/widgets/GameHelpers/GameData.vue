@@ -6,7 +6,9 @@
         {{ gameData.location }}
       </div>
       <div>{{ gameDate }} ({{ gameDateOffsetName }})</div>
-      <div>HELYSZÍN SZERINTI IDŐ - {{ gameData.location }}: {{ gameDateLocal }} ({{ gameDateLocalOffsetName }})</div>
+      <div>
+        {{ $t('game.data.localTime') }} - {{ gameData.location }}: {{ gameDateLocal }} ({{ gameDateLocalOffsetName }})
+      </div>
     </div>
     <div class="teams-and-results">
       <div class="column">
@@ -14,11 +16,16 @@
         {{ gameData.homeTeamName }}
       </div>
       <div class="column">
-        <div>{{ gameData.period }}</div>
-        <div v-if="gameData.isOvertime">Hosszabbítás után</div>
-        <div v-if="gameData.isShootout">Szétlövés után</div>
+        <div>
+          <div>{{ $t(`game.period.${gameData.period}`) }}</div>
+          <div v-if="gameData.gameStatus === 1">{{ gameData.actualTime }}</div>
+          <div v-if="gameData.isOvertime && gameData.gameStatus === 2">Hosszabbítás után</div>
+          <div v-if="gameData.isShootout && gameData.gameStatus === 2">Szétlövés után</div>
+        </div>
+        <div v-if="gameData.gameStatus === 1">Progress-bar</div>
         <div>{{ homeTeamScore }} : {{ awayTeamScore }}</div>
         <div>{{ gameData.periodResults }}</div>
+        <div v-if="gameData.gameStatus === 3">Versenybíróság</div>
       </div>
       <div class="column">
         LOGO

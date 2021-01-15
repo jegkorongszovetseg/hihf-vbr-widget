@@ -9,6 +9,7 @@
 <script>
 import { fetchVBRData } from '../../services/http-sevices';
 import { hasInteger } from '@/utils/string';
+import isEmpty from '@/utils/object/is-empty';
 import GameData from './GameHelpers/GameData';
 import GameEvents from './GameHelpers/GameEvents';
 
@@ -68,7 +69,7 @@ export default {
     },
 
     isGameDataVisible() {
-      return true;
+      return !isEmpty(this.gameData);
     }
   },
 
@@ -77,6 +78,10 @@ export default {
     this.loadData();
     const self = this;
     this.gameInterval = setInterval(() => self.loadData(), 15000);
+  },
+
+  mounted() {
+    this.$i18n.locale = this.lang;
   },
 
   methods: {
@@ -91,9 +96,8 @@ export default {
         const response = await fetchVBRData('gameData', {
           gameId: Number(this.gameId)
         });
-        // console.log('getGameData:', response);
-        // this.gameData = response || {};
-        this.gameData = Object.assign({}, response);
+        this.gameData = { ...this.gameData, ...response };
+        this.isGameEnded();
       } catch (error) {
         console.error(error);
       }
@@ -116,16 +120,23 @@ export default {
         const response = await fetchVBRData('gameEvents2', {
           gameId: Number(this.gameId)
         });
-        // console.log('getGameEvents:', response);
-        this.gameEvents = response || [];
+        this.gameEvents = { ...this.gameEvents, ...(response || {}) };
       } catch (error) {
         console.error(error);
       }
+    },
+
+    isGameEnded() {
+      if (this.gameData.gameStatus === 2) this.clearGameInterval();
+    },
+
+    clearGameInterval() {
+      clearInterval(this.gameInterval);
     }
   },
 
   beforeDestroy() {
-    clearInterval(this.gameInterval);
+    this.clearGameInterval();
   }
 };
 </script>

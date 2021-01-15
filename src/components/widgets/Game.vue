@@ -1,8 +1,6 @@
 <template>
   <div class="vbr-widget-game">
-    GAME:
-    <div>{{ gameData.homeTeamScore }} : {{ gameData.awayTeamScore }}</div>
-    <div>{{ gameData.homeTeamName }} : {{ gameData.awayTeamName }}</div>
+    <GameData v-if="isGameDataVisible" :game-data="gameData"></GameData>
 
     <GameEvents :game-events="convertedGameEvents"></GameEvents>
   </div>
@@ -11,12 +9,14 @@
 <script>
 import { fetchVBRData } from '../../services/http-sevices';
 import { hasInteger } from '@/utils/string';
+import GameData from './GameHelpers/GameData';
 import GameEvents from './GameHelpers/GameEvents';
 
 export default {
   name: 'Game',
 
   components: {
+    GameData,
     GameEvents
   },
 
@@ -60,6 +60,10 @@ export default {
       if (this.gameData.isShootout) filtered = filtered - 2;
       if (this.gameData.isOvertime) filtered = filtered - 1;
       return filtered;
+    },
+
+    isGameDataVisible() {
+      return true;
     }
   },
 
@@ -124,6 +128,17 @@ export default {
 <style lang="scss">
 .vbr-widget {
   &-game {
+    .teams-and-results {
+      display: flex;
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+      }
+    }
+
     .game-events {
       .period-title {
         padding: 10px;

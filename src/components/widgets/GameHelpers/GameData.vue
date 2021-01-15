@@ -5,8 +5,8 @@
         {{ gameData.championshipName }} - {{ gameData.divisionName }} - {{ gameData.gameName }} /
         {{ gameData.location }}
       </div>
-      <div>{{ gameDate }}</div>
-      <div>HELYSZÍN SZERINTI IDŐ - {{ gameData.location }}: {{ gameDateLocal }}</div>
+      <div>{{ gameDate }} ({{ gameDateOffsetName }})</div>
+      <div>HELYSZÍN SZERINTI IDŐ - {{ gameData.location }}: {{ gameDateLocal }} ({{ gameDateLocalOffsetName }})</div>
     </div>
     <div class="teams-and-results">
       <div class="column">
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { format } from '@/utils/datetime';
+import { format, offsetName } from '@/utils/datetime';
 
 const GAME_STATUS_PREPARATION = 0;
 
@@ -42,7 +42,7 @@ export default {
 
     lang: {
       type: String,
-      default: 'hu'
+      required: true
     }
   },
 
@@ -56,15 +56,19 @@ export default {
     },
 
     gameDate() {
-      return format(this.gameData.gameDate, 'PPPP - HH:mm (zzz)', 'America/New_York');
+      return format(this.gameData.gameDate, 'L dddd - HH:mm', '', this.lang);
+    },
+
+    gameDateOffsetName() {
+      return offsetName(this.gameData.gameDate, '', this.lang);
     },
 
     gameDateLocal() {
-      return format(this.gameData.gameDate, 'HH:mm (zzz)', this.gameData.gameTimezone);
+      return format(this.gameData.gameDate, 'HH:mm', this.gameData.gameTimezone);
     },
 
-    browserTimeZone() {
-      return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    gameDateLocalOffsetName() {
+      return offsetName(this.gameData.gameDate, this.gameData.gameTimezone, this.lang);
     }
   }
 };

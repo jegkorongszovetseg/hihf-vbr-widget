@@ -1,6 +1,6 @@
 <template>
   <div class="vbr-widget-game">
-    <GameData v-if="isGameDataVisible" :game-data="gameData"></GameData>
+    <GameData v-if="isGameDataVisible" :lang="lang" :game-data="gameData"></GameData>
 
     <GameEvents :game-events="convertedGameEvents"></GameEvents>
   </div>
@@ -24,6 +24,11 @@ export default {
     gameId: {
       type: String,
       require: true
+    },
+
+    lang: {
+      type: String,
+      default: 'hu'
     }
   },
 

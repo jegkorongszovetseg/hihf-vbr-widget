@@ -1,14 +1,12 @@
 <template>
   <div>
-    <div>
-      <div>
-        {{ gameData.championshipName }} - {{ gameData.divisionName }} - {{ gameData.gameName }} /
-        {{ gameData.location }}
-      </div>
-      <div>{{ gameDate }} ({{ gameDateOffsetName }})</div>
-      <div>
-        {{ $t('game.data.localTime') }} - {{ gameData.location }}: {{ gameDateLocal }} ({{ gameDateLocalOffsetName }})
-      </div>
+    <div class="information">
+      {{ gameData.championshipName }} - {{ gameData.divisionName }} - {{ gameData.gameName }} /
+      {{ gameData.location }}
+    </div>
+    <div class="information">{{ gameDate }} ({{ gameDateOffsetName }})</div>
+    <div class="information">
+      {{ $t('game.data.localTime') }} - {{ gameData.location }}: {{ gameDateLocal }} ({{ gameDateLocalOffsetName }})
     </div>
     <div class="teams-and-results">
       <div class="column">

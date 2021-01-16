@@ -35,6 +35,7 @@ export default {
 
   data() {
     return {
+      currentGameId: null,
       gameInterval: null,
       gameData: {},
       gameStats: {},
@@ -74,14 +75,16 @@ export default {
   },
 
   created() {
-    // Load data
+    this.$i18n.locale = this.lang;
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const gameId = urlParams.get('gameId');
+    console.log(queryString, gameId);
+    this.currentGameId = gameId ? gameId : this.gameId;
+
     this.loadData();
     const self = this;
     this.gameInterval = setInterval(() => self.loadData(), 15000);
-  },
-
-  mounted() {
-    this.$i18n.locale = this.lang;
   },
 
   methods: {
@@ -94,7 +97,7 @@ export default {
     async getGameData() {
       try {
         const response = await fetchVBRData('gameData', {
-          gameId: Number(this.gameId)
+          gameId: Number(this.currentGameId)
         });
         this.gameData = { ...this.gameData, ...response };
         this.isGameEnded();
@@ -106,7 +109,7 @@ export default {
     async getGameStats() {
       try {
         const response = await fetchVBRData('gameStats', {
-          gameId: Number(this.gameId)
+          gameId: Number(this.currentGameId)
         });
         // console.log('getGameStats:', response);
         this.gameStats = response || {};
@@ -118,7 +121,7 @@ export default {
     async getGameEvents() {
       try {
         const response = await fetchVBRData('gameEvents2', {
-          gameId: Number(this.gameId)
+          gameId: Number(this.currentGameId)
         });
         this.gameEvents = { ...this.gameEvents, ...(response || {}) };
       } catch (error) {
@@ -144,14 +147,19 @@ export default {
 <style lang="scss">
 .vbr-widget {
   &-game {
+    .information {
+      padding: 3px;
+      text-align: center;
+    }
     .teams-and-results {
+      padding: 10px 0 0 0;
       display: flex;
 
       .column {
         display: flex;
         flex-direction: column;
         align-items: center;
-        flex-grow: 1;
+        flex: 1 1;
       }
     }
 

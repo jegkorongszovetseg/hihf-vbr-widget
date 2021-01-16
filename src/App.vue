@@ -4,7 +4,7 @@
     <!-- 5 harmad: 50521 -->
     <!-- Büntetők  56731 -->
     <!-- hosszabítás: 56726 -->
-    <Game game-id="59431" :lang="locale" />
+    <Game game-id="58700" :lang="locale" />
     <!-- <Standing lang="en" championship-id="2051" division="Alapszakasz" /> -->
     <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" /> -->
   </div>

@@ -1,0 +1,22 @@
+:root {
+  --table-header-bg-color: #37474f;
+  --table-header-color: #b0bec5;
+  --table-header-font-size: 12px;
+  --table-header-active-bg-color: #455a64;
+  --table-header-active-color: #ffffff;
+  --table-default-column-width: 30px;
+
+  --vbr-widget-error-notice-bg-color: #fffde7;
+  --vbr-widget-error-notice-border-color: #fff9c4;
+  --vbr-widget-error-notice-color: #bc5100;
+
+  --vbr-widget-paginator-color: #607d8b;
+  --vbr-widget-paginator-bg-color: #ffffff;
+  --vbr-widget-paginator-hover-color: #455a64;
+  --vbr-widget-paginator-hover-bg-color: #cfd8dc;
+  --vbr-widget-paginator-border-color: #cfd8dc;
+  --vbr-widget-paginator-active-color: #ffffff;
+  --vbr-widget-paginator-active-bg-color: #263238;
+  --vbr-widget-paginator-disabled-color: #b0bec5;
+
+}

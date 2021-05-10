@@ -9,7 +9,7 @@
           <div>{{ event.eventTime }}</div>
           <div>{{ event.teamId }}</div>
           <div>{{ event.type }}</div>
-          <div></div>
+          <div>{{ event.gkDirection }}</div>
           <div></div>
           <div>{{ event.jerseyNumber }} {{ event.lastName }} {{ event.firstName }}</div>
         </div>

@@ -1,28 +1,10 @@
-:root {
-  --table-header-bg-color: #37474f;
-  --table-header-color: #b0bec5;
-  --table-header-font-size: 12px;
-  --table-header-active-bg-color: #455a64;
-  --table-header-active-color: #ffffff;
-  --table-default-column-width: 30px;
+@import "./css-variables.css";
 
-  --vbr-widget-error-notice-bg-color: #fffde7;
-  --vbr-widget-error-notice-border-color: #fff9c4;
-  --vbr-widget-error-notice-color: #bc5100;
+$widget-name: '-mjsz-vbr-widget';
 
-  --vbr-widget-paginator-color: #607d8b;
-  --vbr-widget-paginator-bg-color: #ffffff;
-  --vbr-widget-paginator-hover-color: #455a64;
-  --vbr-widget-paginator-hover-bg-color: #cfd8dc;
-  --vbr-widget-paginator-border-color: #cfd8dc;
-  --vbr-widget-paginator-active-color: #ffffff;
-  --vbr-widget-paginator-active-bg-color: #263238;
-  --vbr-widget-paginator-disabled-color: #b0bec5;
 
-}
-
-.vbr-widget {
-  table {
+.#{$widget-name} {
+  &-table {
     border-collapse: collapse;
     border-spacing: 0;
 
@@ -77,20 +59,6 @@
       &.is-active {
         background-color: lightgrey;
       }
-
-      .vbr-widget-image {
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        margin-right: 16px;
-        vertical-align: middle;
-
-        img {
-          display: block;
-          width: 100%;
-          height: auto;
-        }
-      }
     }
 
     th,
@@ -105,6 +73,20 @@
       &.text-right {
         text-align: right;
       }
+    }
+  }
+
+  &-image {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 16px;
+    vertical-align: middle;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
   }
 
@@ -123,6 +105,7 @@
     }
   }
 }
+
 .vbr-widget-tooltip {
   display: block;
   z-index: 10000;

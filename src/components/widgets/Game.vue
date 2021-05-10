@@ -84,19 +84,27 @@ export default {
 
     this.loadData();
     const self = this;
-    this.gameInterval = setInterval(() => self.loadData(), 15000);
+    // this.gameInterval = setInterval(() => self.loadData(), 15000);
   },
 
   methods: {
     loadData() {
       this.getGameData();
-      this.getGameStats();
+      // this.getGameStats();
       this.getGameEvents();
     },
 
     async getGameData() {
       try {
-        const response = await fetchVBRData('gameData', {
+        // const [response, response2, response3, response4, response5, response6] = await Promise.all([
+        //   fetchVBRData('v1/gameData', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v1/gameData', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v1/gameData', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v1/gameData', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v1/gameData', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v1/gameData', { gameId: Number(this.currentGameId) })
+        // ]);
+        const response = await fetchVBRData('v1/gameData', {
           gameId: Number(this.currentGameId)
         });
         this.gameData = { ...this.gameData, ...response };
@@ -108,7 +116,7 @@ export default {
 
     async getGameStats() {
       try {
-        const response = await fetchVBRData('gameStats', {
+        const response = await fetchVBRData('v1/gameStats', {
           gameId: Number(this.currentGameId)
         });
         // console.log('getGameStats:', response);
@@ -120,7 +128,15 @@ export default {
 
     async getGameEvents() {
       try {
-        const response = await fetchVBRData('gameEvents2', {
+        // const [response, response2, response3, response4, response5, response6] = await Promise.all([
+        //   fetchVBRData('v2/gameEvents', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v2/gameEvents', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v2/gameEvents', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v2/gameEvents', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v2/gameEvents', { gameId: Number(this.currentGameId) }),
+        //   fetchVBRData('v2/gameEvents', { gameId: Number(this.currentGameId) })
+        // ]);
+        const response = await fetchVBRData('v2/gameEvents', {
           gameId: Number(this.currentGameId)
         });
         this.gameEvents = { ...this.gameEvents, ...(response || {}) };

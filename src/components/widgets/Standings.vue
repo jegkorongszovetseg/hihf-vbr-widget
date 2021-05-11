@@ -69,10 +69,7 @@ export default {
       columns: COLUMNS_STANDINGS_P_3,
       rows: [],
       SortService: null,
-      sort: {
-        sortTarget: null,
-        sortReverse: true
-      },
+      sort: null,
       isLoading: false
     };
   },
@@ -91,7 +88,8 @@ export default {
   },
 
   created() {
-    this.SortService = new SortService(this.columns, this.sort);
+    this.SortService = new SortService(this.sort);
+    this.sort = this.SortService.get();
   },
 
   mounted() {
@@ -115,8 +113,8 @@ export default {
       }
     },
 
-    onSort(column) {
-      this.sort = this.SortService.set(column).get();
+    onSort({ target, state }) {
+      this.sort = this.SortService.set(target, state).get();
     }
   }
 };

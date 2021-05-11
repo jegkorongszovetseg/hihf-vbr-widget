@@ -1,3 +1,5 @@
+import { SORT_STATE_ASCEND } from '../../constatnts';
+
 export const COLUMNS_STANDINGS_P_3 = {
   index: {
     label: '#',
@@ -28,13 +30,13 @@ export const COLUMNS_STANDINGS_P_3 = {
     label: 'table.otl.short',
     tooltip: 'table.otl.tooltip',
     sortable: true,
-    defaultSort: false
+    defaultSortState: SORT_STATE_ASCEND
   },
   p0: {
     label: 'table.losses.short',
     tooltip: 'table.losses.tooltip',
     sortable: true,
-    defaultSort: false
+    defaultSortState: SORT_STATE_ASCEND
   },
   plus: {
     label: 'table.goalFor.short',
@@ -45,7 +47,7 @@ export const COLUMNS_STANDINGS_P_3 = {
     label: 'table.goalAgainst.short',
     tooltip: 'table.goalAgainst.tooltip',
     sortable: true,
-    defaultSort: false
+    defaultSortState: SORT_STATE_ASCEND
   },
   gk: {
     label: 'table.goalDiff.short',

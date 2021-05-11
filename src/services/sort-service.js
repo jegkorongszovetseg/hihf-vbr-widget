@@ -1,54 +1,59 @@
-export function SortService(columns, preSortObject) {
-  this.columns = columns || {};
-  this.target = null;
-  this.sortArray = null;
+import { createMachine } from 'xstate';
+import { SORT_STATE_ASCEND, SORT_STATE_DESCEND, SORT_STATE_ORIGINAL } from '../constatnts';
 
+export function SortService(initialSortObject) {
   this.defaultSort = {
     sortTarget: null,
-    sortReverse: null
+    sortState: SORT_STATE_ORIGINAL
   };
 
-  this.sort = preSortObject ? preSortObject : this.defaultSort;
+  this.sort = initialSortObject ? initialSortObject : this.defaultSort;
 }
 
+const sortMachine = createMachine({
+  id: 'sort',
+  initial: SORT_STATE_ORIGINAL,
+  states: {
+    [SORT_STATE_ORIGINAL]: {
+      on: {
+        DIRECTION1: SORT_STATE_DESCEND,
+        DIRECTION2: SORT_STATE_ASCEND
+      }
+    },
+    [SORT_STATE_DESCEND]: {
+      on: {
+        DIRECTION1: SORT_STATE_ASCEND,
+        DIRECTION2: SORT_STATE_ORIGINAL
+      }
+    },
+    [SORT_STATE_ASCEND]: {
+      on: {
+        DIRECTION1: SORT_STATE_ORIGINAL,
+        DIRECTION2: SORT_STATE_DESCEND
+      }
+    }
+  }
+});
+
 SortService.prototype = {
-  setColumn: function(columns) {
-    this.columns = columns;
-  },
-  set: function(target) {
-    this.sortArray = this.setReverseArray(target);
-    const sortReverse = this.setSortReverse(target);
+  set: function(target, initialState) {
+    if (this.sort.sortTarget !== target) {
+      this.sort.sortTarget = target;
+      this.sort.sortState = initialState || SORT_STATE_DESCEND;
+      return this;
+    }
+
+    const direction = initialState === SORT_STATE_ASCEND ? 'DIRECTION2' : 'DIRECTION1';
+    const sortState = sortMachine.transition(this.sort.sortState, direction).value;
 
     this.sort = {
-      sortTarget: sortReverse === null ? null : target,
-      sortReverse
+      sortTarget: target,
+      sortState
     };
     return this;
   },
 
   get: function() {
     return this.sort;
-  },
-
-  setSortReverse: function(column) {
-    const isNewSort = this.target !== column;
-    if (isNewSort) {
-      this.target = column;
-      const defaultSort = this.columns[column].defaultSort;
-      return defaultSort === undefined ? true : defaultSort;
-    }
-    const pos = this.sortArray.indexOf(this.sort.sortReverse);
-    let next = pos + 1;
-    if (next > 2) next = 0;
-    return this.sortArray[next];
-  },
-
-  setReverseArray: function(column) {
-    const defaultSort = this.columns[column].defaultSort === undefined ? true : this.columns[column].defaultSort;
-    if (defaultSort) {
-      return [true, false, null];
-    } else {
-      return [false, true, null];
-    }
   }
 };

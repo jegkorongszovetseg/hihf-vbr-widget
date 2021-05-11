@@ -8,10 +8,10 @@
           :class="[
             [column.class],
             {
-              'is-active': prop === sort.sortTarget,
+              'is-active': prop === sort.sortTarget && sort.sortState !== SORT_STATE_ORIGINAL,
               'is-sortable': column.sortable,
-              'is-desc': prop === sort.sortTarget && sort.sortReverse,
-              'is-asc': prop === sort.sortTarget && !sort.sortReverse
+              'is-desc': prop === sort.sortTarget && sort.sortState === SORT_STATE_DESCEND,
+              'is-asc': prop === sort.sortTarget && sort.sortState === SORT_STATE_ASCEND
             }
           ]"
           v-tooltip="{ content: $t(column.tooltip) }"
@@ -21,14 +21,28 @@
             <span>{{ $t(column.label) }}</span>
           </slot>
           <IconSort v-if="column.sortable && prop !== sort.sortTarget" class="icon-sort"></IconSort>
-          <IconSortAsc v-if="prop === sort.sortTarget && sort.sortReverse" class="icon-sort"></IconSortAsc>
-          <IconSortDesc v-if="prop === sort.sortTarget && !sort.sortReverse" class="icon-sort"></IconSortDesc>
+          <IconSort
+            v-if="prop === sort.sortTarget && sort.sortState === SORT_STATE_ORIGINAL"
+            class="icon-sort"
+          ></IconSort>
+          <IconSortAsc
+            v-if="prop === sort.sortTarget && sort.sortState === SORT_STATE_DESCEND"
+            class="icon-sort"
+          ></IconSortAsc>
+          <IconSortDesc
+            v-if="prop === sort.sortTarget && sort.sortState === SORT_STATE_ASCEND"
+            class="icon-sort"
+          ></IconSortDesc>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="(row, index) in rows" :key="index">
-        <td v-for="(_, prop) in columns" :key="prop" :class="[[_.class], { 'is-active': prop === sort.sortTarget }]">
+        <td
+          v-for="(_, prop) in columns"
+          :key="prop"
+          :class="[[_.class], { 'is-active': prop === sort.sortTarget && sort.sortState !== SORT_STATE_ORIGINAL }]"
+        >
           <slot :name="`cell-${prop}`" :row="row" :prop="prop">
             {{ row[prop] }}
           </slot>
@@ -49,6 +63,7 @@
 import IconSort from './icons/IconSort';
 import IconSortAsc from './icons/IconSortAsc';
 import IconSortDesc from './icons/IconSortDesc';
+import { SORT_STATE_ASCEND, SORT_STATE_DESCEND, SORT_STATE_ORIGINAL } from '../constatnts';
 
 export default {
   name: 'DataTable',
@@ -81,6 +96,14 @@ export default {
     }
   },
 
+  data() {
+    return {
+      SORT_STATE_ORIGINAL,
+      SORT_STATE_DESCEND,
+      SORT_STATE_ASCEND
+    };
+  },
+
   computed: {
     columnCount() {
       return Object.keys(this.columns).length;
@@ -90,7 +113,7 @@ export default {
   methods: {
     sortBy(column, prop) {
       if (!column.sortable) return;
-      this.$emit('sort', prop);
+      this.$emit('sort', { target: prop, state: column.defaultSortState });
     }
   }
 };

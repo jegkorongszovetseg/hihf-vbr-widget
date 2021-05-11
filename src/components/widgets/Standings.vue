@@ -12,7 +12,7 @@
         @sort="onSort"
       >
         <template v-slot:cell-name="{ row }">
-          <ImageBase class="-mjsz-vbr-widget-image" :key="row.teamId" :src="row.teamLogo" />
+          <ImageBase class="-mjsz-vbr-widget-image" :key="row.id" :src="row.teamLogo" />
           {{ row.name }}
         </template>
       </DataTable>
@@ -55,6 +55,11 @@ export default {
     lang: {
       type: String,
       default: 'hu'
+    },
+
+    type: {
+      type: String,
+      default: '3'
     }
   },
 
@@ -65,8 +70,8 @@ export default {
       rows: [],
       SortService: null,
       sort: {
-        sortTarget: 'p',
-        sortReverse: false
+        sortTarget: null,
+        sortReverse: true
       },
       isLoading: false
     };

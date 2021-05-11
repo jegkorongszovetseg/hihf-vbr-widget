@@ -2,7 +2,43 @@ export default {
   table: {
     team: {
       short: 'Csapat',
-      tooltip: 'Csapat'
+      tooltip: 'Csapatnév'
+    },
+    game: {
+      short: 'M',
+      tooltip: 'Mérkőzés'
+    },
+    wins: {
+      short: 'GY',
+      tooltip: 'Győzelem'
+    },
+    otw: {
+      short: 'GYH',
+      tooltip: 'Győzelem Hosszabbításban'
+    },
+    otl: {
+      short: 'VH',
+      tooltip: 'Vereség Hosszabbításban'
+    },
+    losses: {
+      short: 'V',
+      tooltip: 'Vereség'
+    },
+    goalFor: {
+      short: 'SZG',
+      tooltip: 'Szerzett Gól'
+    },
+    goalAgainst: {
+      short: 'KG',
+      tooltip: 'Kapott Gól'
+    },
+    goalDiff: {
+      short: 'GK',
+      tooltip: 'Gólkülönbség'
+    },
+    points: {
+      short: 'P',
+      tooltip: 'Pontok'
     }
   },
   game: {

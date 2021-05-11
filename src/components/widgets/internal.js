@@ -7,54 +7,54 @@ export const COLUMNS_STANDINGS_P_3 = {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
     sortable: true,
-    class: 'text-left w-auto'
+    class: 'text-left w-auto text-bold'
   },
   m: {
-    label: 'M',
-    tooltip: 'table.team.tooltip',
+    label: 'table.game.short',
+    tooltip: 'table.game.tooltip',
     sortable: true
   },
   p3: {
-    label: 'GY',
-    tooltip: 'table.team.tooltip',
+    label: 'table.wins.short',
+    tooltip: 'table.wins.tooltip',
     sortable: true
   },
   p2: {
-    label: 'GYH',
-    tooltip: 'table.team.tooltip',
+    label: 'table.otw.short',
+    tooltip: 'table.otw.tooltip',
     sortable: true
   },
   p1: {
-    label: 'VH',
-    tooltip: 'table.team.tooltip',
+    label: 'table.otl.short',
+    tooltip: 'table.otl.tooltip',
     sortable: true,
     defaultSort: false
   },
   p0: {
-    label: 'V',
-    tooltip: 'table.team.tooltip',
+    label: 'table.losses.short',
+    tooltip: 'table.losses.tooltip',
     sortable: true,
     defaultSort: false
   },
   plus: {
-    label: 'SZG',
-    tooltip: 'table.team.tooltip',
+    label: 'table.goalFor.short',
+    tooltip: 'table.goalFor.tooltip',
     sortable: true
   },
   minus: {
-    label: 'KG',
-    tooltip: 'table.team.tooltip',
+    label: 'table.goalAgainst.short',
+    tooltip: 'table.goalAgainst.tooltip',
     sortable: true,
     defaultSort: false
   },
   gk: {
-    label: 'GK',
-    tooltip: 'table.team.tooltip',
+    label: 'table.goalDiff.short',
+    tooltip: 'table.goalDiff.tooltip',
     sortable: true
   },
   p: {
-    label: 'P',
-    tooltip: 'table.team.tooltip',
+    label: 'table.points.short',
+    tooltip: 'table.points.tooltip',
     sortable: true
   }
 };

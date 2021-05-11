@@ -1,0 +1,97 @@
+.#{$widget-name}-tooltip {
+  display: block;
+  z-index: 10000;
+
+  .tooltip-inner {
+    padding: 5px 10px 4px;
+    font-family: var(--vbr-widget-font-family);
+    font-size: var(--vbr-widget-tooltip-font-size);
+    color: var(--vbr-widget-tooltip-color);
+    background: var(--vbr-widget-tooltip-bg-color);
+    border-radius: 3px;
+  }
+
+  // .tooltip-arrow {
+  //   width: 0;
+  //   height: 0;
+  //   border-style: solid;
+  //   position: absolute;
+  //   margin: 5px;
+  //   border-color: black;
+  //   z-index: 1;
+  // }
+
+  &[x-placement^='top'] {
+    animation: tooltip-animation 200ms ease-in-out;
+    // margin: 0;
+
+    // .tooltip-arrow {
+    //   display: none;
+    //   border-width: 5px 5px 0 5px;
+    //   border-left-color: transparent !important;
+    //   border-right-color: transparent !important;
+    //   border-bottom-color: transparent !important;
+    //   bottom: -5px;
+    //   left: calc(50% - 5px);
+    //   margin-top: 0;
+    //   margin-bottom: 0;
+    // }
+  }
+
+  &[x-placement^='bottom'] {
+    animation: tooltip-animation 200ms ease-in-out;
+    // margin-top: 5px;
+
+    // .tooltip-arrow {
+    //   border-width: 0 5px 5px 5px;
+    //   border-left-color: transparent !important;
+    //   border-right-color: transparent !important;
+    //   border-top-color: transparent !important;
+    //   top: -5px;
+    //   left: calc(50% - 5px);
+    //   margin-top: 0;
+    //   margin-bottom: 0;
+    // }
+  }
+
+  &[x-placement^='right'] {
+    // margin-left: 5px;
+
+    // .tooltip-arrow {
+    //   border-width: 5px 5px 5px 0;
+    //   border-left-color: transparent !important;
+    //   border-top-color: transparent !important;
+    //   border-bottom-color: transparent !important;
+    //   left: -5px;
+    //   top: calc(50% - 5px);
+    //   margin-left: 0;
+    //   margin-right: 0;
+    // }
+  }
+
+  &[x-placement^='left'] {
+    // margin-right: 5px;
+
+    // .tooltip-arrow {
+    //   border-width: 5px 0 5px 5px;
+    //   border-top-color: transparent !important;
+    //   border-right-color: transparent !important;
+    //   border-bottom-color: transparent !important;
+    //   right: -5px;
+    //   top: calc(50% - 5px);
+    //   margin-left: 0;
+    //   margin-right: 0;
+    // }
+  }
+}
+
+@keyframes tooltip-animation {
+  0% {
+    opacity: 0;
+    top: 5px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}

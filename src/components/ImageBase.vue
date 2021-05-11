@@ -1,6 +1,6 @@
 <template>
   <div :class="mainClasses">
-    <img v-if="isImageVisible" :src="src" :alt="alt" loading="lazy" @load="onLoaded" @error="onError" />
+    <img v-if="isImageVisible" :key="src" :src="src" :alt="alt" loading="lazy" @load="onLoaded" @error="onError" />
   </div>
 </template>
 
@@ -40,6 +40,10 @@ export default {
         }
       ];
     }
+  },
+
+  mounted() {
+    this.isLoaded = false;
   },
 
   methods: {

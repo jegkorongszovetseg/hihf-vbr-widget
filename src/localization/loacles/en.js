@@ -2,7 +2,43 @@ export default {
   table: {
     team: {
       short: 'Team',
-      tooltip: 'Team'
+      tooltip: 'Team name'
+    },
+    game: {
+      short: 'GP',
+      tooltip: 'Game Played'
+    },
+    wins: {
+      short: 'W',
+      tooltip: 'Wins'
+    },
+    otw: {
+      short: 'OTW',
+      tooltip: 'Overtime Wins'
+    },
+    otl: {
+      short: 'OTL',
+      tooltip: 'Overtime Losses'
+    },
+    losses: {
+      short: 'L',
+      tooltip: 'Losses'
+    },
+    goalFor: {
+      short: 'GF',
+      tooltip: 'Goals For'
+    },
+    goalAgainst: {
+      short: 'GA',
+      tooltip: 'Goals Against'
+    },
+    goalDiff: {
+      short: 'GD',
+      tooltip: 'Goal Differential'
+    },
+    points: {
+      short: 'PTS',
+      tooltip: 'Points'
     }
   },
   game: {

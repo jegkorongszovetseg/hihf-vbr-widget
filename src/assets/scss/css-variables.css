@@ -24,6 +24,17 @@
   --vbr-widget-secondary-color-800: #558b2f;
   --vbr-widget-secondary-color-900: #33691e;
 
+  --vbr-widget-danger-color-50: #ffebee;
+  --vbr-widget-danger-color-100: #ffcdd2;
+  --vbr-widget-danger-color-200: #ef9a9a;
+  --vbr-widget-danger-color-300: #e57373;
+  --vbr-widget-danger-color-400: #ef5350;
+  --vbr-widget-danger-color-500: #f44336;
+  --vbr-widget-danger-color-700: #d32f2f;
+  --vbr-widget-danger-color-900: #b71c1c;
+  --vbr-widget-danger-color-a400: #ff1744;
+  --vbr-widget-danger-color-a700: #d50000;
+
   --vbr-widget-table-header-font-size: 12px;
   --vbr-widget-table-default-column-width: 30px;
   --vbr-widget-table-color: var(--vbr-widget-primary-color-800);
@@ -31,10 +42,12 @@
   --vbr-widget-table-header-color: var(--vbr-widget-primary-color-200);
   --vbr-widget-table-table-header-active-bg-color: var(--vbr-widget-primary-color-700);
   --vbr-widget-table-header-active-color: var(--vbr-widget-primary-color-0);
-  --vbr-widget-table-hover-color: var(--vbr-widget-secondary-color-100);
+  --vbr-widget-table-hover-color: var(--vbr-widget-secondary-color-900);
+  --vbr-widget-table-hover-bg-color: var(--vbr-widget-secondary-color-100);
+  --vbr-widget-table-active-color: var(--vbr-widget-secondary-color-900);
   --vbr-widget-table-active-bg-color: var(--vbr-widget-secondary-color-200);
   --vbr-widget-table-active-even-bg-color: var(--vbr-widget-secondary-color-300);
-  --vbr-widget-table-active-hover-color: var(--vbr-widget-black);
+  --vbr-widget-table-active-hover-color: var(--vbr-widget-secondary-color-900);
   --vbr-widget-table-active-hover-bg-color: var(--vbr-widget-secondary-color-400);
   --vbr-widget-table-stripped-bg-color: #f8f9fa;
 
@@ -42,9 +55,9 @@
   --vbr-widget-tooltip-color: #ffffff;
   --vbr-widget-tooltip-bg-color: #000000;
 
-  --vbr-widget-error-notice-bg-color: #fffde7;
-  --vbr-widget-error-notice-border-color: #fff9c4;
-  --vbr-widget-error-notice-color: #bc5100;
+  --vbr-widget-error-notice-bg-color: var(--vbr-widget-danger-color-50);
+  --vbr-widget-error-notice-border-color: var(--vbr-widget-danger-color-100);
+  --vbr-widget-error-notice-color: var(--vbr-widget-danger-color-700);
 
   --vbr-widget-paginator-color: var(--vbr-widget-primary-color-500);
   --vbr-widget-paginator-bg-color: #ffffff;

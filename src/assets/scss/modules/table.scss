@@ -54,6 +54,7 @@
 
     &.is-active {
       font-weight: 700;
+      color: var(--vbr-widget-table-active-color);
       background-color: var(--vbr-widget-table-active-bg-color);
     }
   }
@@ -81,8 +82,9 @@
   }
 
   tr:hover {
-    background-color: var(--vbr-widget-table-hover-color);
-
+    color: var(--vbr-widget-table-hover-color);
+    background-color: var(--vbr-widget-table-hover-bg-color);
+    
     td.is-active {
       color: var(--vbr-widget-table-active-hover-color);
       background-color: var(--vbr-widget-table-active-hover-bg-color);

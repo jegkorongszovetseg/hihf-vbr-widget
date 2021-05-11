@@ -55,6 +55,7 @@ export const COLUMNS_STANDINGS_P_3 = {
   p: {
     label: 'table.points.short',
     tooltip: 'table.points.tooltip',
-    sortable: true
+    sortable: true,
+    class: 'text-bold'
   }
 };

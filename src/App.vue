@@ -5,7 +5,8 @@
     <!-- Büntetők  56731 -->
     <!-- hosszabítás: 56726 -->
     <!-- <Game game-id="61309" :lang="locale" /> -->
-    <Standing lang="en" championship-id="2051" division="Alapszakasz" />
+    <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" />
     <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" /> -->
   </div>
 </template>
@@ -19,7 +20,7 @@ export default {
   name: 'App',
   components: {
     // Game
-    Standing
+    Standing,
     // LeaderFieldPlayers
   },
 

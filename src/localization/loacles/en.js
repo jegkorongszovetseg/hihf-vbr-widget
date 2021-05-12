@@ -1,4 +1,8 @@
 export default {
+  common: {
+    loading: 'Loading...',
+    noData: 'No data to display'
+  },
   table: {
     team: {
       short: 'Team',
@@ -11,6 +15,10 @@ export default {
     wins: {
       short: 'W',
       tooltip: 'Wins'
+    },
+    draw: {
+      short: 'D',
+      tooltip: 'Draw'
     },
     otw: {
       short: 'OTW',

@@ -1,10 +1,10 @@
 <template>
-  <div :class="mainClasses">
+  <div :class="DEFAULT_WIDGET_NAME">
     <ErrorNotice v-if="error" :error="error"></ErrorNotice>
 
     <ResponsiveTable v-else>
       <DataTable
-        class="-mjsz-vbr-widget-table"
+        :class="`${DEFAULT_WIDGET_NAME}-table`"
         :columns="columns"
         :rows="convertedData"
         :sort="sort"
@@ -12,7 +12,7 @@
         @sort="onSort"
       >
         <template v-slot:cell-name="{ row }">
-          <ImageBase class="-mjsz-vbr-widget-image" :key="row.id" :src="row.teamLogo" />
+          <ImageBase :class="`${DEFAULT_WIDGET_NAME}-image`" :key="row.id" :src="row.teamLogo" />
           {{ row.name }}
         </template>
       </DataTable>
@@ -29,7 +29,7 @@ import ResponsiveTable from '../ResponsiveTable';
 import ImageBase from '../ImageBase';
 import { DEFAULT_WIDGET_NAME } from '../../constatnts';
 import { fetchVBRData } from '../../services/http-sevices';
-import { COLUMNS_STANDINGS_P_3 } from './internal';
+import { COLUMNS_STANDINGS_P_3, COLUMNS_STANDINGS_P_2 } from './internal';
 
 export default {
   name: 'Standings',
@@ -59,14 +59,15 @@ export default {
 
     type: {
       type: String,
-      default: '3'
+      default: '3',
+      validator: value => ['2', '3'].includes(value)
     }
   },
 
   data() {
     return {
+      DEFAULT_WIDGET_NAME,
       error: '',
-      columns: COLUMNS_STANDINGS_P_3,
       rows: [],
       SortService: null,
       sort: null,
@@ -75,8 +76,8 @@ export default {
   },
 
   computed: {
-    mainClasses() {
-      return [DEFAULT_WIDGET_NAME];
+    columns() {
+      return this.type === '2' ? COLUMNS_STANDINGS_P_2 : COLUMNS_STANDINGS_P_3;
     },
 
     convertedData() {

@@ -51,10 +51,10 @@
     </tbody>
     <tfoot>
       <tr v-if="rows.length === 0 && !isLoading">
-        <td :colspan="columnCount">Nincs megjeleníthető adat</td>
+        <td :colspan="columnCount">{{ $t('common.noData') }}</td>
       </tr>
       <tr v-if="isLoading">
-        <td :colspan="columnCount">Töltődés...</td>
+        <td :colspan="columnCount">{{ $t('common.loading') }}</td>
       </tr>
     </tfoot>
   </table>

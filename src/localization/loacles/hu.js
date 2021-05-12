@@ -1,4 +1,8 @@
 export default {
+  common: {
+    loading: 'Töltődés...',
+    noData: 'Nincs megjeleníthető adat'
+  },
   table: {
     team: {
       short: 'Csapat',
@@ -11,6 +15,10 @@ export default {
     wins: {
       short: 'GY',
       tooltip: 'Győzelem'
+    },
+    draw: {
+      short: 'D',
+      tooltip: 'Döntetlen'
     },
     otw: {
       short: 'GYH',

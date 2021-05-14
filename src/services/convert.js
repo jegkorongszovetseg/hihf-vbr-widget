@@ -23,7 +23,9 @@ const convert = (data = []) => {
     addIndex(target = null) {
       this.result.reduce((rows, row, index) => {
         const lastRow = rows[rows.length - 1] || [];
-        row.index = target && lastRow[target] === row[target] ? lastRow.index : index + 1;
+        const isSameRow = target && lastRow[target] === row[target];
+        row.index = isSameRow ? lastRow.index : index + 1;
+        row.indexClass = isSameRow ? 'is-duplicated' : null;
         rows.push(row);
         return rows;
       }, []);
@@ -42,6 +44,14 @@ const convert = (data = []) => {
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
       this.result = this.result.slice(startIndex, endIndex);
+      return this;
+    },
+
+    playerName() {
+      this.result = this.result.map(row => ({
+        ...row,
+        name: `${row.lastName} ${row.firstName}`
+      }));
       return this;
     }
   };

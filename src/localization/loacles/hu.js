@@ -10,7 +10,7 @@ export default {
     },
     game: {
       short: 'M',
-      tooltip: 'Mérkőzés'
+      tooltip: 'Mérkőzésszám'
     },
     wins: {
       short: 'GY',
@@ -47,6 +47,34 @@ export default {
     points: {
       short: 'P',
       tooltip: 'Pontok'
+    },
+    name: {
+      short: 'Név',
+      tooltip: 'Játékosnév'
+    },
+    goals: {
+      short: 'G',
+      tooltip: 'Gólok'
+    },
+    assists: {
+      short: 'A',
+      tooltip: 'Gólpasszok'
+    },
+    points: {
+      short: 'P',
+      tooltip: 'Pontok'
+    },
+    plusMinus: {
+      short: '+/-',
+      tooltip: 'Plussz/Minusz'
+    },
+    sog: {
+      short: 'L',
+      tooltip: 'Lövések'
+    },
+    sogPercent: {
+      short: 'L%',
+      tooltip: 'Lövés Hatékonyság'
     }
   },
   game: {

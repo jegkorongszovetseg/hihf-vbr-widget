@@ -47,6 +47,34 @@ export default {
     points: {
       short: 'PTS',
       tooltip: 'Points'
+    },
+    name: {
+      short: 'Name',
+      tooltip: 'Player name'
+    },
+    goals: {
+      short: 'G',
+      tooltip: 'Goals'
+    },
+    assists: {
+      short: 'A',
+      tooltip: 'Assists'
+    },
+    points: {
+      short: 'P',
+      tooltip: 'Points'
+    },
+    plusMinus: {
+      short: '+/-',
+      tooltip: 'Plus/Minus'
+    },
+    sog: {
+      short: 'SOG',
+      tooltip: 'Shots on Goal'
+    },
+    sogPercent: {
+      short: 'SOG%',
+      tooltip: 'Shots on Goal Percent'
     }
   },
   game: {

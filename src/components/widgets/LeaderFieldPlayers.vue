@@ -1,23 +1,28 @@
 <template>
-  <div class="vbr-widget">
+  <div :class="DEFAULT_WIDGET_NAME">
     <ErrorNotice v-if="error" :error="error"></ErrorNotice>
 
     <ResponsiveTable v-else>
       <DataTable
-        class="vbr-widget-standings"
+        :class="`${DEFAULT_WIDGET_NAME}-table`"
         :columns="columns"
         :rows="convertedData"
         :sort="sort"
         :is-loading="isLoading"
         @sort="onSort"
       >
-        <template v-slot:cell-name="{ row }">
+        <template v-slot:cell-index="{ row }">
+          <span :class="row.indexClass">
+            {{ row.index }}
+          </span>
+        </template>
+        <!-- <template v-slot:cell-name="{ row }">
           <ImageBase
-            class="vbr-widget-image"
+            :class="`${DEFAULT_WIDGET_NAME}-image`"
             :src="`https://jegkorongszovetseg.hu/_upload/editor/db/team-logos/211/${row.id}.png`"
           />
           {{ row.name }}
-        </template>
+        </template> -->
       </DataTable>
     </ResponsiveTable>
 
@@ -36,15 +41,18 @@ import convert from '../../services/convert';
 import DataTable from '../DataTable';
 import ErrorNotice from '../ErrorNotice';
 import ResponsiveTable from '../ResponsiveTable';
-import ImageBase from '../ImageBase';
+// import ImageBase from '../ImageBase';
 import Paginator from '../Paginator';
+import { SortService } from '../../services/sort-service';
 import { fetchVBRData } from '../../services/http-sevices';
+import { DEFAULT_WIDGET_NAME, SORT_STATE_DESCEND } from '../../constatnts';
+import { COLUMNS_FIELD_PLAYERS } from './internal';
 
 export default {
   name: 'LeaderFieldPlayers',
 
   components: {
-    ImageBase,
+    // ImageBase,
     DataTable,
     Paginator,
     ErrorNotice,
@@ -74,78 +82,20 @@ export default {
 
     limit: {
       type: Number,
-      default: 2
+      default: 20
     }
   },
 
   data() {
     return {
+      DEFAULT_WIDGET_NAME,
       error: '',
-      columns: {
-        index: {
-          label: '#',
-          class: 'text-left',
-          tooltip: 'table.team.tooltip'
-        },
-        name: {
-          label: 'table.team.short',
-          tooltip: 'table.team.tooltip',
-          sortable: true,
-          class: 'text-left w-auto'
-        },
-        m: {
-          label: 'M',
-          tooltip: 'table.team.tooltip',
-          sortable: true
-        },
-        p3: {
-          label: 'GY',
-          tooltip: 'table.team.tooltip',
-          sortable: true
-        },
-        p2: {
-          label: 'GYH',
-          tooltip: 'table.team.tooltip',
-          sortable: true
-        },
-        p1: {
-          label: 'VH',
-          tooltip: 'table.team.tooltip',
-          sortable: true,
-          defaultSort: false
-        },
-        p0: {
-          label: 'V',
-          tooltip: 'table.team.tooltip',
-          sortable: true,
-          defaultSort: false
-        },
-        plus: {
-          label: 'SZG',
-          tooltip: 'table.team.tooltip',
-          sortable: true
-        },
-        minus: {
-          label: 'KG',
-          tooltip: 'table.team.tooltip',
-          sortable: true,
-          defaultSort: false
-        },
-        gk: {
-          label: 'GK',
-          tooltip: 'table.team.tooltip',
-          sortable: true
-        },
-        p: {
-          label: 'P',
-          tooltip: 'table.team.tooltip',
-          sortable: true
-        }
-      },
+      columns: COLUMNS_FIELD_PLAYERS,
       rows: [],
+      SortService: null,
       sort: {
-        sortTarget: null,
-        sortReverse: null
+        sortTarget: 'point',
+        sortState: SORT_STATE_DESCEND
       },
       isLoading: false,
       page: 1
@@ -156,10 +106,16 @@ export default {
     convertedData() {
       return convert(this.rows)
         .sorted(this.sort)
-        .addIndex()
+        .playerName()
+        .addIndex(this.sort.sortTarget)
         .pagination(this.page, this.limit)
         .value();
     }
+  },
+
+  created() {
+    this.SortService = new SortService(this.sort);
+    this.sort = this.SortService.get();
   },
 
   mounted() {
@@ -171,7 +127,7 @@ export default {
     async getData() {
       try {
         this.isLoading = true;
-        const response = await fetchVBRData('v1/standings', {
+        const response = await fetchVBRData('v1/playersStatsPeriod', {
           championshipId: Number(this.championshipId),
           division: this.division
         });
@@ -187,35 +143,8 @@ export default {
       this.page = page;
     },
 
-    onSort(column) {
-      const sortReverse = this.setSortReverse(this.sort, column);
-      this.sort = {
-        target: column,
-        reverse: this.setReverseArray(column),
-        sortTarget: sortReverse === null ? null : column,
-        sortReverse
-      };
-    },
-
-    setSortReverse(sort, column) {
-      const isNewSort = sort.target !== column;
-      if (isNewSort) {
-        const defaultSort = this.columns[column].defaultSort;
-        return defaultSort === undefined ? true : defaultSort;
-      }
-      const pos = sort.reverse.indexOf(sort.sortReverse);
-      let next = pos + 1;
-      if (next > 2) next = 0;
-      return sort.reverse[next];
-    },
-
-    setReverseArray(column) {
-      const defaultSort = this.columns[column].defaultSort === undefined ? true : this.columns[column].defaultSort;
-      if (defaultSort) {
-        return [true, false, null];
-      } else {
-        return [false, true, null];
-      }
+    onSort({ target, state }) {
+      this.sort = this.SortService.set(target, state).get();
     }
   }
 };

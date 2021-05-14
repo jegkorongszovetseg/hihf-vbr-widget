@@ -71,6 +71,10 @@
     &.text-right {
       text-align: right;
     }
+
+    .is-duplicated {
+      color: var(--vbr-widget-table-neutral-color);
+    }
   }
 
   tr:nth-child(even) {

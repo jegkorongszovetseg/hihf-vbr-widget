@@ -117,3 +117,57 @@ export const COLUMNS_STANDINGS_P_2 = {
     class: 'text-bold'
   }
 };
+
+export const COLUMNS_FIELD_PLAYERS = {
+  index: {
+    label: '#',
+    class: 'text-left'
+  },
+  name: {
+    label: 'table.name.short',
+    tooltip: 'table.name.tooltip',
+    sortable: true,
+    class: 'text-left w-auto text-bold'
+  },
+  teamName: {
+    label: 'table.team.short',
+    tooltip: 'table.team.tooltip',
+    sortable: true,
+    class: 'text-left w-auto'
+  },
+  gp: {
+    label: 'table.game.short',
+    tooltip: 'table.game.tooltip',
+    sortable: true
+  },
+  g: {
+    label: 'table.goals.short',
+    tooltip: 'table.goals.tooltip',
+    sortable: true
+  },
+  a: {
+    label: 'table.assists.short',
+    tooltip: 'table.assists.tooltip',
+    sortable: true
+  },
+  point: {
+    label: 'table.points.short',
+    tooltip: 'table.points.tooltip',
+    sortable: true
+  },
+  plusMinus: {
+    label: 'table.plusMinus.short',
+    tooltip: 'table.plusMinus.tooltip',
+    sortable: true
+  },
+  shoot: {
+    label: 'table.sog.short',
+    tooltip: 'table.sog.tooltip',
+    sortable: true
+  },
+  shootPercent: {
+    label: 'table.sogPercent.short',
+    tooltip: 'table.sogPercent.tooltip',
+    sortable: true
+  }
+};

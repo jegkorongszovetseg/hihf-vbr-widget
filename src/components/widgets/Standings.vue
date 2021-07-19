@@ -1,10 +1,5 @@
 <template>
   <div :class="DEFAULT_WIDGET_NAME">
-    <Tabs>
-      <TabPane name="a" label="First pane">A</TabPane>
-      <TabPane name="b" label="Second pane">B</TabPane>
-    </Tabs>
-
     <ErrorNotice v-if="error" :error="error"></ErrorNotice>
 
     <ResponsiveTable v-else>
@@ -35,8 +30,6 @@ import ImageBase from '../ImageBase';
 import { DEFAULT_WIDGET_NAME } from '../../constatnts';
 import { fetchVBRData } from '../../services/http-sevices';
 import { COLUMNS_STANDINGS_P_3, COLUMNS_STANDINGS_P_2 } from './internal';
-import Tabs from '../Tabs/Tabs';
-import TabPane from '../Tabs/TabPane';
 
 export default {
   name: 'Standings',
@@ -45,12 +38,15 @@ export default {
     ImageBase,
     DataTable,
     ErrorNotice,
-    ResponsiveTable,
-    Tabs,
-    TabPane
+    ResponsiveTable
   },
 
   props: {
+    apiKey: {
+      type: String,
+      require: true
+    },
+
     championshipId: {
       type: String,
       require: true
@@ -111,7 +107,7 @@ export default {
     async getData() {
       try {
         this.isLoading = true;
-        const response = await fetchVBRData('v1/standings', {
+        const response = await fetchVBRData('v1/standings', this.apiKey, {
           championshipId: Number(this.championshipId),
           division: this.division
         });

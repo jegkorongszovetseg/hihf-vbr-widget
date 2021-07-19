@@ -1,5 +1,6 @@
-export const fetchVBRData = async (route, data) => {
-  const url = `${process.env.VUE_APP_VBR_API_URL}/${route}?${objectToQueryString(data)}`;
+export const fetchVBRData = async (route, apiKey, data) => {
+  // const url = `${process.env.VUE_APP_VBR_API_URL}/${route}?${objectToQueryString(data)}`;
+  const url = `http://localhost:3333/vbr/${route}?${objectToQueryString(data)}`;
   return new Promise((resolve, reject) => {
     fetch(url, {
       method: 'GET',
@@ -7,7 +8,7 @@ export const fetchVBRData = async (route, data) => {
       cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json',
-        'X-API-KEY': process.env.VUE_APP_VBR_API_KEY
+        'X-API-KEY': apiKey
       }
     })
       .then(response => {

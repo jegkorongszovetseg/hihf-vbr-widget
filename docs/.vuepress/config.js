@@ -1,7 +1,19 @@
 const { description } = require('../../package');
+require('dotenv').config();
+const webpack = require('webpack');
 
 module.exports = {
-  // base: '/widgets/',
+  configureWebpack: config => {
+    return {
+      plugins: [
+        new webpack.EnvironmentPlugin({
+          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+          'process.env.VUE_APP_VBR_API_KEY': JSON.stringify(process.env.VUE_APP_VBR_API_KEY)
+        })
+      ]
+    };
+  },
+  base: process.env.VUE_APP_DOCS_BASE_URL,
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -20,6 +32,7 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    // ['script', { src: 'https://preprodapi.icehockey.hu/static/files/vbr-official-bundle.umd.js', charset: 'utf-8' }]
   ],
 
   /**
@@ -46,9 +59,9 @@ module.exports = {
     sidebar: {
       '/guide/': [
         {
-          title: 'Guide',
+          title: 'Widgetek',
           collapsable: false,
-          children: ['', 'using-vue']
+          children: ['', 'using-vue', 'standings']
         }
       ]
     }

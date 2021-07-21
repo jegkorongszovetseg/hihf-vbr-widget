@@ -1,19 +1,12 @@
 const { description } = require('../../package');
-require('dotenv').config();
+require('dotenv').config({
+  path: `./.env${process.env.NODE_ENV === 'production' ? '.production.local' : ''}`
+});
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-  configureWebpack: config => {
-    return {
-      plugins: [
-        new webpack.EnvironmentPlugin({
-          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-          'process.env.VUE_APP_VBR_API_KEY': JSON.stringify(process.env.VUE_APP_VBR_API_KEY)
-        })
-      ]
-    };
-  },
-  base: process.env.VUE_APP_DOCS_BASE_URL,
+  base: process.env.VUEPRESS_BASE,
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -70,5 +63,20 @@ module.exports = {
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
-  plugins: ['@vuepress/plugin-back-to-top', '@vuepress/plugin-medium-zoom']
+  // plugins: ['@vuepress/plugin-back-to-top', '@vuepress/plugin-medium-zoom'],
+  plugins: [],
+
+  configureWebpack: config => {
+    return {
+      plugins: [
+        new webpack.EnvironmentPlugin({
+          VUE_APP_VBR_API_URL: 'https://api.icehockey.hu/vbr'
+        })
+      ]
+    };
+  },
+
+  alias: {
+    '@': path.resolve(__dirname, '../../src')
+  }
 };

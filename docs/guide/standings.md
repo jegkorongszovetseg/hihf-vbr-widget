@@ -2,7 +2,7 @@
 
 ## Használat
 ``` html
-<Standings
+<vbr-standings
   api-key="1234567890"
   lang="hu" 
   championship-id="2051"
@@ -11,15 +11,12 @@
 ```
 ## Példa
 
-<ClientOnly>
 <Widget
   name="Standings"
-  api-key="9b918f8ddadbdb2382949a37946642aa9a3f73b8"
   lang="hu"
   championship-id="2051"
   division="Alapszakasz" 
 />
-</ClientOnly>
 
 ## Változók
 

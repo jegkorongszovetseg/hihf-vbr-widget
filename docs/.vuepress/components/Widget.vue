@@ -1,5 +1,5 @@
 <template>
-  <component v-if="componentFile" :is="componentFile" v-bind="$attrs"></component>
+  <component v-if="componentFile" :api-key="apiKey" :is="componentFile" v-bind="$attrs"></component>
 </template>
 
 <script>
@@ -13,7 +13,8 @@ export default {
 
   data() {
     return {
-      dynamicComponent: null
+      dynamicComponent: null,
+      apiKey: process.env.VUE_APP_VBR_API_KEY
     }
   },
 
@@ -23,14 +24,5 @@ export default {
         import(`../../../src/components/widgets/${this.name}.vue`);
     }
   }
-
-  // mounted () {
-  //   console.log('this.name:', this.name);
-  //   if (this.name) return;
-  //   import(`../../../src/components/widgets/${this.name}.vue`).then(module => {
-  //     console.log('module:', module);
-  //     this.dynamicComponent = module.default
-  //   })
-  // }
 }
 </script>

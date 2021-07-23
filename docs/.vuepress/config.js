@@ -70,7 +70,8 @@ module.exports = {
     return {
       plugins: [
         new webpack.EnvironmentPlugin({
-          VUE_APP_VBR_API_URL: 'https://api.icehockey.hu/vbr'
+          VUE_APP_VBR_API_URL: 'https://api.icehockey.hu/vbr',
+          VUE_APP_VBR_API_KEY: ''
         })
       ]
     };

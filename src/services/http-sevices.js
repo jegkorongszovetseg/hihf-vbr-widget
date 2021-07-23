@@ -14,7 +14,7 @@ export const fetchVBRData = async (route, apiKey, data) => {
         return response.json();
       })
       .then(response => {
-        if (response && response.error && response.error.status >= 400) throw Error(response.error.message);
+        if (hasApiError(response)) return reject(response);
         resolve(response.data);
       })
       .catch(error => {
@@ -27,4 +27,8 @@ const objectToQueryString = obj => {
   return Object.keys(obj)
     .map(key => key + '=' + obj[key])
     .join('&');
+};
+
+const hasApiError = response => {
+  return response && response.error;
 };

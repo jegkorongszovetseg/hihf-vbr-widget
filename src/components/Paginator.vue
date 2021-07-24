@@ -76,7 +76,7 @@ export default {
       }
     },
 
-    rangeLenght: {
+    rangeLength: {
       type: Number,
       default: 3,
       validator: value => {
@@ -98,13 +98,13 @@ export default {
     range() {
       const page = this.page - 1;
       const range = Array.from({ length: this.pageCount }, (_, i) => i + 1);
-      const minus = Math.floor(this.rangeLenght / 2);
+      const minus = Math.floor(this.rangeLength / 2);
 
       let startIndex = Math.max(page - minus, 0);
-      if (startIndex + this.rangeLenght >= this.pageCount) {
-        startIndex = Math.max(this.pageCount - this.rangeLenght, 0);
+      if (startIndex + this.rangeLength >= this.pageCount) {
+        startIndex = Math.max(this.pageCount - this.rangeLength, 0);
       }
-      return range.slice(startIndex, startIndex + this.rangeLenght);
+      return range.slice(startIndex, startIndex + this.rangeLength);
     }
   },
 

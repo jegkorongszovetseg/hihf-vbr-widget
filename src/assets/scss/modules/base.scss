@@ -1,5 +1,7 @@
 .#{$widget-name} {
   font-family: var(--vbr-widget-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: var(--vbr-widget-table-color);
 
   .text-bold {
@@ -12,6 +14,12 @@
     height: 25px;
     margin-right: 16px;
     vertical-align: middle;
+
+    &.is-portrait {
+      overflow: hidden;
+      border-radius: 5000px;
+      border: 1px solid var(--vbr-widget-table-portrait-border-color);
+    }
 
     img {
       display: block;

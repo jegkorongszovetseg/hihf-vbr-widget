@@ -41,6 +41,8 @@ const convert = (data = []) => {
     },
 
     pagination(page, limit) {
+      page = Number(page);
+      limit = Number(limit);
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
       this.result = this.result.slice(startIndex, endIndex);

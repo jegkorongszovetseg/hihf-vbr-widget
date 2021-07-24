@@ -50,6 +50,7 @@
   --vbr-widget-table-active-even-bg-color: var(--vbr-widget-secondary-color-300);
   --vbr-widget-table-active-hover-color: var(--vbr-widget-secondary-color-900);
   --vbr-widget-table-active-hover-bg-color: var(--vbr-widget-secondary-color-400);
+  --vbr-widget-table-portrait-border-color: var(--vbr-widget-primary-color-100);
   --vbr-widget-table-stripped-bg-color: #f8f9fa;
 
   --vbr-widget-tooltip-font-size: 12px;

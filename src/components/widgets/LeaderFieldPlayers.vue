@@ -16,13 +16,18 @@
             {{ row.index }}
           </span>
         </template>
-        <!-- <template v-slot:cell-name="{ row }">
+        <template v-slot:cell-name="{ row }">
           <ImageBase
-            :class="`${DEFAULT_WIDGET_NAME}-image`"
-            :src="`https://jegkorongszovetseg.hu/_upload/editor/db/team-logos/211/${row.id}.png`"
+            :class="`${DEFAULT_WIDGET_NAME}-image is-portrait`"
+            :src="row.playerPortrait"
+            :default-image="DEFAULT_PORTRAIT_IMAGE_URL"
           />
           {{ row.name }}
-        </template> -->
+        </template>
+        <template v-slot:cell-teamName="{ row }">
+          <ImageBase :class="`${DEFAULT_WIDGET_NAME}-image`" :key="row.id" :src="row.teamLogo" />
+          {{ row.teamName }}
+        </template>
       </DataTable>
     </ResponsiveTable>
 
@@ -30,7 +35,7 @@
       :page="page"
       :items-per-page="limit"
       :total-items="rows.length"
-      :range-lenght="5"
+      :range-length="5"
       @change="onPaginatorChange"
     />
   </div>
@@ -41,18 +46,18 @@ import convert from '../../services/convert';
 import DataTable from '../DataTable';
 import ErrorNotice from '../ErrorNotice';
 import ResponsiveTable from '../ResponsiveTable';
-// import ImageBase from '../ImageBase';
+import ImageBase from '../ImageBase';
 import Paginator from '../Paginator';
 import { SortService } from '../../services/sort-service';
 import { fetchVBRData } from '../../services/http-sevices';
-import { DEFAULT_WIDGET_NAME, SORT_STATE_DESCEND } from '../../constatnts';
+import { DEFAULT_WIDGET_NAME, SORT_STATE_DESCEND, DEFAULT_PORTRAIT_IMAGE_URL } from '../../constatnts';
 import { COLUMNS_FIELD_PLAYERS } from './internal';
 
 export default {
   name: 'LeaderFieldPlayers',
 
   components: {
-    // ImageBase,
+    ImageBase,
     DataTable,
     Paginator,
     ErrorNotice,
@@ -60,6 +65,11 @@ export default {
   },
 
   props: {
+    apiKey: {
+      type: String,
+      require: true
+    },
+
     lang: {
       type: String,
       default: 'hu'
@@ -89,6 +99,7 @@ export default {
   data() {
     return {
       DEFAULT_WIDGET_NAME,
+      DEFAULT_PORTRAIT_IMAGE_URL,
       error: '',
       columns: COLUMNS_FIELD_PLAYERS,
       rows: [],
@@ -127,7 +138,7 @@ export default {
     async getData() {
       try {
         this.isLoading = true;
-        const response = await fetchVBRData('v1/playersStatsPeriod', {
+        const response = await fetchVBRData('v1/playersStatsPeriod', this.apiKey, {
           championshipId: Number(this.championshipId),
           division: this.division
         });

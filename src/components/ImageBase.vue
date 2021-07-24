@@ -1,10 +1,20 @@
 <template>
   <div :class="mainClasses">
-    <img v-if="isImageVisible" :key="src" :src="src" :alt="alt" loading="lazy" @load="onLoaded" @error="onError" />
+    <img
+      v-if="isImageVisible"
+      :key="imageSrc"
+      :src="imageSrc"
+      :alt="alt"
+      loading="lazy"
+      @load="onLoaded"
+      @error="onError"
+    />
   </div>
 </template>
 
 <script>
+import isNotEmpty from '@/utils/object/is-not-empty';
+
 export default {
   name: 'ImageBase',
 
@@ -15,6 +25,11 @@ export default {
     },
 
     alt: {
+      type: String,
+      default: ''
+    },
+
+    defaultImage: {
       type: String,
       default: ''
     }
@@ -29,16 +44,21 @@ export default {
 
   computed: {
     isImageVisible() {
-      return Boolean(this.src) && !this.isImageError;
+      if (this.isImageError && isNotEmpty(this.defaultImage)) return true;
+      return isNotEmpty(this.src);
     },
 
     mainClasses() {
       return [
-        'vbr-image-base',
+        // 'vbr-image-base',
         {
           'is-loaded': this.isLoaded
         }
       ];
+    },
+
+    imageSrc() {
+      return !this.isImageError ? this.src : this.defaultImage ? this.defaultImage : this.src;
     }
   },
 

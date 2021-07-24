@@ -1,8 +1,8 @@
 .#{$widget-name}-table {
+  @include ResetTable;
+
   font-family: var(--vbr-widget-font-family);
   color: var(--vbr-widget-table-color);
-  border-collapse: collapse;
-  border-spacing: 0;
 
   th {
     width: var(--vbr-widget-table-default-column-width);

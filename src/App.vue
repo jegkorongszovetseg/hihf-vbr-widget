@@ -7,7 +7,7 @@
     <!-- <Game game-id="61309" :lang="locale" /> -->
     <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" /> -->
-    <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" />
+    <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" /> -->
   </div>
 </template>
 
@@ -20,8 +20,8 @@ export default {
   name: 'App',
   components: {
     // Game
-    Standing,
-    LeaderFieldPlayers
+    Standing
+    // LeaderFieldPlayers
   },
 
   data() {

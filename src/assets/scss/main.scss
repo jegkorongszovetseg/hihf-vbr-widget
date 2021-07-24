@@ -1,6 +1,8 @@
 @import "./css-variables.css";
 @import "./variables.scss";
 
+@import "./helpers/mixins.scss";
+
 @import "./modules/base.scss";
 @import "./modules/table.scss";
 @import "./modules/tooltip.scss";

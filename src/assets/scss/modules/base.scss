@@ -7,6 +7,15 @@
   .text-bold {
     font-weight: 700;
   }
+
+  &.text-left {
+    text-align: left;
+  }
+
+  &.text-right {
+    text-align: right;
+  }
+
   
   &-image {
     display: inline-block;
@@ -14,6 +23,11 @@
     height: 25px;
     margin-right: 16px;
     vertical-align: middle;
+
+    &.is-right {
+      margin-left: 16px;
+      margin-right: 0;
+    }
 
     &.is-portrait {
       overflow: hidden;

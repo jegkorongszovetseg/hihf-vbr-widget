@@ -75,6 +75,10 @@ export default {
     sogPercent: {
       short: 'L%',
       tooltip: 'Lövés Hatékonyság'
+    },
+    gameName: {
+      short: '#',
+      tooltip: 'Mérkőzés sorszáma'
     }
   },
   game: {

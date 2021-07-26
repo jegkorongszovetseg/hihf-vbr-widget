@@ -1,5 +1,6 @@
 export const DEFAULT_WIDGET_NAME = '-mjsz-vbr-widget';
 
+export const DEFAULT_EXTERNAL_BASE_URL = 'https://www.jegkorongszovetseg.hu/event/game/';
 export const DEFAULT_PORTRAIT_IMAGE_URL = 'https://jegkorongszovetseg.hu/assets/images/player_blank.png';
 
 export const DEFAULT_TOOLTIP_OPTIONS = {

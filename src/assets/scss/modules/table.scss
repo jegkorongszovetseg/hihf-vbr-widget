@@ -57,6 +57,14 @@
       color: var(--vbr-widget-table-active-color);
       background-color: var(--vbr-widget-table-active-bg-color);
     }
+
+    &.text-light {
+      color: var(--vbr-widget-table-cell-light-color);
+    }
+
+    &.text-dark {
+      color: var(--vbr-widget-table-cell-dark-color);
+    }
   }
 
   th,
@@ -68,6 +76,7 @@
     &.text-left {
       text-align: left;
     }
+
     &.text-right {
       text-align: right;
     }

@@ -1,4 +1,5 @@
 import { SORT_STATE_ASCEND, SORT_STATE_ORIGINAL } from '../constatnts';
+import { format, offsetName } from '@/utils/datetime';
 
 const convert = (data = []) => {
   return {
@@ -53,6 +54,16 @@ const convert = (data = []) => {
       this.result = this.result.map(row => ({
         ...row,
         name: `${row.lastName} ${row.firstName}`
+      }));
+      return this;
+    },
+
+    schedule(timezone = '', locale = 'hu') {
+      this.result = this.result.map(row => ({
+        ...row,
+        gameResult: `${row.homeTeamScore}-${row.awayTeamScore}`,
+        gameDateDate: format(row.gameDate, 'L dddd', timezone, locale),
+        gameDateTime: format(row.gameDate, 'HH:mm', timezone, locale)
       }));
       return this;
     }

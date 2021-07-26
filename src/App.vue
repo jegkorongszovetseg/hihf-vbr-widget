@@ -7,21 +7,24 @@
     <!-- <Game game-id="61309" :lang="locale" /> -->
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" /> -->
-    <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" :limit="50" />
+    <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" :limit="50" /> -->
+    <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" />
   </div>
 </template>
 
 <script>
 // import Game from './components/widgets/Game';
 // import Standing from './components/widgets/Standings';
-import LeaderFieldPlayers from './components/widgets/LeaderFieldPlayers';
+// import LeaderFieldPlayers from './components/widgets/LeaderFieldPlayers';
+import Schedule from './components/widgets/Schedule';
 
 export default {
   name: 'App',
   components: {
     // Game
     // Standing,
-    LeaderFieldPlayers
+    // LeaderFieldPlayers,
+    Schedule
   },
 
   data() {

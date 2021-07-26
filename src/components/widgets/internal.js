@@ -171,3 +171,55 @@ export const COLUMNS_FIELD_PLAYERS = {
     sortable: true
   }
 };
+
+export const COLUMNS_SCHEDULE = {
+  name: {
+    label: 'table.gameName.short',
+    tooltip: 'table.gameName.tooltip',
+    class: 'text-left text-light'
+  },
+  gameDateDate: {
+    label: 'table.name.short',
+    tooltip: 'table.name.tooltip',
+    class: 'text-left'
+  },
+  gameDateTime: {
+    label: 'table.name.short',
+    tooltip: 'table.name.tooltip',
+    class: 'text-left'
+  },
+  homeTeamName: {
+    label: 'table.team.short',
+    tooltip: 'table.team.tooltip',
+    class: 'text-right w-auto text-bold'
+  },
+  gameResult: {
+    label: '',
+    class: 'text-bold text-dark'
+  },
+  gameStatus: {
+    label: '',
+    tooltip: '',
+    class: ''
+  },
+  awayTeamName: {
+    label: 'table.game.short',
+    tooltip: 'table.game.tooltip',
+    class: 'text-left w-auto text-bold'
+  },
+  location: {
+    label: 'table.goals.short',
+    tooltip: 'table.goals.tooltip',
+    class: 'text-left'
+  },
+  a: {
+    label: 'table.assists.short',
+    tooltip: 'table.assists.tooltip',
+    sortable: true
+  },
+  point: {
+    label: 'table.points.short',
+    tooltip: 'table.points.tooltip',
+    sortable: true
+  }
+};

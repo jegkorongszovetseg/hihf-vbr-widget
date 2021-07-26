@@ -23,5 +23,5 @@ Standings.i18n = i18n;
 // LeaderFieldPlayers.i18n = i18n;
 
 // Vue.customElement('vbr-game', Game);
-Vue.customElement('vbr-standings', Standings);
+Vue.customElement('mjsz-vbr-standings', Standings);
 // Vue.customElement('vbr-leader-field-players', LeaderFieldPlayers);

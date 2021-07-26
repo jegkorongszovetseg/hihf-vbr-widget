@@ -1,0 +1,138 @@
+<template>
+  <div :class="DEFAULT_WIDGET_NAME">
+    <ErrorNotice v-if="error" :error="error"></ErrorNotice>
+
+    <template v-else>
+      *MINDEN IDŐPONT A SZÁMÍTÓGÉP IDŐZONÁJA SZERINT JELENEIK MEG ({{ offsetName }}). VÁLTÁS:
+      <a href="#" @click.prevent="onChangeTimezone('Europe/Budapest')">Magyarország</a>
+      <a href="#" @click.prevent="onChangeTimezone('Europe/Bucharest')">Románia</a>
+      <ScheduleBase :rows="convertedData" :is-loading="isLoading" :external-base-url="externalBaseUrl" />
+    </template>
+
+    <Paginator
+      :page="page"
+      :items-per-page="limit"
+      :total-items="rows.length"
+      :range-length="5"
+      @change="onPaginatorChange"
+    />
+  </div>
+</template>
+
+<script>
+import convert from '../../services/convert';
+import ErrorNotice from '../ErrorNotice';
+import Paginator from '../Paginator';
+import ScheduleBase from './ScheduleBase.vue';
+import { fetchVBRData } from '../../services/http-sevices';
+import { DEFAULT_EXTERNAL_BASE_URL, DEFAULT_WIDGET_NAME } from '../../constatnts';
+import { offsetName } from '@/utils/datetime';
+
+export default {
+  name: 'Schedule',
+
+  components: {
+    Paginator,
+    ErrorNotice,
+    ScheduleBase
+  },
+
+  props: {
+    apiKey: {
+      type: String,
+      require: true
+    },
+
+    lang: {
+      type: String,
+      default: 'hu'
+    },
+
+    championshipId: {
+      type: String,
+      require: true
+    },
+
+    division: {
+      type: String,
+      require: true
+    },
+
+    pagination: {
+      type: Boolean,
+      default: true
+    },
+
+    limit: {
+      type: Number,
+      default: 20
+    },
+
+    externalBaseUrl: {
+      type: String,
+      default: DEFAULT_EXTERNAL_BASE_URL
+    },
+
+    showTeamLogo: {
+      type: Boolean,
+      default: true
+    }
+  },
+
+  data() {
+    return {
+      DEFAULT_WIDGET_NAME,
+      error: '',
+      rows: [],
+      isLoading: false,
+      page: 1,
+      timezone: null
+    };
+  },
+
+  computed: {
+    convertedData() {
+      return convert(this.rows)
+        .schedule(this.timezone, this.lang)
+        .pagination(this.page, this.limit)
+        .value();
+    },
+
+    offsetName() {
+      return offsetName(new Date(), this.timezone, this.lang);
+    }
+  },
+
+  mounted() {
+    this.getData();
+    this.$i18n.locale = this.lang;
+  },
+
+  methods: {
+    async getData() {
+      try {
+        this.isLoading = true;
+        const response = await fetchVBRData('v1/gamesList', this.apiKey, {
+          championshipId: Number(this.championshipId),
+          division: this.division
+        });
+        this.isLoading = false;
+        this.rows = response ? response : [];
+      } catch (error) {
+        this.error = error.message;
+        this.isLoading = false;
+      }
+    },
+
+    onPaginatorChange(page) {
+      this.page = page;
+    },
+
+    onChangeTimezone(tz) {
+      this.timezone = tz;
+    }
+  }
+};
+</script>
+
+<style src="../../assets/scss/main.scss" lang="scss"></style>

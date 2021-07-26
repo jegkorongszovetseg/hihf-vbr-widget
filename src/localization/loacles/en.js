@@ -75,6 +75,10 @@ export default {
     sogPercent: {
       short: 'SOG%',
       tooltip: 'Shots on Goal Percent'
+    },
+    gameName: {
+      short: '#',
+      tooltip: 'Game name'
     }
   },
   game: {

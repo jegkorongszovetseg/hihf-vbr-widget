@@ -1,7 +1,10 @@
 export default {
   common: {
     loading: 'Töltődés...',
-    noData: 'Nincs megjeleníthető adat'
+    noData: 'Nincs megjeleníthető adat',
+    selectTimezone: '*Minden időpont a számítógép időzónája szerint jelenik meg ({0}). Váltás:',
+    hungary: 'Magyarország',
+    romania: 'Románia'
   },
   table: {
     team: {

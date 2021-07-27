@@ -1,10 +1,8 @@
 <template>
   <div>
-    *MINDEN IDŐPONT A SZÁMÍTÓGÉP IDŐZONÁJA SZERINT JELENEIK MEG (<a
-      href="#"
-      @click.prevent="onChangeTimezone(localTimezone)"
-      >{{ localZoneName }})</a
-    >. VÁLTÁS:
+    <i18n path="common.selectTimezone" tag="label">
+      <a href="#" @click.prevent="onChangeTimezone(localTimezone)">{{ localZoneName }})</a>
+    </i18n>
     <a
       v-for="country in timezoneCountries"
       :key="country.countryLabelKey"
@@ -12,7 +10,7 @@
       :class="{ 'is-active': country.isActive }"
       @click.prevent="onChangeTimezone(country.timezone)"
     >
-      {{ country.countryLabelKey }} ({{ country.zoneOffsetName }})
+      {{ $t(`common.${country.countryLabelKey}`) }} ({{ country.zoneOffsetName }})
     </a>
   </div>
 </template>
@@ -51,7 +49,8 @@ export default {
     timezoneCountries() {
       return Array.from(AVAILABLE_TIMEZONES_BY_COUNTRY.values()).map(item => ({
         ...item,
-        isActive: this.currentZone === item.timezone,
+        isActive:
+          offsetName(new Date(), this.currentZone, this.lang) === offsetName(new Date(), item.timezone, this.lang),
         zoneOffsetName: offsetName(new Date(), item.timezone, this.lang)
       }));
     }

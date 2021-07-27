@@ -17,7 +17,7 @@
           v-tooltip="{ content: $t(column.tooltip) }"
           @click="sortBy(column, prop)"
         >
-          <slot :name="`header-${prop}`">
+          <slot :name="`header-${prop}`" :column="column">
             <span>{{ $t(column.label) }}</span>
           </slot>
           <IconSort v-if="column.sortable && prop !== sort.sortTarget" class="icon-sort"></IconSort>

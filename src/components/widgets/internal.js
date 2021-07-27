@@ -184,8 +184,8 @@ export const COLUMNS_SCHEDULE = {
     class: 'text-left'
   },
   gameDateTime: {
-    label: 'table.name.short',
-    tooltip: 'table.name.tooltip',
+    label: 'table.gameDateTime.short',
+    tooltip: 'table.gameDateTime.tooltip',
     class: 'text-left'
   },
   homeTeamName: {

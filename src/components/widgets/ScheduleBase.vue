@@ -1,6 +1,9 @@
 <template>
   <ResponsiveTable>
     <DataTable :class="`${DEFAULT_WIDGET_NAME}-table`" :columns="columns" :rows="rows" :is-loading="isLoading">
+      <template v-slot:header-gameDateTime="{ column }">
+        {{ $t(column.label, { offsetName: timezoneOffsetName }) }}
+      </template>
       <template v-slot:cell-homeTeamName="{ row }">
         {{ row.homeTeamName }}
         <ImageBase :class="`${DEFAULT_WIDGET_NAME}-image is-right`" :key="row.id" :src="row.homeTeamLogo" />
@@ -46,6 +49,11 @@ export default {
     isLoading: {
       type: Boolean,
       default: false
+    },
+
+    timezoneOffsetName: {
+      type: String,
+      default: ''
     }
   },
 
@@ -55,11 +63,6 @@ export default {
       columns: COLUMNS_SCHEDULE
     };
   }
-
-  // mounted() {
-  //   this.getData();
-  //   this.$i18n.locale = this.lang;
-  // },
 };
 </script>
 

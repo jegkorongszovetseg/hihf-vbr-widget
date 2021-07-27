@@ -3,10 +3,17 @@
     <ErrorNotice v-if="error" :error="error"></ErrorNotice>
 
     <template v-else>
-      *MINDEN IDŐPONT A SZÁMÍTÓGÉP IDŐZONÁJA SZERINT JELENEIK MEG ({{ offsetName }}). VÁLTÁS:
+      <!-- *MINDEN IDŐPONT A SZÁMÍTÓGÉP IDŐZONÁJA SZERINT JELENEIK MEG ({{ offsetName }}). VÁLTÁS:
       <a href="#" @click.prevent="onChangeTimezone('Europe/Budapest')">Magyarország</a>
-      <a href="#" @click.prevent="onChangeTimezone('Europe/Bucharest')">Románia</a>
-      <ScheduleBase :rows="convertedData" :is-loading="isLoading" :external-base-url="externalBaseUrl" />
+      <a href="#" @click.prevent="onChangeTimezone('Europe/Bucharest')">Románia</a> -->
+      <TimezoneSelector :current-zone="timezone" @change="onChangeTimezone" />
+
+      <ScheduleBase
+        :rows="convertedData"
+        :is-loading="isLoading"
+        :external-base-url="externalBaseUrl"
+        :timezone-offset-name="currentTimezoneOffsetName"
+      />
     </template>
 
     <Paginator
@@ -20,10 +27,12 @@
 </template>
 
 <script>
+import dayjs from 'dayjs';
 import convert from '../../services/convert';
 import ErrorNotice from '../ErrorNotice';
 import Paginator from '../Paginator';
 import ScheduleBase from './ScheduleBase.vue';
+import TimezoneSelector from './helpers/TimezoneSelector.vue';
 import { fetchVBRData } from '../../services/http-sevices';
 import { DEFAULT_EXTERNAL_BASE_URL, DEFAULT_WIDGET_NAME } from '../../constatnts';
 import { offsetName } from '@/utils/datetime';
@@ -34,7 +43,8 @@ export default {
   components: {
     Paginator,
     ErrorNotice,
-    ScheduleBase
+    ScheduleBase,
+    TimezoneSelector
   },
 
   props: {
@@ -86,7 +96,7 @@ export default {
       rows: [],
       isLoading: false,
       page: 1,
-      timezone: null
+      timezone: dayjs.tz.guess()
     };
   },
 
@@ -98,7 +108,7 @@ export default {
         .value();
     },
 
-    offsetName() {
+    currentTimezoneOffsetName() {
       return offsetName(new Date(), this.timezone, this.lang);
     }
   },

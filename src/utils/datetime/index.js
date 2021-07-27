@@ -4,6 +4,7 @@ import timezone from 'dayjs/plugin/timezone';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import 'dayjs/locale/hu';
+import { LOCALE_FOR_LANG } from '@/constatnts';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -20,13 +21,17 @@ export const format = (datetime = '', format = '', timezone = '', locale = 'hu')
     : '';
 };
 
-export const offsetName = (datetime = '', timezone = '', locale = 'hu') => {
+export const offsetName = (datetime = '', timezone = '', lang = 'hu') => {
   if (!dayjs(datetime).isValid()) return '';
   timezone = timezone ? timezone : dayjs.tz.guess();
-  const dtf = new Intl.DateTimeFormat(locale, {
+  const dtf = new Intl.DateTimeFormat(getLocaleForLang(lang), {
     timeZone: timezone,
     timeZoneName: 'short'
   });
   const result = dtf.formatToParts(new Date(datetime)).find(o => o.type === 'timeZoneName');
   return result && result.value;
+};
+
+const getLocaleForLang = lang => {
+  return LOCALE_FOR_LANG.get(lang);
 };

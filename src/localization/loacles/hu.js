@@ -79,6 +79,10 @@ export default {
     gameName: {
       short: '#',
       tooltip: 'Mérkőzés sorszáma'
+    },
+    gameDateTime: {
+      short: '*Idő ({offsetName})',
+      tooltip: 'Mérkőzés kezdési ideje (Zóna neve)'
     }
   },
   game: {

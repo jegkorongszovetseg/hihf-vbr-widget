@@ -79,6 +79,10 @@ export default {
     gameName: {
       short: '#',
       tooltip: 'Game name'
+    },
+    gameDateTime: {
+      short: '*Time ({offsetName})',
+      tooltip: 'Scheduled Time (Offset Name)'
     }
   },
   game: {

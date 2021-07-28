@@ -17,6 +17,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "dayjs": "^1.10.3",
+    "ramda": "^0.27.1",
     "v-tooltip": "^2.0.3",
     "vue": "^2.6.14",
     "vue-custom-element": "^3.3.0",

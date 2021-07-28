@@ -94,6 +94,7 @@
     }
   }
 
+  tr:focus-within,
   tr:hover {
     color: var(--vbr-widget-table-hover-color);
     background-color: var(--vbr-widget-table-hover-bg-color);

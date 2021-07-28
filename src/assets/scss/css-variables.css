@@ -58,6 +58,8 @@
   --vbr-widget-tooltip-font-size: 12px;
   --vbr-widget-tooltip-color: #ffffff;
   --vbr-widget-tooltip-bg-color: #000000;
+  
+  --vbr-widget-popover-bg-color: var(--vbr-widget-primary-color-0);
 
   --vbr-widget-error-notice-bg-color: var(--vbr-widget-danger-color-50);
   --vbr-widget-error-notice-border-color: var(--vbr-widget-danger-color-100);

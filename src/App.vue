@@ -8,7 +8,7 @@
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" /> -->
     <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" :limit="50" /> -->
-    <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" hide-broadcast-column hide-name-column />
   </div>
 </template>
 

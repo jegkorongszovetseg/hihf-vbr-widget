@@ -85,6 +85,26 @@
   }
 }
 
+.#{$widget-name}-popover {
+  width: 200px;
+
+  .popover-inner {
+    background: var(--vbr-widget-popover-bg-color);
+    color: black;
+    padding: 8px;
+    border-radius: 3px;
+    box-shadow: 0 5px 30px rgba(black, 0.3);
+  }
+
+  &[aria-hidden='true'] {
+    animation: tooltip-animation-hide 200ms ease-in-out;
+  }
+
+  &[aria-hidden='false'] {
+    animation: tooltip-animation 200ms ease-in-out;
+  }
+}
+
 @keyframes tooltip-animation {
   0% {
     opacity: 0;
@@ -92,6 +112,17 @@
   }
   100% {
     opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes tooltip-animation-hide {
+  0% {
+    opacity: 1;
+    top: 5px;
+  }
+  100% {
+    opacity: 0;
     top: 0;
   }
 }

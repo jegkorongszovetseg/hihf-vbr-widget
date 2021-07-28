@@ -10,7 +10,11 @@ export const DEFAULT_TOOLTIP_OPTIONS = {
   autoHide: false,
   defaultHideOnTargetClick: false,
   defaultOffset: 1,
-  defaultTemplate: '<div role="tooltip"><div class="tooltip-inner"></div></div>'
+  defaultTemplate: '<div role="tooltip"><div class="tooltip-inner"></div></div>',
+  popover: {
+    defaultClass: '',
+    defaultBaseClass: `${DEFAULT_WIDGET_NAME}-popover`
+  }
 };
 
 export const SORT_STATE_ORIGINAL = 'original';

@@ -1,5 +1,5 @@
 <template>
-  <ResponsiveTable>
+  <ResponsiveTable id="xxx">
     <DataTable :class="`${DEFAULT_WIDGET_NAME}-table`" :columns="columns" :rows="rows" :is-loading="isLoading">
       <template v-slot:header-gameDateTime="{ column }">
         {{ $t(column.label, { offsetName: timezoneOffsetName }) }}
@@ -15,6 +15,21 @@
       <template v-slot:cell-gameResult="{ row }">
         <a :href="externalBaseUrl + row.id" target="_balank" class="text-dark">{{ row.gameResult }}</a>
       </template>
+      <template v-slot:cell-more="{ row }">
+        <v-popover offset="2" placement="left">
+          <button class="">...</button>
+          <template slot="popover">
+            <ul>
+              <li>
+                <a :href="externalBaseUrl + row.id" target="_blank">Jegyzőkönyv</a>
+              </li>
+              <li>
+                <a :href="row.video" target="_blank">Videó</a>
+              </li>
+            </ul>
+          </template>
+        </v-popover>
+      </template>
     </DataTable>
   </ResponsiveTable>
 </template>
@@ -24,7 +39,6 @@ import DataTable from '../DataTable';
 import ResponsiveTable from '../ResponsiveTable';
 import ImageBase from '../ImageBase';
 import { DEFAULT_EXTERNAL_BASE_URL, DEFAULT_WIDGET_NAME } from '../../constatnts';
-import { COLUMNS_SCHEDULE } from './internal';
 
 export default {
   name: 'ScheduleBase',
@@ -36,6 +50,11 @@ export default {
   },
 
   props: {
+    columns: {
+      type: Object,
+      require: true
+    },
+
     rows: {
       type: Array,
       require: true
@@ -59,8 +78,7 @@ export default {
 
   data() {
     return {
-      DEFAULT_WIDGET_NAME,
-      columns: COLUMNS_SCHEDULE
+      DEFAULT_WIDGET_NAME
     };
   }
 };

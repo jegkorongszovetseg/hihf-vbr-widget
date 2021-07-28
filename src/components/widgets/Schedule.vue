@@ -3,12 +3,10 @@
     <ErrorNotice v-if="error" :error="error"></ErrorNotice>
 
     <template v-else>
-      <!-- *MINDEN IDŐPONT A SZÁMÍTÓGÉP IDŐZONÁJA SZERINT JELENEIK MEG ({{ offsetName }}). VÁLTÁS:
-      <a href="#" @click.prevent="onChangeTimezone('Europe/Budapest')">Magyarország</a>
-      <a href="#" @click.prevent="onChangeTimezone('Europe/Bucharest')">Románia</a> -->
       <TimezoneSelector :current-zone="timezone" @change="onChangeTimezone" />
 
       <ScheduleBase
+        :columns="columns"
         :rows="convertedData"
         :is-loading="isLoading"
         :external-base-url="externalBaseUrl"
@@ -28,6 +26,7 @@
 
 <script>
 import dayjs from 'dayjs';
+import { omit, pick, keys, filter, compose, values } from 'ramda';
 import convert from '../../services/convert';
 import ErrorNotice from '../ErrorNotice';
 import Paginator from '../Paginator';
@@ -36,6 +35,9 @@ import TimezoneSelector from './helpers/TimezoneSelector.vue';
 import { fetchVBRData } from '../../services/http-sevices';
 import { DEFAULT_EXTERNAL_BASE_URL, DEFAULT_WIDGET_NAME } from '../../constatnts';
 import { offsetName } from '@/utils/datetime';
+import { COLUMNS_SCHEDULE } from './internal';
+
+const SWITCHABLE_COLUMNS = { hideNameColumn: 'name', hideBroadcastColumn: 'broadcast', hideMoreColumn: 'more' };
 
 export default {
   name: 'Schedule',
@@ -86,6 +88,21 @@ export default {
     showTeamLogo: {
       type: Boolean,
       default: true
+    },
+
+    hideNameColumn: {
+      type: Boolean,
+      default: false
+    },
+
+    hideBroadcastColumn: {
+      type: Boolean,
+      default: false
+    },
+
+    hideMoreColumn: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -93,6 +110,7 @@ export default {
     return {
       DEFAULT_WIDGET_NAME,
       error: '',
+      columns: COLUMNS_SCHEDULE,
       rows: [],
       isLoading: false,
       page: 1,
@@ -111,6 +129,10 @@ export default {
     currentTimezoneOffsetName() {
       return offsetName(new Date(), this.timezone, this.lang);
     }
+  },
+
+  created() {
+    this.setupColumns();
   },
 
   mounted() {
@@ -132,6 +154,15 @@ export default {
         this.error = error.message;
         this.isLoading = false;
       }
+    },
+
+    setupColumns() {
+      const switchedColumns = compose(
+        filter(x => Boolean(x)),
+        pick(keys(SWITCHABLE_COLUMNS))
+      )(this);
+      const omitedProps = values(pick(keys(switchedColumns), SWITCHABLE_COLUMNS));
+      this.columns = omit(omitedProps, this.columns);
     },
 
     onPaginatorChange(page) {

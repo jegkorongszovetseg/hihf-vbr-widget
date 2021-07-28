@@ -212,14 +212,11 @@ export const COLUMNS_SCHEDULE = {
     tooltip: 'table.goals.tooltip',
     class: 'text-left'
   },
-  a: {
+  broadcast: {
     label: 'table.assists.short',
-    tooltip: 'table.assists.tooltip',
-    sortable: true
+    tooltip: 'table.assists.tooltip'
   },
-  point: {
-    label: 'table.points.short',
-    tooltip: 'table.points.tooltip',
-    sortable: true
+  more: {
+    label: ''
   }
 };

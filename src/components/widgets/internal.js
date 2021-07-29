@@ -1,4 +1,5 @@
 import { keys } from 'ramda';
+import { i18n } from '../../localization';
 import { SORT_STATE_ASCEND } from '../../constatnts';
 
 export const validateColumnsName = (columns, hiddenColumns) => {
@@ -8,7 +9,7 @@ export const validateColumnsName = (columns, hiddenColumns) => {
     if (hiddenColumnsArray[0] === '') return resolve([]);
     const index = hiddenColumnsArray.findIndex(column => !columnsArray.includes(column));
     if (index > -1) {
-      return reject({ message: `Hiba: ${hiddenColumnsArray[index]} oszlop nem található` });
+      return reject({ message: i18n.t('errors.undefinedColumn', { column: hiddenColumnsArray[index] }) });
     }
     resolve(hiddenColumnsArray);
   });
@@ -193,8 +194,8 @@ export const COLUMNS_SCHEDULE = {
     class: 'text-left text-light'
   },
   gameDateDate: {
-    label: 'table.name.short',
-    tooltip: 'table.name.tooltip',
+    label: 'table.gameDate.short',
+    tooltip: 'table.gameDate.tooltip',
     class: 'text-left'
   },
   gameDateTime: {
@@ -203,8 +204,8 @@ export const COLUMNS_SCHEDULE = {
     class: 'text-left'
   },
   homeTeamName: {
-    label: 'table.team.short',
-    tooltip: 'table.team.tooltip',
+    label: 'table.homeTeam.short',
+    tooltip: 'table.homeTeam.tooltip',
     class: 'text-right w-auto text-bold'
   },
   gameResult: {
@@ -213,22 +214,21 @@ export const COLUMNS_SCHEDULE = {
   },
   gameStatus: {
     label: '',
-    tooltip: '',
-    class: ''
+    tooltip: ''
   },
   awayTeamName: {
-    label: 'table.game.short',
-    tooltip: 'table.game.tooltip',
+    label: 'table.awayTeam.short',
+    tooltip: 'table.awayTeam.tooltip',
     class: 'text-left w-auto text-bold'
   },
   location: {
-    label: 'table.goals.short',
-    tooltip: 'table.goals.tooltip',
+    label: 'table.location.short',
+    tooltip: 'table.location.tooltip',
     class: 'text-left'
   },
   broadcast: {
-    label: 'table.assists.short',
-    tooltip: 'table.assists.tooltip'
+    label: 'table.broadcast.short',
+    tooltip: 'table.broadcast.tooltip'
   },
   more: {
     label: ''

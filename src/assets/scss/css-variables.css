@@ -40,6 +40,7 @@
   --vbr-widget-table-color: var(--vbr-widget-primary-color-800);
   --vbr-widget-table-neutral-color: var(--vbr-widget-primary-color-300);
   --vbr-widget-table-header-bg-color: var(--vbr-widget-primary-color-800);
+  --vbr-widget-table-header-hover-bg-color: var(--vbr-widget-primary-color-700);
   --vbr-widget-table-header-color: var(--vbr-widget-primary-color-200);
   --vbr-widget-table-table-header-active-bg-color: var(--vbr-widget-primary-color-700);
   --vbr-widget-table-header-active-color: var(--vbr-widget-primary-color-0);
@@ -59,6 +60,8 @@
   --vbr-widget-tooltip-color: #ffffff;
   --vbr-widget-tooltip-bg-color: #000000;
   
+  --vbr-widget-popover-trigger-hover-bg-color: var(--vbr-widget-secondary-color-200);
+  --vbr-widget-popover-trigger-focus-bg-color: var(--vbr-widget-secondary-color-300);
   --vbr-widget-popover-bg-color: var(--vbr-widget-primary-color-0);
 
   --vbr-widget-error-notice-bg-color: var(--vbr-widget-danger-color-50);

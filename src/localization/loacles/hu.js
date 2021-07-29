@@ -1,4 +1,7 @@
 export default {
+  errors: {
+    undefinedColumn: 'A {column} oszlop nem létezik!'
+  },
   common: {
     loading: 'Töltődés...',
     noData: 'Nincs megjeleníthető adat',
@@ -81,11 +84,31 @@ export default {
     },
     gameName: {
       short: '#',
-      tooltip: 'Mérkőzés sorszáma'
+      tooltip: 'Mérkőzés Sorszáma'
+    },
+    gameDate: {
+      short: 'Dátum',
+      tooltip: 'Mérkőzés Dátuma'
     },
     gameDateTime: {
       short: '*Idő ({offsetName})',
       tooltip: 'Mérkőzés kezdési ideje (Zóna neve)'
+    },
+    homeTeam: {
+      short: 'Hazai',
+      tooltip: 'Hazai Csapat'
+    },
+    awayTeam: {
+      short: 'Vendég',
+      tooltip: 'Vendég Csapat'
+    },
+    location: {
+      short: 'Helyszín',
+      tooltip: 'Mérkőzés Helyszíne'
+    },
+    broadcast: {
+      short: 'TV',
+      tooltip: 'TV Közvetítés'
     }
   },
   game: {

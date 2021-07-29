@@ -12,6 +12,10 @@
     color: var(--vbr-widget-table-header-color);
     text-align: center;
 
+    &:hover {
+      background-color: var(--vbr-widget-table-header-hover-bg-color);
+    }
+
     &.is-sortable {
       position: relative;
       cursor: pointer;
@@ -73,10 +77,18 @@
 
     button.#{$widget-name}-button {
       padding: 3px 3px;
-      
+      line-height: 0;
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      &:hover {
+        background-color: var(--vbr-widget-popover-trigger-hover-bg-color);
+      }
+
       &:active,
       &:focus {
-        background-color: red;
+        background-color: var(--vbr-widget-popover-trigger-focus-bg-color);
       }
     }
   }

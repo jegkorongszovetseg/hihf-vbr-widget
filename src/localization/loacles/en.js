@@ -1,4 +1,7 @@
 export default {
+  errors: {
+    undefinedColumn: 'The {column} column is not exists!'
+  },
   common: {
     loading: 'Loading...',
     noData: 'No data to display',
@@ -83,9 +86,29 @@ export default {
       short: '#',
       tooltip: 'Game name'
     },
+    gameDate: {
+      short: 'Date',
+      tooltip: 'Scheduled Date'
+    },
     gameDateTime: {
       short: '*Time ({offsetName})',
       tooltip: 'Scheduled Time (Offset Name)'
+    },
+    homeTeam: {
+      short: 'Home',
+      tooltip: 'Home Team'
+    },
+    awayTeam: {
+      short: 'Away',
+      tooltip: 'Away Team'
+    },
+    location: {
+      short: 'Location',
+      tooltip: 'Game Location'
+    },
+    broadcast: {
+      short: 'Broadcast',
+      tooltip: 'Television Broadcast'
     }
   },
   game: {

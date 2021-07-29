@@ -15,6 +15,10 @@
       <template v-slot:cell-gameResult="{ row }">
         <a :href="externalBaseUrl + row.id" target="_balank" class="text-dark">{{ row.gameResult }}</a>
       </template>
+      <template v-slot:cell-broadcast="{ row }">
+        <IconBroadcast v-if="row.broadcast" />
+        <span v-else></span>
+      </template>
       <template v-slot:cell-more="{ row }">
         <v-popover offset="2" placement="left">
           <button :class="`${DEFAULT_WIDGET_NAME}-button`">
@@ -41,6 +45,7 @@ import DataTable from '../DataTable';
 import ResponsiveTable from '../ResponsiveTable';
 import ImageBase from '../ImageBase';
 import IconMore from '../icons/IconMore.vue';
+import IconBroadcast from '../icons/IconBroadcast.vue';
 import { DEFAULT_EXTERNAL_BASE_URL, DEFAULT_WIDGET_NAME } from '../../constatnts';
 
 export default {
@@ -50,6 +55,7 @@ export default {
     IconMore,
     ImageBase,
     DataTable,
+    IconBroadcast,
     ResponsiveTable
   },
 

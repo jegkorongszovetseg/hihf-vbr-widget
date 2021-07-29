@@ -117,12 +117,12 @@ export default {
   },
 
   created() {
+    this.$i18n.locale = this.lang;
     this.setHiddenColumns();
   },
 
   mounted() {
     this.getData();
-    this.$i18n.locale = this.lang;
   },
 
   methods: {

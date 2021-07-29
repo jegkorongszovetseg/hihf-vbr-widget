@@ -17,7 +17,9 @@
       </template>
       <template v-slot:cell-more="{ row }">
         <v-popover offset="2" placement="left">
-          <button class="">...</button>
+          <button :class="`${DEFAULT_WIDGET_NAME}-button`">
+            <IconMore />
+          </button>
           <template slot="popover">
             <ul>
               <li>
@@ -38,12 +40,14 @@
 import DataTable from '../DataTable';
 import ResponsiveTable from '../ResponsiveTable';
 import ImageBase from '../ImageBase';
+import IconMore from '../icons/IconMore.vue';
 import { DEFAULT_EXTERNAL_BASE_URL, DEFAULT_WIDGET_NAME } from '../../constatnts';
 
 export default {
   name: 'ScheduleBase',
 
   components: {
+    IconMore,
     ImageBase,
     DataTable,
     ResponsiveTable

@@ -65,6 +65,20 @@
     &.text-dark {
       color: var(--vbr-widget-table-cell-dark-color);
     }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    button.#{$widget-name}-button {
+      padding: 3px 3px;
+      
+      &:active,
+      &:focus {
+        background-color: red;
+      }
+    }
   }
 
   th,

@@ -12,21 +12,21 @@
         :external-base-url="externalBaseUrl"
         :timezone-offset-name="currentTimezoneOffsetName"
       />
-    </template>
 
-    <Paginator
-      :page="page"
-      :items-per-page="limit"
-      :total-items="rows.length"
-      :range-length="5"
-      @change="onPaginatorChange"
-    />
+      <Paginator
+        :page="page"
+        :items-per-page="limit"
+        :total-items="rows.length"
+        :range-length="5"
+        @change="onPaginatorChange"
+      />
+    </template>
   </div>
 </template>
 
 <script>
 import dayjs from 'dayjs';
-import { omit, pick, keys, filter, compose, values } from 'ramda';
+import { omit } from 'ramda';
 import convert from '../../services/convert';
 import ErrorNotice from '../ErrorNotice';
 import Paginator from '../Paginator';
@@ -35,7 +35,7 @@ import TimezoneSelector from './helpers/TimezoneSelector.vue';
 import { fetchVBRData } from '../../services/http-sevices';
 import { DEFAULT_EXTERNAL_BASE_URL, DEFAULT_WIDGET_NAME } from '../../constatnts';
 import { offsetName } from '@/utils/datetime';
-import { COLUMNS_SCHEDULE } from './internal';
+import { COLUMNS_SCHEDULE, validateColumnsName } from './internal';
 
 const SWITCHABLE_COLUMNS = { hideNameColumn: 'name', hideBroadcastColumn: 'broadcast', hideMoreColumn: 'more' };
 
@@ -85,24 +85,9 @@ export default {
       default: DEFAULT_EXTERNAL_BASE_URL
     },
 
-    showTeamLogo: {
-      type: Boolean,
-      default: true
-    },
-
-    hideNameColumn: {
-      type: Boolean,
-      default: false
-    },
-
-    hideBroadcastColumn: {
-      type: Boolean,
-      default: false
-    },
-
-    hideMoreColumn: {
-      type: Boolean,
-      default: false
+    hideColumns: {
+      type: String,
+      default: ''
     }
   },
 
@@ -132,7 +117,7 @@ export default {
   },
 
   created() {
-    this.setupColumns();
+    this.setHiddenColumns();
   },
 
   mounted() {
@@ -156,13 +141,13 @@ export default {
       }
     },
 
-    setupColumns() {
-      const switchedColumns = compose(
-        filter(x => Boolean(x)),
-        pick(keys(SWITCHABLE_COLUMNS))
-      )(this);
-      const omitedProps = values(pick(keys(switchedColumns), SWITCHABLE_COLUMNS));
-      this.columns = omit(omitedProps, this.columns);
+    async setHiddenColumns() {
+      try {
+        const hiddenColumns = await validateColumnsName(this.columns, this.hideColumns);
+        this.columns = omit(hiddenColumns, this.columns);
+      } catch (error) {
+        this.error = error.message;
+      }
     },
 
     onPaginatorChange(page) {

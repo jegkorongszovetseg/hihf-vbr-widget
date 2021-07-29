@@ -1,4 +1,18 @@
+import { keys } from 'ramda';
 import { SORT_STATE_ASCEND } from '../../constatnts';
+
+export const validateColumnsName = (columns, hiddenColumns) => {
+  const hiddenColumnsArray = hiddenColumns.split(',');
+  const columnsArray = keys(columns);
+  return new Promise((resolve, reject) => {
+    if (hiddenColumnsArray[0] === '') return resolve([]);
+    const index = hiddenColumnsArray.findIndex(column => !columnsArray.includes(column));
+    if (index > -1) {
+      return reject({ message: `Hiba: ${hiddenColumnsArray[index]} oszlop nem található` });
+    }
+    resolve(hiddenColumnsArray);
+  });
+};
 
 export const COLUMNS_STANDINGS_P_3 = {
   index: {

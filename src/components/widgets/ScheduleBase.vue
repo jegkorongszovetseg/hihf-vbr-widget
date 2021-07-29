@@ -25,12 +25,18 @@
             <IconMore />
           </button>
           <template slot="popover">
-            <ul>
+            <ul :class="`${DEFAULT_WIDGET_NAME}-dropdown-menu`">
               <li>
-                <a :href="externalBaseUrl + row.id" target="_blank">Jegyzőkönyv</a>
+                <a :href="externalBaseUrl + row.id" :class="`${DEFAULT_WIDGET_NAME}-dropdown-item`" target="_blank">
+                  <IconSheet width="14" />
+                  Jegyzőkönyv
+                </a>
               </li>
-              <li>
-                <a :href="row.video" target="_blank">Videó</a>
+              <li v-if="row.video">
+                <a :href="row.video" :class="`${DEFAULT_WIDGET_NAME}-dropdown-item`" target="_blank">
+                  <IconYoutube width="14" />
+                  Videó
+                </a>
               </li>
             </ul>
           </template>
@@ -46,6 +52,8 @@ import ResponsiveTable from '../ResponsiveTable';
 import ImageBase from '../ImageBase';
 import IconMore from '../icons/IconMore.vue';
 import IconBroadcast from '../icons/IconBroadcast.vue';
+import IconSheet from '../icons/IconSheet.vue';
+import IconYoutube from '../icons/IconYoutube.vue';
 import { DEFAULT_EXTERNAL_BASE_URL, DEFAULT_WIDGET_NAME } from '../../constatnts';
 
 export default {
@@ -53,8 +61,10 @@ export default {
 
   components: {
     IconMore,
+    IconSheet,
     ImageBase,
     DataTable,
+    IconYoutube,
     IconBroadcast,
     ResponsiveTable
   },

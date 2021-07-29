@@ -59,6 +59,10 @@
   --vbr-widget-tooltip-font-size: 12px;
   --vbr-widget-tooltip-color: #ffffff;
   --vbr-widget-tooltip-bg-color: #000000;
+
+  --vbr-widget-dropdown-item-color: var(--vbr-widget-primary-color-500);
+  --vbr-widget-dropdown-item-hover-color: var(--vbr-widget-primary-color-800);
+  --vbr-widget-dropdown-item-hover-bg-color: var(--vbr-widget-primary-color-50);
   
   --vbr-widget-popover-trigger-hover-bg-color: var(--vbr-widget-secondary-color-200);
   --vbr-widget-popover-trigger-focus-bg-color: var(--vbr-widget-secondary-color-300);

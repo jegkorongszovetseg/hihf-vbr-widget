@@ -86,14 +86,9 @@
 }
 
 .#{$widget-name}-popover {
-  width: 200px;
-
-  .popover-inner {
-    background: var(--vbr-widget-popover-bg-color);
-    color: black;
-    padding: 8px;
-    border-radius: 3px;
-    box-shadow: 0 5px 30px rgba(black, 0.3);
+  .popover-inner .#{$widget-name}-dropdown-item {
+    font-size: 14px;
+    line-height: 22px;
   }
 
   &[aria-hidden='true'] {

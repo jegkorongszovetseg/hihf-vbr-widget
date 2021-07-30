@@ -42,14 +42,14 @@
       position: relative;
     }
 
+    &.w-auto {
+      width: auto;
+    }
+
     .icon-sort {
       width: 11px;
       height: 11px;
       margin-left: 5px;
-    }
-
-    .w-auto {
-      width: auto;
     }
   }
 

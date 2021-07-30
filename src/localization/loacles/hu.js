@@ -10,6 +10,7 @@ export default {
     romania: 'Románia'
   },
   table: {
+    blank: '#',
     team: {
       short: 'Csapat',
       tooltip: 'Csapatnév'

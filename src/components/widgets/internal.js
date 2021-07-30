@@ -17,7 +17,7 @@ export const validateColumnsName = (columns, hiddenColumns) => {
 
 export const COLUMNS_STANDINGS_P_3 = {
   index: {
-    label: '#',
+    label: 'table.blank',
     class: 'text-left'
   },
   name: {
@@ -181,6 +181,60 @@ export const COLUMNS_FIELD_PLAYERS = {
     sortable: true
   },
   shootPercent: {
+    label: 'table.sogPercent.short',
+    tooltip: 'table.sogPercent.tooltip',
+    sortable: true
+  }
+};
+
+export const COLUMNS_FIELD_PLAYERS_PENALTY = {
+  index: {
+    label: 'table.blank',
+    class: 'text-left'
+  },
+  name: {
+    label: 'table.name.short',
+    tooltip: 'table.name.tooltip',
+    sortable: true,
+    class: 'text-left w-auto text-bold'
+  },
+  teamName: {
+    label: 'table.team.short',
+    tooltip: 'table.team.tooltip',
+    sortable: true,
+    class: 'text-left w-auto'
+  },
+  gp: {
+    label: 'table.game.short',
+    tooltip: 'table.game.tooltip',
+    sortable: true
+  },
+  p2: {
+    label: 'table.goals.short',
+    tooltip: 'table.goals.tooltip',
+    sortable: true
+  },
+  p5: {
+    label: 'table.assists.short',
+    tooltip: 'table.assists.tooltip',
+    sortable: true
+  },
+  p10: {
+    label: 'table.points.short',
+    tooltip: 'table.points.tooltip',
+    sortable: true
+  },
+  p20: {
+    label: 'table.plusMinus.short',
+    tooltip: 'table.plusMinus.tooltip',
+    sortable: true
+  },
+  p25: {
+    label: 'table.sog.short',
+    tooltip: 'table.sog.tooltip',
+    sortable: true
+  },
+  pim: {
     label: 'table.sogPercent.short',
     tooltip: 'table.sogPercent.tooltip',
     sortable: true

@@ -52,6 +52,7 @@
   --vbr-widget-table-active-hover-color: var(--vbr-widget-secondary-color-900);
   --vbr-widget-table-active-hover-bg-color: var(--vbr-widget-secondary-color-400);
   --vbr-widget-table-portrait-border-color: var(--vbr-widget-primary-color-100);
+  --vbr-widget-table-portrait-bg-color: var(--vbr-widget-primary-color-50);
   --vbr-widget-table-cell-light-color: var(--vbr-widget-primary-color-600);
   --vbr-widget-table-cell-dark-color: var(--vbr-widget-primary-color-900);
   --vbr-widget-table-stripped-bg-color: #f8f9fa;

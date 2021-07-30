@@ -8,7 +8,8 @@
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" /> -->
     <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" :limit="50" /> -->
-    <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <!-- <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
   </div>
 </template>
 
@@ -16,7 +17,8 @@
 // import Game from './components/widgets/Game';
 // import Standing from './components/widgets/Standings';
 // import LeaderFieldPlayers from './components/widgets/LeaderFieldPlayers';
-import Schedule from './components/widgets/Schedule';
+// import Schedule from './components/widgets/Schedule';
+import FieldPlayersPenalties from './components/widgets/FieldPlayersPenalties';
 
 export default {
   name: 'App',
@@ -24,7 +26,8 @@ export default {
     // Game
     // Standing,
     // LeaderFieldPlayers,
-    Schedule
+    // Schedule,
+    FieldPlayersPenalties
   },
 
   data() {

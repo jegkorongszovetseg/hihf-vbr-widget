@@ -13,7 +13,7 @@
           {{ row.index }}
         </span>
       </template>
-      <template v-if="showPortrait" v-slot:cell-name="{ row }">
+      <template v-if="!hidePortrait" v-slot:cell-name="{ row }">
         <ImageBase
           :class="`${DEFAULT_WIDGET_NAME}-image is-portrait`"
           :src="row.playerPortrait"
@@ -21,7 +21,7 @@
         />
         {{ row.name }}
       </template>
-      <template v-if="showTeamLogo" v-slot:cell-teamName="{ row }">
+      <template v-if="!hideTeamLogo" v-slot:cell-teamName="{ row }">
         <ImageBase :class="`${DEFAULT_WIDGET_NAME}-image`" :key="row.id" :src="row.teamLogo" />
         {{ row.teamName }}
       </template>
@@ -65,14 +65,14 @@ export default {
       default: false
     },
 
-    showPortrait: {
+    hidePortrait: {
       type: Boolean,
-      default: true
+      required: true
     },
 
-    showTeamLogo: {
+    hideTeamLogo: {
       type: Boolean,
-      default: true
+      required: true
     },
 
     externalBaseUrl: {

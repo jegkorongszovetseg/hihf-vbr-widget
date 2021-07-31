@@ -9,6 +9,8 @@
         :is-loading="isLoading"
         :sort="sort"
         :external-base-url="externalBaseUrl"
+        :hide-portrait="hidePortrait"
+        :hide-team-logo="hideTeamLogo"
         @sort="onSort"
       />
 

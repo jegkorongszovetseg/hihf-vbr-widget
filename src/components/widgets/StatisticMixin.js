@@ -51,6 +51,16 @@ const CommonStatisticMixin = {
       default: DEFAULT_EXTERNAL_BASE_URL
     },
 
+    hidePortrait: {
+      type: Boolean,
+      default: false
+    },
+
+    hideTeamLogo: {
+      type: Boolean,
+      default: false
+    },
+
     hideColumns: {
       type: String,
       default: ''

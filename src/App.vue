@@ -9,6 +9,7 @@
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" /> -->
     <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" :limit="50" /> -->
     <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
     <!-- <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
   </div>
 </template>
@@ -19,6 +20,7 @@
 // import LeaderFieldPlayers from './components/widgets/LeaderFieldPlayers';
 // import Schedule from './components/widgets/Schedule';
 import FieldPlayersPenalties from './components/widgets/FieldPlayersPenalties';
+import FieldPlayersLeader from './components/widgets/FieldPlayersLeader';
 
 export default {
   name: 'App',
@@ -27,6 +29,7 @@ export default {
     // Standing,
     // LeaderFieldPlayers,
     // Schedule,
+    FieldPlayersLeader,
     FieldPlayersPenalties
   },
 

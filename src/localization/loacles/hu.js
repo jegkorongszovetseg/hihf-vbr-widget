@@ -110,6 +110,30 @@ export default {
     broadcast: {
       short: 'TV',
       tooltip: 'TV Közvetítés'
+    },
+    minorPenalties: {
+      short: 'MINOR',
+      tooltip: 'Kisbüntetés (2p)'
+    },
+    majorPenalties: {
+      short: 'MAJOR',
+      tooltip: 'Büntetés (5p)'
+    },
+    misconducts: {
+      short: 'MISC',
+      tooltip: 'Fegyelmi büntetés (10p)'
+    },
+    gameMisconducts: {
+      short: 'GA-MI',
+      tooltip: 'Fegyelmi büntetés (20p)'
+    },
+    matchPenalties: {
+      short: 'MATCH',
+      tooltip: 'Végleges kiállítások (25p)'
+    },
+    pim: {
+      short: 'BÜP',
+      tooltip: 'Büntetés Percek'
     }
   },
   game: {

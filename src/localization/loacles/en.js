@@ -110,6 +110,30 @@ export default {
     broadcast: {
       short: 'Broadcast',
       tooltip: 'Television Broadcast'
+    },
+    minorPenalties: {
+      short: 'MINOR',
+      tooltip: 'Penalties Minor'
+    },
+    majorPenalties: {
+      short: 'MAJOR',
+      tooltip: 'Penalties Major'
+    },
+    misconducts: {
+      short: 'MISC',
+      tooltip: 'Penalties Misconduct'
+    },
+    gameMisconducts: {
+      short: 'GA-MI',
+      tooltip: 'Penalties Game Misconduct'
+    },
+    matchPenalties: {
+      short: 'MATCH',
+      tooltip: 'Penalties Match'
+    },
+    pim: {
+      short: 'PIM',
+      tooltip: 'Penalty Minutes'
     }
   },
   game: {

@@ -210,33 +210,33 @@ export const COLUMNS_FIELD_PLAYERS_PENALTY = {
     sortable: true
   },
   p2: {
-    label: 'table.goals.short',
-    tooltip: 'table.goals.tooltip',
+    label: 'table.minorPenalties.short',
+    tooltip: 'table.minorPenalties.tooltip',
     sortable: true
   },
   p5: {
-    label: 'table.assists.short',
-    tooltip: 'table.assists.tooltip',
+    label: 'table.majorPenalties.short',
+    tooltip: 'table.majorPenalties.tooltip',
     sortable: true
   },
   p10: {
-    label: 'table.points.short',
-    tooltip: 'table.points.tooltip',
+    label: 'table.misconducts.short',
+    tooltip: 'table.misconducts.tooltip',
     sortable: true
   },
   p20: {
-    label: 'table.plusMinus.short',
-    tooltip: 'table.plusMinus.tooltip',
+    label: 'table.gameMisconducts.short',
+    tooltip: 'table.gameMisconducts.tooltip',
     sortable: true
   },
   p25: {
-    label: 'table.sog.short',
-    tooltip: 'table.sog.tooltip',
+    label: 'table.matchPenalties.short',
+    tooltip: 'table.matchPenalties.tooltip',
     sortable: true
   },
   pim: {
-    label: 'table.sogPercent.short',
-    tooltip: 'table.sogPercent.tooltip',
+    label: 'table.pim.short',
+    tooltip: 'table.pim.tooltip',
     sortable: true
   }
 };

@@ -1,3 +1,4 @@
+import { filter, propEq } from 'ramda';
 import { SORT_STATE_ASCEND, SORT_STATE_ORIGINAL } from '../constatnts';
 import { format, offsetName } from '@/utils/datetime';
 
@@ -7,6 +8,13 @@ const convert = (data = []) => {
 
     value() {
       return this.result;
+    },
+
+    teamFilter(name) {
+      if (name) {
+        this.result = filter(propEq('teamName', name), this.result);
+      }
+      return this;
     },
 
     sorted(sort) {

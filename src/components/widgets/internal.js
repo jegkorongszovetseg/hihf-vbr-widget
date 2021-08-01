@@ -288,3 +288,57 @@ export const COLUMNS_SCHEDULE = {
     label: ''
   }
 };
+
+export const COLUMNS_GOALIES = {
+  index: {
+    label: 'table.blank',
+    class: 'text-left'
+  },
+  name: {
+    label: 'table.name.short',
+    tooltip: 'table.name.tooltip',
+    sortable: true,
+    class: 'text-left w-auto text-bold'
+  },
+  teamName: {
+    label: 'table.team.short',
+    tooltip: 'table.team.tooltip',
+    sortable: true,
+    class: 'text-left w-auto'
+  },
+  gkd: {
+    label: 'table.game.short',
+    tooltip: 'table.game.tooltip',
+    sortable: true
+  },
+  gpi: {
+    label: 'table.minorPenalties.short',
+    tooltip: 'table.minorPenalties.tooltip',
+    sortable: true
+  },
+  mip: {
+    label: 'table.majorPenalties.short',
+    tooltip: 'table.majorPenalties.tooltip',
+    sortable: true
+  },
+  mipPercent: {
+    label: 'table.misconducts.short',
+    tooltip: 'table.misconducts.tooltip',
+    sortable: true
+  },
+  ga: {
+    label: 'table.gameMisconducts.short',
+    tooltip: 'table.gameMisconducts.tooltip',
+    sortable: true
+  },
+  gaa: {
+    label: 'table.matchPenalties.short',
+    tooltip: 'table.matchPenalties.tooltip',
+    sortable: true
+  },
+  svsPercent: {
+    label: 'table.pim.short',
+    tooltip: 'table.pim.tooltip',
+    sortable: true
+  }
+};

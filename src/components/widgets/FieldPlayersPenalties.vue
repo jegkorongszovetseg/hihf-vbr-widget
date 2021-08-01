@@ -17,7 +17,7 @@
       <Paginator
         :page="page"
         :items-per-page="limit"
-        :total-items="rows.length"
+        :total-items="convertedData.length"
         :range-length="5"
         @change="onPaginatorChange"
       />

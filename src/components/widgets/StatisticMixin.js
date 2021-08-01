@@ -64,6 +64,11 @@ const CommonStatisticMixin = {
     hideColumns: {
       type: String,
       default: ''
+    },
+
+    teamFilter: {
+      type: String,
+      default: ''
     }
   },
 
@@ -83,6 +88,7 @@ const CommonStatisticMixin = {
   computed: {
     convertedData() {
       return convert(this.rows)
+        .teamFilter(this.teamFilter)
         .playerName()
         .sorted(this.sort)
         .addIndex(this.sort.sortTarget)

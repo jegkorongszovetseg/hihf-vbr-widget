@@ -36,7 +36,7 @@ export default {
   mixins: [CommonStaisticMixin],
 
   props: {
-    under: {
+    underLimit: {
       type: Boolean,
       default: false
     }
@@ -53,7 +53,7 @@ export default {
   },
 
   mounted() {
-    if (this.under) return this.getData(VBR_API_GOALIE_UNDER_PATH);
+    if (this.underLimit) return this.getData(VBR_API_GOALIE_UNDER_PATH);
     this.getData(VBR_API_GOALIE_PATH);
   }
 };

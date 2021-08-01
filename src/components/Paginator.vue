@@ -1,5 +1,5 @@
 <template>
-  <ul class="mjsz-vbr-pagination" v-if="pageCount > 0">
+  <ul class="mjsz-vbr-pagination" v-if="pageCount > 1">
     <li :class="{ 'is-disabled': page === 1 }">
       <a href="#" @click.prevent="pageStep(-1)">
         <slot name="prev">

@@ -5,14 +5,20 @@ import { format, offsetName } from '@/utils/datetime';
 const convert = (data = []) => {
   return {
     result: [...data],
+    filteredRowsLength: 0,
 
     value() {
-      return this.result;
+      return {
+        rows: this.result,
+        totalItems: this.filteredRowsLength ? this.filteredRowsLength : data.length
+      };
     },
 
     teamFilter(name) {
       if (name) {
-        this.result = filter(propEq('teamName', name), this.result);
+        const filteredRows = filter(propEq('teamName', name), this.result);
+        this.filteredRowsLength = filteredRows.length;
+        this.result = filteredRows;
       }
       return this;
     },

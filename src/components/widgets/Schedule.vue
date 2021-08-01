@@ -7,7 +7,7 @@
 
       <ScheduleBase
         :columns="columns"
-        :rows="convertedData"
+        :rows="convertedData.rows"
         :is-loading="isLoading"
         :external-base-url="externalBaseUrl"
         :timezone-offset-name="currentTimezoneOffsetName"

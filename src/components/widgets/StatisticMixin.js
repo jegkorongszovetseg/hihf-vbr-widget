@@ -94,6 +94,10 @@ const CommonStatisticMixin = {
         .addIndex(this.sort.sortTarget)
         .pagination(this.page, this.limit)
         .value();
+    },
+
+    totalItems() {
+      return this.convertedData.totalItems;
     }
   },
 

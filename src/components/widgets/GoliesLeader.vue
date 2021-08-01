@@ -5,7 +5,7 @@
     <template v-else>
       <StatisticsBase
         :columns="columns"
-        :rows="convertedData"
+        :rows="convertedData.rows"
         :is-loading="isLoading"
         :sort="sort"
         :external-base-url="externalBaseUrl"
@@ -17,7 +17,7 @@
       <Paginator
         :page="page"
         :items-per-page="limit"
-        :total-items="convertedData.length"
+        :total-items="totalItems"
         :range-length="5"
         @change="onPaginatorChange"
       />
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { SORT_STATE_DESCEND } from '../../constatnts';
+import { SORT_STATE_DESCEND, VBR_API_GOALIE_PATH, VBR_API_GOALIE_UNDER_PATH } from '../../constatnts';
 import { COLUMNS_GOALIES } from './internal';
 import CommonStaisticMixin from './StatisticMixin';
 
@@ -34,6 +34,13 @@ export default {
   name: 'GoaliesLeader',
 
   mixins: [CommonStaisticMixin],
+
+  props: {
+    under: {
+      type: Boolean,
+      default: false
+    }
+  },
 
   data() {
     return {
@@ -46,7 +53,8 @@ export default {
   },
 
   mounted() {
-    this.getData('v1/playersGoaliePeriod');
+    if (this.under) return this.getData(VBR_API_GOALIE_UNDER_PATH);
+    this.getData(VBR_API_GOALIE_PATH);
   }
 };
 </script>

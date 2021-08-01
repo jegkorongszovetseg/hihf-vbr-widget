@@ -5,7 +5,7 @@
     <template v-else>
       <StatisticsBase
         :columns="columns"
-        :rows="convertedData"
+        :rows="convertedData.rows"
         :is-loading="isLoading"
         :sort="sort"
         :external-base-url="externalBaseUrl"
@@ -17,7 +17,7 @@
       <Paginator
         :page="page"
         :items-per-page="limit"
-        :total-items="convertedData.length"
+        :total-items="totalItems"
         :range-length="5"
         @change="onPaginatorChange"
       />

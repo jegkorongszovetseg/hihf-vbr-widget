@@ -6,7 +6,7 @@
       <DataTable
         :class="`${DEFAULT_WIDGET_NAME}-table`"
         :columns="columns"
-        :rows="convertedData"
+        :rows="convertedData.rows"
         :sort="sort"
         :is-loading="isLoading"
         @sort="onSort"

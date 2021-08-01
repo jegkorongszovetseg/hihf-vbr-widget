@@ -8,8 +8,8 @@
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" /> -->
     <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" :limit="50" /> -->
-    <GoaliesLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" team-filter="UTE" />
+    <GoaliesLeader :lang="locale" championship-id="2051" division="Alapszakasz" under />
+    <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" team-filter="MAC HKB Újbuda" />
     <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
     <!-- <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
   </div>

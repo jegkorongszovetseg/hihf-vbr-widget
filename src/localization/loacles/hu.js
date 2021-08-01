@@ -134,6 +134,42 @@ export default {
     pim: {
       short: 'BÜP',
       tooltip: 'Büntetés Percek'
+    },
+    gpgk: {
+      short: 'M',
+      tooltip: 'Mérkőzésre Nevezve'
+    },
+    gpi: {
+      short: 'LM',
+      tooltip: 'Mérkőzésen Játszott'
+    },
+    toi: {
+      short: 'TOI',
+      tooltip: 'Jégen Töltött Idő'
+    },
+    toiPercent: {
+      short: 'TOI%',
+      tooltip: 'Jégen Töltött Idő Százalék'
+    },
+    ga: {
+      short: 'GA',
+      tooltip: 'Kapott Gól'
+    },
+    gaa: {
+      short: 'GAA',
+      tooltip: 'Kapott Gólátlag'
+    },
+    sa: {
+      short: 'KL',
+      tooltip: 'Kapott Lövés'
+    },
+    svs: {
+      short: 'VL',
+      tooltip: 'Védett Lövés'
+    },
+    svsPercent: {
+      short: 'VH%',
+      tooltip: 'Védés Hatékonyság'
     }
   },
   game: {

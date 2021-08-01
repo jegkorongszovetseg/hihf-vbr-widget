@@ -307,38 +307,48 @@ export const COLUMNS_GOALIES = {
     class: 'text-left w-auto'
   },
   gkd: {
-    label: 'table.game.short',
-    tooltip: 'table.game.tooltip',
+    label: 'table.gpgk.short',
+    tooltip: 'table.gpgk.tooltip',
     sortable: true
   },
   gpi: {
-    label: 'table.minorPenalties.short',
-    tooltip: 'table.minorPenalties.tooltip',
+    label: 'table.gpi.short',
+    tooltip: 'table.gpi.tooltip',
     sortable: true
   },
   mip: {
-    label: 'table.majorPenalties.short',
-    tooltip: 'table.majorPenalties.tooltip',
+    label: 'table.toi.short',
+    tooltip: 'table.toi.tooltip',
     sortable: true
   },
   mipPercent: {
-    label: 'table.misconducts.short',
-    tooltip: 'table.misconducts.tooltip',
+    label: 'table.toiPercent.short',
+    tooltip: 'table.toiPercent.tooltip',
     sortable: true
   },
   ga: {
-    label: 'table.gameMisconducts.short',
-    tooltip: 'table.gameMisconducts.tooltip',
+    label: 'table.ga.short',
+    tooltip: 'table.ga.tooltip',
     sortable: true
   },
   gaa: {
-    label: 'table.matchPenalties.short',
-    tooltip: 'table.matchPenalties.tooltip',
+    label: 'table.gaa.short',
+    tooltip: 'table.gaa.tooltip',
+    sortable: true
+  },
+  sa: {
+    label: 'table.sa.short',
+    tooltip: 'table.sa.tooltip',
+    sortable: true
+  },
+  svs: {
+    label: 'table.svs.short',
+    tooltip: 'table.svs.tooltip',
     sortable: true
   },
   svsPercent: {
-    label: 'table.pim.short',
-    tooltip: 'table.pim.tooltip',
+    label: 'table.svsPercent.short',
+    tooltip: 'table.svsPercent.tooltip',
     sortable: true
   }
 };

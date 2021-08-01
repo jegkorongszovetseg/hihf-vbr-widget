@@ -8,6 +8,7 @@
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
     <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" /> -->
     <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" :limit="50" /> -->
+    <GoaliesLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
     <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" team-filter="UTE" />
     <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
     <!-- <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
@@ -21,6 +22,7 @@
 // import Schedule from './components/widgets/Schedule';
 import FieldPlayersPenalties from './components/widgets/FieldPlayersPenalties';
 import FieldPlayersLeader from './components/widgets/FieldPlayersLeader';
+import GoaliesLeader from './components/widgets/GoliesLeader';
 
 export default {
   name: 'App',
@@ -29,6 +31,7 @@ export default {
     // Standing,
     // LeaderFieldPlayers,
     // Schedule,
+    GoaliesLeader,
     FieldPlayersLeader,
     FieldPlayersPenalties
   },

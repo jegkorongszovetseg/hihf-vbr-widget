@@ -134,6 +134,42 @@ export default {
     pim: {
       short: 'PIM',
       tooltip: 'Penalty Minutes'
+    },
+    gpgk: {
+      short: 'GP',
+      tooltip: 'Games Played'
+    },
+    gpi: {
+      short: 'GPI',
+      tooltip: 'Games Played In'
+    },
+    toi: {
+      short: 'TOI',
+      tooltip: 'Time On Ice'
+    },
+    toiPercent: {
+      short: 'TOI%',
+      tooltip: 'Time On Ice as Percentage'
+    },
+    ga: {
+      short: 'GA',
+      tooltip: 'Goals Against'
+    },
+    gaa: {
+      short: 'GAA',
+      tooltip: 'Goals Against Average'
+    },
+    sa: {
+      short: 'SA',
+      tooltip: 'Shots Against'
+    },
+    svs: {
+      short: 'SVS',
+      tooltip: 'Saves'
+    },
+    svsPercent: {
+      short: 'SV%',
+      tooltip: 'Save Percentage'
     }
   },
   game: {

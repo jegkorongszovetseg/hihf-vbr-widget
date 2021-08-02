@@ -195,27 +195,23 @@ export const COLUMNS_FIELD_PLAYERS_PENALTY = {
   name: {
     label: 'table.name.short',
     tooltip: 'table.name.tooltip',
-    sortable: true,
     class: 'text-left w-auto text-bold',
     sortOrders: [{ target: 'name', direction: SORT_STATE_ASCEND }]
   },
   teamName: {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
-    sortable: true,
     class: 'text-left w-auto',
     sortOrders: [{ target: 'teamName', direction: SORT_STATE_ASCEND }]
   },
   gp: {
     label: 'table.game.short',
     tooltip: 'table.game.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'gp', direction: SORT_STATE_DESCEND }]
   },
   p2: {
     label: 'table.minorPenalties.short',
     tooltip: 'table.minorPenalties.tooltip',
-    sortable: true,
     sortOrders: [
       { target: 'p2', direction: SORT_STATE_DESCEND },
       { target: 'pim', direction: SORT_STATE_DESCEND }
@@ -224,7 +220,6 @@ export const COLUMNS_FIELD_PLAYERS_PENALTY = {
   p5: {
     label: 'table.majorPenalties.short',
     tooltip: 'table.majorPenalties.tooltip',
-    sortable: true,
     sortOrders: [
       { target: 'p5', direction: SORT_STATE_DESCEND },
       { target: 'pim', direction: SORT_STATE_DESCEND }
@@ -233,7 +228,6 @@ export const COLUMNS_FIELD_PLAYERS_PENALTY = {
   p10: {
     label: 'table.misconducts.short',
     tooltip: 'table.misconducts.tooltip',
-    sortable: true,
     sortOrders: [
       { target: 'p10', direction: SORT_STATE_DESCEND },
       { target: 'pim', direction: SORT_STATE_DESCEND }
@@ -242,7 +236,6 @@ export const COLUMNS_FIELD_PLAYERS_PENALTY = {
   p20: {
     label: 'table.gameMisconducts.short',
     tooltip: 'table.gameMisconducts.tooltip',
-    sortable: true,
     sortOrders: [
       { target: 'p20', direction: SORT_STATE_DESCEND },
       { target: 'pim', direction: SORT_STATE_DESCEND }
@@ -251,7 +244,6 @@ export const COLUMNS_FIELD_PLAYERS_PENALTY = {
   p25: {
     label: 'table.matchPenalties.short',
     tooltip: 'table.matchPenalties.tooltip',
-    sortable: true,
     sortOrders: [
       { target: 'p25', direction: SORT_STATE_DESCEND },
       { target: 'pim', direction: SORT_STATE_DESCEND }
@@ -260,7 +252,6 @@ export const COLUMNS_FIELD_PLAYERS_PENALTY = {
   pim: {
     label: 'table.pim.short',
     tooltip: 'table.pim.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'pim', direction: SORT_STATE_DESCEND }]
   }
 };
@@ -322,69 +313,58 @@ export const COLUMNS_GOALIES = {
     label: 'table.name.short',
     tooltip: 'table.name.tooltip',
     class: 'text-left w-auto text-bold',
-    sortable: true,
     sortOrders: [{ target: 'name', direction: SORT_STATE_ASCEND }]
   },
   teamName: {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
     class: 'text-left w-auto',
-    sortable: true,
     sortOrders: [{ target: 'teamName', direction: SORT_STATE_ASCEND }]
   },
   gkd: {
     label: 'table.gpgk.short',
     tooltip: 'table.gpgk.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'gkd', direction: SORT_STATE_DESCEND }]
   },
   gpi: {
     label: 'table.gpi.short',
     tooltip: 'table.gpi.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'gpi', direction: SORT_STATE_DESCEND }]
   },
   mip: {
     label: 'table.toi.short',
     tooltip: 'table.toi.tooltip',
-    sortable: true,
     defaultSortState: SORT_STATE_DESCEND,
     sortOrders: [{ target: 'mipSec', direction: SORT_STATE_DESCEND }]
   },
   mipPercent: {
     label: 'table.toiPercent.short',
     tooltip: 'table.toiPercent.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'mipPercent', direction: SORT_STATE_DESCEND }]
   },
   ga: {
     label: 'table.ga.short',
     tooltip: 'table.ga.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'ga', direction: SORT_STATE_DESCEND }]
   },
   gaa: {
     label: 'table.gaa.short',
     tooltip: 'table.gaa.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'gaa', direction: SORT_STATE_DESCEND }]
   },
   sa: {
     label: 'table.sa.short',
     tooltip: 'table.sa.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'sa', direction: SORT_STATE_DESCEND }]
   },
   svs: {
     label: 'table.svs.short',
     tooltip: 'table.svs.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'svs', direction: SORT_STATE_DESCEND }]
   },
   svsPercent: {
     label: 'table.svsPercent.short',
     tooltip: 'table.svsPercent.tooltip',
-    sortable: true,
     sortOrders: [{ target: 'svsPercent', direction: SORT_STATE_DESCEND }]
   }
 };

@@ -9,7 +9,7 @@
             [column.class],
             {
               'is-active': prop === sort.sortTarget && sort.orders[0].direction !== SORT_STATE_ORIGINAL,
-              'is-sortable': column.sortable,
+              'is-sortable': column.sortOrders,
               'is-desc': prop === sort.sortTarget && sort.orders[0].direction === SORT_STATE_DESCEND,
               'is-asc': prop === sort.sortTarget && sort.orders[0].direction === SORT_STATE_ASCEND
             }
@@ -20,7 +20,7 @@
           <slot :name="`header-${prop}`" :column="column">
             <span>{{ $t(column.label) }}</span>
           </slot>
-          <IconSort v-if="column.sortable && prop !== sort.sortTarget" class="icon-sort"></IconSort>
+          <IconSort v-if="column.sortOrders && prop !== sort.sortTarget" class="icon-sort"></IconSort>
           <IconSort
             v-if="prop === sort.sortTarget && sort.orders[0].direction === SORT_STATE_ORIGINAL"
             class="icon-sort"
@@ -115,7 +115,7 @@ export default {
 
   methods: {
     sortBy(column, prop) {
-      if (!column.sortable) return;
+      if (!column.sortOrders) return;
       this.$emit('sort', { target: prop, orders: column.sortOrders });
     }
   }

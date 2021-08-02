@@ -40,7 +40,7 @@ export default {
       columns: COLUMNS_FIELD_PLAYERS_PENALTY,
       sort: {
         sortTarget: 'pim',
-        sortState: SORT_STATE_DESCEND
+        orders: [{ target: 'pim', direction: SORT_STATE_DESCEND }]
       }
     };
   },

@@ -48,9 +48,6 @@ SortService.prototype = {
       return this;
     }
 
-    // const direction = initialState === SORT_STATE_ASCEND ? 'DIRECTION2' : 'DIRECTION1';
-    // const sortState = sortMachine.transition(this.sort.sortState, direction).value;
-
     const nextOrders = orders.map((order, index) => ({
       ...order,
       direction: transitionOrderState(this.sort.orders[index].direction, order.direction)

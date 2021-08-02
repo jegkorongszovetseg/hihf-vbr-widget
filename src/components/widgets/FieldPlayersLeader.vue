@@ -40,7 +40,7 @@ export default {
       columns: COLUMNS_FIELD_PLAYERS,
       sort: {
         sortTarget: 'point',
-        sortState: SORT_STATE_DESCEND
+        orders: [{ target: 'point', direction: SORT_STATE_DESCEND }]
       }
     };
   },

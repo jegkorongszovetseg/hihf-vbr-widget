@@ -141,49 +141,55 @@ export const COLUMNS_FIELD_PLAYERS = {
   name: {
     label: 'table.name.short',
     tooltip: 'table.name.tooltip',
-    sortable: true,
-    class: 'text-left w-auto text-bold'
+    class: 'text-left w-auto text-bold',
+    sortOrders: [{ target: 'name', direction: SORT_STATE_ASCEND }]
   },
   teamName: {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
-    sortable: true,
-    class: 'text-left w-auto'
+    class: 'text-left w-auto',
+    sortOrders: [{ target: 'teamName', direction: SORT_STATE_ASCEND }]
   },
   gp: {
     label: 'table.game.short',
     tooltip: 'table.game.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'gp', direction: SORT_STATE_DESCEND }]
   },
   g: {
     label: 'table.goals.short',
     tooltip: 'table.goals.tooltip',
-    sortable: true
+    sortOrders: [
+      { target: 'g', direction: SORT_STATE_DESCEND },
+      { target: 'a', direction: SORT_STATE_DESCEND }
+    ]
   },
   a: {
     label: 'table.assists.short',
     tooltip: 'table.assists.tooltip',
-    sortable: true
+    sortOrders: [
+      { target: 'a', direction: SORT_STATE_DESCEND },
+      { target: 'g', direction: SORT_STATE_DESCEND }
+    ]
   },
   point: {
     label: 'table.points.short',
     tooltip: 'table.points.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'point', direction: SORT_STATE_DESCEND }]
   },
   plusMinus: {
     label: 'table.plusMinus.short',
     tooltip: 'table.plusMinus.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'plusMinus', direction: SORT_STATE_DESCEND }]
   },
   shoot: {
     label: 'table.sog.short',
     tooltip: 'table.sog.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'shoot', direction: SORT_STATE_DESCEND }]
   },
   shootPercent: {
     label: 'table.sogPercent.short',
     tooltip: 'table.sogPercent.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'shootPercent', direction: SORT_STATE_DESCEND }]
   }
 };
 

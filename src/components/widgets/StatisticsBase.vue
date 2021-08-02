@@ -89,8 +89,8 @@ export default {
   },
 
   methods: {
-    onSort({ target, state }) {
-      this.$emit('sort', { target, state });
+    onSort(payload) {
+      this.$emit('sort', payload);
     }
   }
 };

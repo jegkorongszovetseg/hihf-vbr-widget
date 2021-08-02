@@ -1,6 +1,7 @@
-import { filter, propEq } from 'ramda';
+import { ascend, descend, filter, prop, propEq, sortWith } from 'ramda';
 import { SORT_STATE_ASCEND, SORT_STATE_ORIGINAL } from '../constatnts';
-import { format, offsetName } from '@/utils/datetime';
+import { format } from '@/utils/datetime';
+import { convertMinToSec } from '../utils/datetime';
 
 const convert = (data = []) => {
   return {
@@ -24,14 +25,10 @@ const convert = (data = []) => {
     },
 
     sorted(sort) {
-      if (!sort || sort.sortState === SORT_STATE_ORIGINAL) return this;
-      const sortTarget = sort.sortTarget;
-      const order = sort.sortState === SORT_STATE_ASCEND ? 1 : -1;
-      this.result = this.result.slice().sort(function(a, b) {
-        a = a[sortTarget];
-        b = b[sortTarget];
-        return (a === b ? 0 : a > b ? 1 : -1) * order;
-      });
+      if (sort.orders[0].direction === SORT_STATE_ORIGINAL) return this;
+      this.result = sortWith(
+        sort.orders.map(s => (s.direction === SORT_STATE_ASCEND ? ascend : descend)(prop(s.target)))
+      )(this.result);
       return this;
     },
 
@@ -79,6 +76,14 @@ const convert = (data = []) => {
         gameDateDate: format(row.gameDate, 'L dddd', timezone, locale),
         gameDateTime: format(row.gameDate, 'HH:mm', timezone, locale)
       }));
+      return this;
+    },
+
+    convertTimes(targets = []) {
+      this.result = this.result.map(row => {
+        targets.map(key => (row[`${key}Sec`] = convertMinToSec(row[key])));
+        return row;
+      });
       return this;
     }
   };

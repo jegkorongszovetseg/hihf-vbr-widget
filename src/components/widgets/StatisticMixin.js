@@ -137,8 +137,8 @@ const CommonStatisticMixin = {
       this.page = page;
     },
 
-    onSort({ target, state }) {
-      this.sort = this.SortService.set(target, state).get();
+    onSort({ target, orders }) {
+      this.sort = this.SortService.set(target, orders).get();
     }
   }
 };

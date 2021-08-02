@@ -27,6 +27,7 @@
 
 <script>
 import { SORT_STATE_DESCEND, VBR_API_GOALIE_PATH, VBR_API_GOALIE_UNDER_PATH } from '../../constatnts';
+import convert from '../../services/convert';
 import { COLUMNS_GOALIES } from './internal';
 import CommonStaisticMixin from './StatisticMixin';
 
@@ -47,9 +48,22 @@ export default {
       columns: COLUMNS_GOALIES,
       sort: {
         sortTarget: 'svsPercent',
-        sortState: SORT_STATE_DESCEND
+        orders: [{ target: 'svsPercent', direction: SORT_STATE_DESCEND }]
       }
     };
+  },
+
+  computed: {
+    convertedData() {
+      return convert(this.rows)
+        .teamFilter(this.teamFilter)
+        .playerName()
+        .convertTimes(['mip'])
+        .sorted(this.sort)
+        .addIndex(this.sort.sortTarget)
+        .pagination(this.page, this.limit)
+        .value();
+    }
   },
 
   mounted() {

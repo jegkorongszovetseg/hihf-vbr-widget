@@ -8,10 +8,10 @@
           :class="[
             [column.class],
             {
-              'is-active': prop === sort.sortTarget && sort.sortState !== SORT_STATE_ORIGINAL,
+              'is-active': prop === sort.sortTarget && sort.orders[0].direction !== SORT_STATE_ORIGINAL,
               'is-sortable': column.sortable,
-              'is-desc': prop === sort.sortTarget && sort.sortState === SORT_STATE_DESCEND,
-              'is-asc': prop === sort.sortTarget && sort.sortState === SORT_STATE_ASCEND
+              'is-desc': prop === sort.sortTarget && sort.orders[0].direction === SORT_STATE_DESCEND,
+              'is-asc': prop === sort.sortTarget && sort.orders[0].direction === SORT_STATE_ASCEND
             }
           ]"
           v-tooltip="{ content: $t(column.tooltip) }"
@@ -22,15 +22,15 @@
           </slot>
           <IconSort v-if="column.sortable && prop !== sort.sortTarget" class="icon-sort"></IconSort>
           <IconSort
-            v-if="prop === sort.sortTarget && sort.sortState === SORT_STATE_ORIGINAL"
+            v-if="prop === sort.sortTarget && sort.orders[0].direction === SORT_STATE_ORIGINAL"
             class="icon-sort"
           ></IconSort>
           <IconSortAsc
-            v-if="prop === sort.sortTarget && sort.sortState === SORT_STATE_DESCEND"
+            v-if="prop === sort.sortTarget && sort.orders[0].direction === SORT_STATE_DESCEND"
             class="icon-sort"
           ></IconSortAsc>
           <IconSortDesc
-            v-if="prop === sort.sortTarget && sort.sortState === SORT_STATE_ASCEND"
+            v-if="prop === sort.sortTarget && sort.orders[0].direction === SORT_STATE_ASCEND"
             class="icon-sort"
           ></IconSortDesc>
         </th>
@@ -41,7 +41,10 @@
         <td
           v-for="(_, prop) in columns"
           :key="prop"
-          :class="[[_.class], { 'is-active': prop === sort.sortTarget && sort.sortState !== SORT_STATE_ORIGINAL }]"
+          :class="[
+            [_.class],
+            { 'is-active': prop === sort.sortTarget && sort.orders[0].direction !== SORT_STATE_ORIGINAL }
+          ]"
         >
           <slot :name="`cell-${prop}`" :row="row" :prop="prop">
             {{ row[prop] }}
@@ -113,7 +116,7 @@ export default {
   methods: {
     sortBy(column, prop) {
       if (!column.sortable) return;
-      this.$emit('sort', { target: prop, state: column.defaultSortState });
+      this.$emit('sort', { target: prop, orders: column.sortOrders });
     }
   }
 };

@@ -1,6 +1,6 @@
 import { keys } from 'ramda';
 import { i18n } from '../../localization';
-import { SORT_STATE_ASCEND } from '../../constatnts';
+import { SORT_STATE_ASCEND, SORT_STATE_DESCEND } from '../../constatnts';
 
 export const validateColumnsName = (columns, hiddenColumns) => {
   const hiddenColumnsArray = hiddenColumns.split(',');
@@ -297,58 +297,70 @@ export const COLUMNS_GOALIES = {
   name: {
     label: 'table.name.short',
     tooltip: 'table.name.tooltip',
+    class: 'text-left w-auto text-bold',
     sortable: true,
-    class: 'text-left w-auto text-bold'
+    sortOrders: [{ target: 'name', direction: SORT_STATE_ASCEND }]
   },
   teamName: {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
+    class: 'text-left w-auto',
     sortable: true,
-    class: 'text-left w-auto'
+    sortOrders: [{ target: 'teamName', direction: SORT_STATE_ASCEND }]
   },
   gkd: {
     label: 'table.gpgk.short',
     tooltip: 'table.gpgk.tooltip',
-    sortable: true
+    sortable: true,
+    sortOrders: [{ target: 'gkd', direction: SORT_STATE_DESCEND }]
   },
   gpi: {
     label: 'table.gpi.short',
     tooltip: 'table.gpi.tooltip',
-    sortable: true
+    sortable: true,
+    sortOrders: [{ target: 'gpi', direction: SORT_STATE_DESCEND }]
   },
   mip: {
     label: 'table.toi.short',
     tooltip: 'table.toi.tooltip',
-    sortable: true
+    sortable: true,
+    defaultSortState: SORT_STATE_DESCEND,
+    sortOrders: [{ target: 'mipSec', direction: SORT_STATE_DESCEND }]
   },
   mipPercent: {
     label: 'table.toiPercent.short',
     tooltip: 'table.toiPercent.tooltip',
-    sortable: true
+    sortable: true,
+    sortOrders: [{ target: 'mipPercent', direction: SORT_STATE_DESCEND }]
   },
   ga: {
     label: 'table.ga.short',
     tooltip: 'table.ga.tooltip',
-    sortable: true
+    sortable: true,
+    sortOrders: [{ target: 'ga', direction: SORT_STATE_DESCEND }]
   },
   gaa: {
     label: 'table.gaa.short',
     tooltip: 'table.gaa.tooltip',
-    sortable: true
+    sortable: true,
+    sortOrders: [{ target: 'gaa', direction: SORT_STATE_DESCEND }]
   },
   sa: {
     label: 'table.sa.short',
     tooltip: 'table.sa.tooltip',
-    sortable: true
+    sortable: true,
+    sortOrders: [{ target: 'sa', direction: SORT_STATE_DESCEND }]
   },
   svs: {
     label: 'table.svs.short',
     tooltip: 'table.svs.tooltip',
-    sortable: true
+    sortable: true,
+    sortOrders: [{ target: 'svs', direction: SORT_STATE_DESCEND }]
   },
   svsPercent: {
     label: 'table.svsPercent.short',
     tooltip: 'table.svsPercent.tooltip',
-    sortable: true
+    sortable: true,
+    sortOrders: [{ target: 'svsPercent', direction: SORT_STATE_DESCEND }]
   }
 };

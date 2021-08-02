@@ -35,3 +35,8 @@ export const offsetName = (datetime = '', timezone = '', lang = 'hu') => {
 const getLocaleForLang = lang => {
   return LOCALE_FOR_LANG.get(lang);
 };
+
+export const convertMinToSec = minutes => {
+  const splitted = minutes.split(':');
+  return parseInt(splitted[0], 10) * 60 + parseInt(splitted[1], 10);
+};

@@ -4,7 +4,7 @@ import { SORT_STATE_ASCEND, SORT_STATE_DESCEND, SORT_STATE_ORIGINAL } from '../c
 export function SortService(initialSortObject) {
   this.defaultSort = {
     sortTarget: null,
-    sortState: SORT_STATE_ORIGINAL
+    orders: []
   };
 
   this.sort = initialSortObject ? initialSortObject : this.defaultSort;
@@ -35,20 +35,30 @@ const sortMachine = createMachine({
   }
 });
 
+const transitionOrderState = (originalSortState, sortState) => {
+  const direction = sortState === SORT_STATE_ASCEND ? 'DIRECTION2' : 'DIRECTION1';
+  return sortMachine.transition(originalSortState, direction).value;
+};
+
 SortService.prototype = {
-  set: function(target, initialState) {
+  set: function(target, orders) {
     if (this.sort.sortTarget !== target) {
       this.sort.sortTarget = target;
-      this.sort.sortState = initialState || SORT_STATE_DESCEND;
+      this.sort.orders = orders;
       return this;
     }
 
-    const direction = initialState === SORT_STATE_ASCEND ? 'DIRECTION2' : 'DIRECTION1';
-    const sortState = sortMachine.transition(this.sort.sortState, direction).value;
+    // const direction = initialState === SORT_STATE_ASCEND ? 'DIRECTION2' : 'DIRECTION1';
+    // const sortState = sortMachine.transition(this.sort.sortState, direction).value;
+
+    const nextOrders = orders.map((order, index) => ({
+      ...order,
+      direction: transitionOrderState(this.sort.orders[index].direction, order.direction)
+    }));
 
     this.sort = {
       sortTarget: target,
-      sortState
+      orders: nextOrders
     };
     return this;
   },

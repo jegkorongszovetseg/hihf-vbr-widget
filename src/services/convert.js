@@ -1,4 +1,4 @@
-import { ascend, descend, filter, prop, propEq, sortWith } from 'ramda';
+import { always, ascend, compose, descend, equals, filter, ifElse, prop, propEq, sortWith } from 'ramda';
 import { SORT_STATE_ASCEND, SORT_STATE_ORIGINAL } from '../constatnts';
 import { format } from '@/utils/datetime';
 import { convertMinToSec } from '../utils/datetime';
@@ -26,9 +26,16 @@ const convert = (data = []) => {
 
     sorted(sort) {
       if (sort.orders[0].direction === SORT_STATE_ORIGINAL) return this;
-      this.result = sortWith(
-        sort.orders.map(s => (s.direction === SORT_STATE_ASCEND ? ascend : descend)(prop(s.target)))
-      )(this.result);
+      const sortDirection = ifElse(equals(SORT_STATE_ASCEND), always(ascend), always(descend));
+      // const sortD = ifElse(
+      //   compose(is(String), prop('target')),
+      //   (a, b, c, d) => {
+      //     console.log({ a, b, c, d }, c[a.target]);
+      //     return c[a.target].localeCompare(d[a.target]);
+      //   },
+      //   compose(sortDirection, prop('direction'))
+      // );
+      this.result = sortWith(sort.orders.map(s => compose(sortDirection(s.direction), prop)(s.target)))(this.result);
       return this;
     },
 

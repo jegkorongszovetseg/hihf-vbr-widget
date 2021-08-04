@@ -25,7 +25,6 @@ const convert = (data = []) => {
     },
 
     sorted(sort) {
-      console.log(sort);
       if (!sort.sortTarget) return this;
       if (sort.orders[0].direction === SORT_STATE_ORIGINAL) return this;
       const sortDirection = ifElse(equals(SORT_STATE_ASCEND), always(ascend), always(descend));

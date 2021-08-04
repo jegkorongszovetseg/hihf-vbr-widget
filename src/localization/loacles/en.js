@@ -135,6 +135,10 @@ export default {
       short: 'PIM',
       tooltip: 'Penalty Minutes'
     },
+    pimPerGame: {
+      short: 'PIM/G',
+      tooltip: 'Penalty Minutes per Game'
+    },
     gpgk: {
       short: 'GP',
       tooltip: 'Games Played'

@@ -135,6 +135,10 @@ export default {
       short: 'BÜP',
       tooltip: 'Büntetés Percek'
     },
+    pimPerGame: {
+      short: 'BÜP/M',
+      tooltip: 'Mérkőzésenkénti Büntetés Percek'
+    },
     gpgk: {
       short: 'M',
       tooltip: 'Mérkőzésre Nevezve'

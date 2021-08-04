@@ -5,21 +5,19 @@
     <!-- Büntetők  56731 -->
     <!-- hosszabítás: 56726 -->
     <!-- <Game game-id="61309" :lang="locale" /> -->
-    <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
-    <!-- <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" /> -->
-    <!-- <LeaderFieldPlayers lang="en" championship-id="2051" division="Alapszakasz" :limit="50" /> -->
+    <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" />
     <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
     <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" />
     <GoaliesLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <!-- <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" /> -->
   </div>
 </template>
 
 <script>
 // import Game from './components/widgets/Game';
-// import Standing from './components/widgets/Standings';
-// import LeaderFieldPlayers from './components/widgets/LeaderFieldPlayers';
-// import Schedule from './components/widgets/Schedule';
+import Standing from './components/widgets/Standings';
+import Schedule from './components/widgets/Schedule';
 import FieldPlayersPenalties from './components/widgets/FieldPlayersPenalties';
 import FieldPlayersLeader from './components/widgets/FieldPlayersLeader';
 import GoaliesLeader from './components/widgets/GoliesLeader';
@@ -28,9 +26,8 @@ export default {
   name: 'App',
   components: {
     // Game
-    // Standing,
-    // LeaderFieldPlayers,
-    // Schedule,
+    Standing,
+    Schedule,
     GoaliesLeader,
     FieldPlayersLeader,
     FieldPlayersPenalties

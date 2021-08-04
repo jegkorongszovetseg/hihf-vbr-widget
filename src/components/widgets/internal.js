@@ -23,57 +23,57 @@ export const COLUMNS_STANDINGS_P_3 = {
   name: {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
-    sortable: true,
-    class: 'text-left w-auto text-bold'
+    class: 'text-left w-auto text-bold',
+    sortOrders: [{ target: 'name', direction: SORT_STATE_ASCEND }]
   },
   m: {
     label: 'table.game.short',
     tooltip: 'table.game.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'm', direction: SORT_STATE_DESCEND }]
   },
   p3: {
     label: 'table.wins.short',
     tooltip: 'table.wins.tooltip',
-    sortable: true
+    sortOrders: [
+      { target: 'p3', direction: SORT_STATE_DESCEND },
+      { target: 'p2', direction: SORT_STATE_DESCEND }
+    ]
   },
   p2: {
     label: 'table.otw.short',
     tooltip: 'table.otw.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'p2', direction: SORT_STATE_DESCEND }]
   },
   p1: {
     label: 'table.otl.short',
     tooltip: 'table.otl.tooltip',
-    sortable: true,
-    defaultSortState: SORT_STATE_ASCEND
+    sortOrders: [{ target: 'p1', direction: SORT_STATE_ASCEND }]
   },
   p0: {
     label: 'table.losses.short',
     tooltip: 'table.losses.tooltip',
-    sortable: true,
-    defaultSortState: SORT_STATE_ASCEND
+    sortOrders: [{ target: 'p0', direction: SORT_STATE_ASCEND }]
   },
   plus: {
     label: 'table.goalFor.short',
     tooltip: 'table.goalFor.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'plus', direction: SORT_STATE_DESCEND }]
   },
   minus: {
     label: 'table.goalAgainst.short',
     tooltip: 'table.goalAgainst.tooltip',
-    sortable: true,
-    defaultSortState: SORT_STATE_ASCEND
+    sortOrders: [{ target: 'minus', direction: SORT_STATE_ASCEND }]
   },
   gk: {
     label: 'table.goalDiff.short',
     tooltip: 'table.goalDiff.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'gk', direction: SORT_STATE_DESCEND }]
   },
   p: {
     label: 'table.points.short',
     tooltip: 'table.points.tooltip',
-    sortable: true,
-    class: 'text-bold'
+    class: 'text-bold',
+    sortOrders: [{ target: 'p', direction: SORT_STATE_DESCEND }]
   }
 };
 
@@ -85,51 +85,55 @@ export const COLUMNS_STANDINGS_P_2 = {
   name: {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
-    sortable: true,
-    class: 'text-left w-auto text-bold'
+    class: 'text-left w-auto text-bold',
+    sortOrders: [{ target: 'name', direction: SORT_STATE_ASCEND }]
   },
   m: {
     label: 'table.game.short',
     tooltip: 'table.game.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'm', direction: SORT_STATE_DESCEND }]
   },
   p2: {
     label: 'table.wins.short',
     tooltip: 'table.wins.tooltip',
-    sortable: true
+    sortOrders: [
+      { target: 'p2', direction: SORT_STATE_DESCEND },
+      { target: 'p1', direction: SORT_STATE_DESCEND }
+    ]
   },
   p1: {
     label: 'table.draw.short',
     tooltip: 'table.draw.tooltip',
-    sortable: true
+    sortOrders: [
+      { target: 'p1', direction: SORT_STATE_DESCEND },
+      { target: 'p2', direction: SORT_STATE_DESCEND }
+    ]
   },
   p0: {
     label: 'table.losses.short',
     tooltip: 'table.losses.tooltip',
-    sortable: true,
-    defaultSortState: SORT_STATE_ASCEND
+    sortOrders: [{ target: 'p0', direction: SORT_STATE_ASCEND }]
   },
   plus: {
     label: 'table.goalFor.short',
     tooltip: 'table.goalFor.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'plus', direction: SORT_STATE_DESCEND }]
   },
   minus: {
     label: 'table.goalAgainst.short',
     tooltip: 'table.goalAgainst.tooltip',
-    sortable: true,
-    defaultSortState: SORT_STATE_ASCEND
+    sortOrders: [{ target: 'minus', direction: SORT_STATE_ASCEND }]
   },
   gk: {
     label: 'table.goalDiff.short',
     tooltip: 'table.goalDiff.tooltip',
-    sortable: true
+    sortOrders: [{ target: 'gk', direction: SORT_STATE_DESCEND }]
   },
   p: {
     label: 'table.points.short',
     tooltip: 'table.points.tooltip',
-    sortable: true,
-    class: 'text-bold'
+    class: 'text-bold',
+    sortOrders: [{ target: 'p', direction: SORT_STATE_DESCEND }]
   }
 };
 

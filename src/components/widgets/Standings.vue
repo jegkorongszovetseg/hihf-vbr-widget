@@ -119,8 +119,8 @@ export default {
       }
     },
 
-    onSort({ target, state }) {
-      this.sort = this.SortService.set(target, state).get();
+    onSort({ target, orders }) {
+      this.sort = this.SortService.set(target, orders).get();
     }
   }
 };

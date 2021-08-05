@@ -28,7 +28,7 @@
 <script>
 import { SORT_STATE_DESCEND } from '../../constatnts';
 import convert from '../../services/convert';
-import { COLUMNS_TEAMS_FAIRPLAY } from './internal';
+import { COLUMNS_TEAMS_POWERPLAY } from './internal';
 import CommonStaisticMixin from './StatisticMixin';
 
 export default {
@@ -38,10 +38,10 @@ export default {
 
   data() {
     return {
-      columns: COLUMNS_TEAMS_FAIRPLAY,
+      columns: COLUMNS_TEAMS_POWERPLAY,
       sort: {
-        sortTarget: 'pim',
-        orders: [{ target: 'pim', direction: SORT_STATE_DESCEND }]
+        sortTarget: 'ppPercent',
+        orders: [{ target: 'ppPercent', direction: SORT_STATE_DESCEND }]
       }
     };
   },
@@ -49,6 +49,7 @@ export default {
   computed: {
     convertedData() {
       return convert(this.rows)
+        .convertTimes(['advTime', 'advTimePP1', 'advTimePP2'])
         .sorted(this.sort)
         .addContinuousIndex()
         .value();

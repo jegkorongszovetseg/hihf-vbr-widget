@@ -5,6 +5,7 @@
     <!-- Büntetők  56731 -->
     <!-- hosszabítás: 56726 -->
     <!-- <Game game-id="61309" :lang="locale" /> -->
+    <TeamPowerplay :lang="locale" championship-id="2051" division="Alapszakasz" />
     <TeamFairplay :lang="locale" championship-id="2051" division="Alapszakasz" />
     <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" />
     <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
@@ -23,6 +24,7 @@ import FieldPlayersPenalties from './components/widgets/FieldPlayersPenalties';
 import FieldPlayersLeader from './components/widgets/FieldPlayersLeader';
 import GoaliesLeader from './components/widgets/GoliesLeader';
 import TeamFairplay from './components/widgets/TeamFairplay';
+import TeamPowerplay from './components/widgets/TeamPowerplay';
 
 export default {
   name: 'App',
@@ -32,6 +34,7 @@ export default {
     Schedule,
     TeamFairplay,
     GoaliesLeader,
+    TeamPowerplay,
     FieldPlayersLeader,
     FieldPlayersPenalties
   },

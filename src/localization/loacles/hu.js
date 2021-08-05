@@ -174,6 +174,54 @@ export default {
     svsPercent: {
       short: 'VH%',
       tooltip: 'Védés Hatékonyság'
+    },
+    homeHeader: {
+      short: 'Hazai:',
+      tooltip: ''
+    },
+    awayHeader: {
+      short: 'Vendég:',
+      tooltip: ''
+    },
+    totalHeader: {
+      short: 'Összes:',
+      tooltip: ''
+    },
+    homeGame: {
+      short: 'M',
+      tooltip: 'Hazai Mérkőzés'
+    },
+    awayGame: {
+      short: 'M',
+      tooltip: 'Vendég Mérkőzés'
+    },
+    totalGame: {
+      short: 'M',
+      tooltip: 'Összes Mérkőzés'
+    },
+    homeAttendance: {
+      short: 'Nézőszám',
+      tooltip: 'Hazai Néző'
+    },
+    awayAttendance: {
+      short: 'Nézőszám',
+      tooltip: 'Vendég Néző'
+    },
+    totalAttendance: {
+      short: 'Nézőszám',
+      tooltip: 'Összes Néző'
+    },
+    homeAttendanceAvg: {
+      short: 'Átlag',
+      tooltip: 'Hazi Néző Átlag'
+    },
+    awayAttendanceAvg: {
+      short: 'Átlag',
+      tooltip: 'Vendég Néző Átlag'
+    },
+    totalAttendanceAvg: {
+      short: 'Átlag',
+      tooltip: 'Összes Néző Átlag'
     }
   },
   game: {

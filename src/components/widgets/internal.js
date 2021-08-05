@@ -735,7 +735,7 @@ var TeamGoalsShotsCols = [
   }
 ];
 
-export const COLUMNS_ATTENDANCE = {
+export const COLUMNS_TEAM_ATTENDANCE = {
   index: {
     label: 'table.blank',
     class: 'text-left'
@@ -747,8 +747,7 @@ export const COLUMNS_ATTENDANCE = {
     sortOrders: [{ target: 'teamName', direction: SORT_STATE_ASCEND }]
   },
   home: {
-    label: 'table.homeGame.short',
-    tooltip: 'table.homeGame.tooltip'
+    label: 'table.homeHeader.short'
   },
   homeGame: {
     label: 'table.homeGame.short',
@@ -766,8 +765,7 @@ export const COLUMNS_ATTENDANCE = {
     sortOrders: [{ target: 'homeAttendanceAvg', direction: SORT_STATE_DESCEND }]
   },
   away: {
-    label: 'table.away.short',
-    tooltip: 'table.away.tooltip'
+    label: 'table.awayHeader.short'
   },
   awayGame: {
     label: 'table.awayGame.short',
@@ -785,8 +783,7 @@ export const COLUMNS_ATTENDANCE = {
     sortOrders: [{ target: 'awayAttendanceAvg', direction: SORT_STATE_DESCEND }]
   },
   total: {
-    label: 'table.total.short',
-    tooltip: 'table.total.tooltip'
+    label: 'table.totalHeader.short'
   },
   totalGame: {
     label: 'table.totalGame.short',

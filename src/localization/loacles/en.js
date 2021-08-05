@@ -174,6 +174,54 @@ export default {
     svsPercent: {
       short: 'SV%',
       tooltip: 'Save Percentage'
+    },
+    homeHeader: {
+      short: 'Home:',
+      tooltip: ''
+    },
+    awayHeader: {
+      short: 'Away:',
+      tooltip: ''
+    },
+    totalHeader: {
+      short: 'Total:',
+      tooltip: ''
+    },
+    homeGame: {
+      short: 'GP',
+      tooltip: 'Home Games Played'
+    },
+    awayGame: {
+      short: 'GP',
+      tooltip: 'Away Games Played'
+    },
+    totalGame: {
+      short: 'GP',
+      tooltip: 'Total Games Played'
+    },
+    homeAttendance: {
+      short: 'Att',
+      tooltip: 'Home Attendance'
+    },
+    awayAttendance: {
+      short: 'Att',
+      tooltip: 'Away Attendance'
+    },
+    totalAttendance: {
+      short: 'Att',
+      tooltip: 'Total Attendance'
+    },
+    homeAttendanceAvg: {
+      short: 'Avg',
+      tooltip: 'Home Average Attendance'
+    },
+    awayAttendanceAvg: {
+      short: 'Avg',
+      tooltip: 'Away Average Attendance'
+    },
+    totalAttendanceAvg: {
+      short: 'Avg',
+      tooltip: 'Total Average Attendance'
     }
   },
   game: {

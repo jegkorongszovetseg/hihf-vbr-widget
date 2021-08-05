@@ -499,3 +499,308 @@ export const COLUMNS_TEAMS_POWERPLAY = {
     sortOrders: [{ target: 'ppPercent', direction: SORT_STATE_DESCEND }]
   }
 };
+
+export const COLUMNS_TEAMS_PENALTY_KILLING = {
+  index: {
+    label: 'table.blank',
+    class: 'text-left'
+  },
+  teamName: {
+    label: 'table.team.short',
+    tooltip: 'table.team.tooltip',
+    class: 'text-left w-auto',
+    sortOrders: [{ target: 'teamName', direction: SORT_STATE_ASCEND }]
+  },
+  gp: {
+    label: 'table.game.short',
+    tooltip: 'table.game.tooltip',
+    sortOrders: [{ target: 'gp', direction: SORT_STATE_DESCEND }]
+  },
+  dvg: {
+    label: 'table.dvg.short',
+    tooltip: 'table.dvg.tooltip',
+    sortOrders: [{ target: 'dvg', direction: SORT_STATE_DESCEND }]
+  },
+  dvgTime: {
+    label: 'table.dvgTime.short',
+    tooltip: 'table.dvgTime.tooltip',
+    sortOrders: [{ target: 'dvgTimeSec', direction: SORT_STATE_DESCEND }]
+  },
+  dvgTimePP1: {
+    label: 'table.dvgTimePP1.short',
+    tooltip: 'table.dvgTimePP1.tooltip',
+    sortOrders: [{ target: 'dvgTimePP1Sec', direction: SORT_STATE_DESCEND }]
+  },
+  dvgTimePP2: {
+    label: 'table.dvgTimePP2.short',
+    tooltip: 'table.dvgTimePP2.tooltip',
+    sortOrders: [{ target: 'dvgTimePP2', direction: SORT_STATE_DESCEND }]
+  },
+  ppga: {
+    label: 'table.ppga.short',
+    tooltip: 'table.ppga.tooltip',
+    sortOrders: [{ target: 'ppga', direction: SORT_STATE_DESCEND }]
+  },
+  shgf: {
+    label: 'table.shgf.short',
+    tooltip: 'table.shgf.tooltip',
+    sortOrders: [{ target: 'shgf', direction: SORT_STATE_DESCEND }]
+  },
+  pkPercent: {
+    label: 'table.pkPercent.short',
+    tooltip: 'table.pkPercent.tooltip',
+    sortOrders: [{ target: 'pkPercent', direction: SORT_STATE_DESCEND }]
+  }
+};
+
+export const COLUMNS_SCORING_EFFICIENCY = {
+  index: {
+    label: 'table.blank',
+    class: 'text-left'
+  },
+  teamName: {
+    label: 'table.team.short',
+    tooltip: 'table.team.tooltip',
+    class: 'text-left w-auto',
+    sortOrders: [{ target: 'teamName', direction: SORT_STATE_ASCEND }]
+  },
+  m: {
+    label: 'table.game.short',
+    tooltip: 'table.game.tooltip',
+    sortOrders: [{ target: 'gp', direction: SORT_STATE_DESCEND }]
+  },
+  plus: {
+    label: 'table.plus.short',
+    tooltip: 'table.plus.tooltip',
+    sortOrders: [{ target: 'plus', direction: SORT_STATE_DESCEND }]
+  },
+  minus: {
+    label: 'table.minus.short',
+    tooltip: 'table.minus.tooltip',
+    sortOrders: [{ target: 'minus', direction: SORT_STATE_DESCEND }]
+  },
+  gk: {
+    label: 'table.gk.short',
+    tooltip: 'table.gk.tooltip',
+    sortOrders: [{ target: 'gk', direction: SORT_STATE_DESCEND }]
+  },
+  GFGP: {
+    label: 'table.GFGP.short',
+    tooltip: 'table.GFGP.tooltip',
+    sortOrders: [{ target: 'GFGP', direction: SORT_STATE_DESCEND }]
+  },
+  GAGP: {
+    label: 'table.GAGP.short',
+    tooltip: 'table.GAGP.tooltip',
+    sortOrders: [{ target: 'GAGP', direction: SORT_STATE_DESCEND }]
+  },
+  Shots: {
+    label: 'table.Shots.short',
+    tooltip: 'table.Shots.tooltip',
+    sortOrders: [{ target: 'shgf', direction: SORT_STATE_DESCEND }]
+  },
+  SA: {
+    label: 'table.SA.short',
+    tooltip: 'table.SA.tooltip',
+    sortOrders: [{ target: 'SA', direction: SORT_STATE_DESCEND }]
+  },
+  ShotsGP: {
+    label: 'table.ShotsGP.short',
+    tooltip: 'table.ShotsGP.tooltip',
+    sortOrders: [{ target: 'ShotsGP', direction: SORT_STATE_DESCEND }]
+  },
+  SAGP: {
+    label: 'table.SAGP.short',
+    tooltip: 'table.SAGP.tooltip',
+    sortOrders: [{ target: 'ShotsGP', direction: SORT_STATE_DESCEND }]
+  },
+  GFShots: {
+    label: 'table.GFShots.short',
+    tooltip: 'table.GFShots.tooltip',
+    sortOrders: [{ target: 'GFShots', direction: SORT_STATE_DESCEND }]
+  }
+};
+
+var TeamGoalsShotsCols = [
+  {
+    target: '',
+    name: 'rank',
+    sortable: false,
+    filter: 'num',
+    class: 'rank'
+  },
+  {
+    target: 'id',
+    name: '',
+    sortable: false,
+    filter: 'image',
+    class: 'teamLogo'
+  },
+  {
+    target: 'name',
+    name: 'team',
+    sortable: true,
+    sortDesc: false,
+    sortTarget: ['name'],
+    filter: '',
+    class: 'nameTeam'
+  },
+  {
+    target: 'm',
+    name: 'gp',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['m'],
+    filter: ''
+  },
+  {
+    target: 'plus',
+    name: 'goals',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['plus'],
+    filter: ''
+  },
+  {
+    target: 'minus',
+    name: 'ga',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['minus'],
+    filter: ''
+  },
+  {
+    target: 'gk',
+    name: 'goaldif',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['gk'],
+    filter: ''
+  },
+  {
+    target: 'GFGP',
+    name: 'gfgp',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['GFGP'],
+    filter: 'FixNumber'
+  },
+  {
+    target: 'GAGP',
+    name: 'gagp',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['GAGP'],
+    filter: 'FixNumber'
+  },
+  {
+    target: 'Shots',
+    name: 'shoot',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['Shots'],
+    filter: ''
+  },
+  {
+    target: 'SA',
+    name: 'sog',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['SA'],
+    filter: ''
+  },
+  {
+    target: 'ShotsGP',
+    name: 'sogp',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['ShotsGP'],
+    filter: 'FixNumber'
+  },
+  {
+    target: 'SAGP',
+    name: 'sagp',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['SAGP'],
+    filter: 'FixNumber'
+  },
+  {
+    target: 'GFShots',
+    name: 'shoot_percent',
+    sortable: true,
+    sortDesc: true,
+    sortTarget: ['GFShots'],
+    filter: 'FixNumber'
+  }
+];
+
+export const COLUMNS_ATTENDANCE = {
+  index: {
+    label: 'table.blank',
+    class: 'text-left'
+  },
+  teamName: {
+    label: 'table.team.short',
+    tooltip: 'table.team.tooltip',
+    class: 'text-left w-auto',
+    sortOrders: [{ target: 'teamName', direction: SORT_STATE_ASCEND }]
+  },
+  home: {
+    label: 'table.homeGame.short',
+    tooltip: 'table.homeGame.tooltip'
+  },
+  homeGame: {
+    label: 'table.homeGame.short',
+    tooltip: 'table.homeGame.tooltip',
+    sortOrders: [{ target: 'homeGame', direction: SORT_STATE_DESCEND }]
+  },
+  homeAttendance: {
+    label: 'table.homeAttendance.short',
+    tooltip: 'table.homeAttendance.tooltip',
+    sortOrders: [{ target: 'homeAttendance', direction: SORT_STATE_DESCEND }]
+  },
+  homeAttendanceAvg: {
+    label: 'table.homeAttendanceAvg.short',
+    tooltip: 'table.homeAttendanceAvg.tooltip',
+    sortOrders: [{ target: 'homeAttendanceAvg', direction: SORT_STATE_DESCEND }]
+  },
+  away: {
+    label: 'table.away.short',
+    tooltip: 'table.away.tooltip'
+  },
+  awayGame: {
+    label: 'table.awayGame.short',
+    tooltip: 'table.awayGame.tooltip',
+    sortOrders: [{ target: 'awayGame', direction: SORT_STATE_DESCEND }]
+  },
+  awayAttendance: {
+    label: 'table.awayAttendance.short',
+    tooltip: 'table.awayAttendance.tooltip',
+    sortOrders: [{ target: 'awayAttendance', direction: SORT_STATE_DESCEND }]
+  },
+  awayAttendanceAvg: {
+    label: 'table.awayAttendanceAvg.short',
+    tooltip: 'table.awayAttendanceAvg.tooltip',
+    sortOrders: [{ target: 'awayAttendanceAvg', direction: SORT_STATE_DESCEND }]
+  },
+  total: {
+    label: 'table.total.short',
+    tooltip: 'table.total.tooltip'
+  },
+  totalGame: {
+    label: 'table.totalGame.short',
+    tooltip: 'table.totalGame.tooltip',
+    sortOrders: [{ target: 'totalGame', direction: SORT_STATE_DESCEND }]
+  },
+  totalAttendance: {
+    label: 'table.totalAttendance.short',
+    tooltip: 'table.totalAttendance.tooltip',
+    sortOrders: [{ target: 'totalAttendance', direction: SORT_STATE_DESCEND }]
+  },
+  totalAttendanceAvg: {
+    label: 'table.totalAttendanceAvg.short',
+    tooltip: 'table.totalAttendanceAvg.tooltip',
+    sortOrders: [{ target: 'totalAttendanceAvg', direction: SORT_STATE_DESCEND }]
+  }
+};

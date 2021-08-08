@@ -5,6 +5,7 @@
     <!-- Büntetők  56731 -->
     <!-- hosszabítás: 56726 -->
     <!-- <Game game-id="61309" :lang="locale" /> -->
+    <TeamScoringEfficiency :lang="locale" championship-id="2051" division="Alapszakasz" />
     <TeamAttandance :lang="locale" championship-id="2051" division="Alapszakasz" />
     <TeamPenaltyKilling :lang="locale" championship-id="2051" division="Alapszakasz" />
     <TeamPowerplay :lang="locale" championship-id="2051" division="Alapszakasz" />
@@ -29,6 +30,7 @@ import TeamFairplay from './components/widgets/TeamFairplay';
 import TeamPowerplay from './components/widgets/TeamPowerplay';
 import TeamPenaltyKilling from './components/widgets/TeamPenaltyKilling';
 import TeamAttandance from './components/widgets/TeamAttandance';
+import TeamScoringEfficiency from './components/widgets/TeamScoringEfficiency';
 
 export default {
   name: 'App',
@@ -42,7 +44,8 @@ export default {
     TeamAttandance,
     FieldPlayersLeader,
     TeamPenaltyKilling,
-    FieldPlayersPenalties
+    FieldPlayersPenalties,
+    TeamScoringEfficiency
   },
 
   data() {

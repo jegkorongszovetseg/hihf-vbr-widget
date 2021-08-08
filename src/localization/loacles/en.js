@@ -279,6 +279,23 @@ export default {
     ppPercent: {
       short: 'PP%',
       tooltip: 'Powerplay Percentage'
+    },
+
+    gfgp: {
+      short: 'GF/GP',
+      tooltip: 'Szerzett gólátlag'
+    },
+    gagp: {
+      short: 'GA/GP',
+      tooltip: 'Kapott gólátlag'
+    },
+    sogp: {
+      short: 'Shots/GP',
+      tooltip: 'Átlagos lövésszám'
+    },
+    sagp: {
+      short: 'SA/GP',
+      tooltip: 'Átlagos kapott lövésszám'
     }
   },
   game: {

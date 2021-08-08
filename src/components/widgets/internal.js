@@ -570,170 +570,56 @@ export const COLUMNS_SCORING_EFFICIENCY = {
     sortOrders: [{ target: 'gp', direction: SORT_STATE_DESCEND }]
   },
   plus: {
-    label: 'table.plus.short',
-    tooltip: 'table.plus.tooltip',
+    label: 'table.goalFor.short',
+    tooltip: 'table.goalFor.tooltip',
     sortOrders: [{ target: 'plus', direction: SORT_STATE_DESCEND }]
   },
   minus: {
-    label: 'table.minus.short',
-    tooltip: 'table.minus.tooltip',
+    label: 'table.goalAgainst.short',
+    tooltip: 'table.goalAgainst.tooltip',
     sortOrders: [{ target: 'minus', direction: SORT_STATE_DESCEND }]
   },
   gk: {
-    label: 'table.gk.short',
-    tooltip: 'table.gk.tooltip',
+    label: 'table.goalDiff.short',
+    tooltip: 'table.goalDiff.tooltip',
     sortOrders: [{ target: 'gk', direction: SORT_STATE_DESCEND }]
   },
   GFGP: {
-    label: 'table.GFGP.short',
-    tooltip: 'table.GFGP.tooltip',
+    label: 'table.gfgp.short',
+    tooltip: 'table.gfgp.tooltip',
     sortOrders: [{ target: 'GFGP', direction: SORT_STATE_DESCEND }]
   },
   GAGP: {
-    label: 'table.GAGP.short',
-    tooltip: 'table.GAGP.tooltip',
+    label: 'table.gagp.short',
+    tooltip: 'table.gagp.tooltip',
     sortOrders: [{ target: 'GAGP', direction: SORT_STATE_DESCEND }]
   },
   Shots: {
-    label: 'table.Shots.short',
-    tooltip: 'table.Shots.tooltip',
-    sortOrders: [{ target: 'shgf', direction: SORT_STATE_DESCEND }]
+    label: 'table.sog.short',
+    tooltip: 'table.sog.tooltip',
+    sortOrders: [{ target: 'Shots', direction: SORT_STATE_DESCEND }]
   },
   SA: {
-    label: 'table.SA.short',
-    tooltip: 'table.SA.tooltip',
+    label: 'table.sa.short',
+    tooltip: 'table.sa.tooltip',
     sortOrders: [{ target: 'SA', direction: SORT_STATE_DESCEND }]
   },
   ShotsGP: {
-    label: 'table.ShotsGP.short',
-    tooltip: 'table.ShotsGP.tooltip',
+    label: 'table.sogp.short',
+    tooltip: 'table.sogp.tooltip',
     sortOrders: [{ target: 'ShotsGP', direction: SORT_STATE_DESCEND }]
   },
   SAGP: {
-    label: 'table.SAGP.short',
-    tooltip: 'table.SAGP.tooltip',
-    sortOrders: [{ target: 'ShotsGP', direction: SORT_STATE_DESCEND }]
+    label: 'table.sagp.short',
+    tooltip: 'table.sagp.tooltip',
+    sortOrders: [{ target: 'SAGP', direction: SORT_STATE_DESCEND }]
   },
   GFShots: {
-    label: 'table.GFShots.short',
-    tooltip: 'table.GFShots.tooltip',
+    label: 'table.sogPercent.short',
+    tooltip: 'table.sogPercent.tooltip',
     sortOrders: [{ target: 'GFShots', direction: SORT_STATE_DESCEND }]
   }
 };
-
-var TeamGoalsShotsCols = [
-  {
-    target: '',
-    name: 'rank',
-    sortable: false,
-    filter: 'num',
-    class: 'rank'
-  },
-  {
-    target: 'id',
-    name: '',
-    sortable: false,
-    filter: 'image',
-    class: 'teamLogo'
-  },
-  {
-    target: 'name',
-    name: 'team',
-    sortable: true,
-    sortDesc: false,
-    sortTarget: ['name'],
-    filter: '',
-    class: 'nameTeam'
-  },
-  {
-    target: 'm',
-    name: 'gp',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['m'],
-    filter: ''
-  },
-  {
-    target: 'plus',
-    name: 'goals',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['plus'],
-    filter: ''
-  },
-  {
-    target: 'minus',
-    name: 'ga',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['minus'],
-    filter: ''
-  },
-  {
-    target: 'gk',
-    name: 'goaldif',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['gk'],
-    filter: ''
-  },
-  {
-    target: 'GFGP',
-    name: 'gfgp',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['GFGP'],
-    filter: 'FixNumber'
-  },
-  {
-    target: 'GAGP',
-    name: 'gagp',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['GAGP'],
-    filter: 'FixNumber'
-  },
-  {
-    target: 'Shots',
-    name: 'shoot',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['Shots'],
-    filter: ''
-  },
-  {
-    target: 'SA',
-    name: 'sog',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['SA'],
-    filter: ''
-  },
-  {
-    target: 'ShotsGP',
-    name: 'sogp',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['ShotsGP'],
-    filter: 'FixNumber'
-  },
-  {
-    target: 'SAGP',
-    name: 'sagp',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['SAGP'],
-    filter: 'FixNumber'
-  },
-  {
-    target: 'GFShots',
-    name: 'shoot_percent',
-    sortable: true,
-    sortDesc: true,
-    sortTarget: ['GFShots'],
-    filter: 'FixNumber'
-  }
-];
 
 export const COLUMNS_TEAM_ATTENDANCE = {
   index: {

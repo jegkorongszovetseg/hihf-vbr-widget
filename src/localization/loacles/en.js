@@ -222,6 +222,63 @@ export default {
     totalAttendanceAvg: {
       short: 'Avg',
       tooltip: 'Total Average Attendance'
+    },
+    powerplayDisadvantages: {
+      short: 'DVG',
+      tooltip: 'Disadvantages (Number of Times Shorthanded)'
+    },
+    dvgTime: {
+      short: 'DVG-T',
+      tooltip: 'Disadvantages Time'
+    },
+    dvgTimePP1: {
+      short: 'DVG-T PP1',
+      tooltip: 'Disadvantages Time (Period of PP1)'
+    },
+    dvgTimePP2: {
+      short: 'DVG-T PP2',
+      tooltip: 'Disadvantages Time (Period of PP2)'
+    },
+    ppga: {
+      short: 'PPGA',
+      tooltip: 'Powerplay Goals Against'
+    },
+    shgf: {
+      short: 'SHGF',
+      tooltip: 'Shorthanded Goals For'
+    },
+    pkPercent: {
+      short: 'PK%',
+      tooltip: 'Penalty Killing Percentage'
+    },
+
+    adv: {
+      short: 'ADV',
+      tooltip: 'Advantages (Times on Powerplay)'
+    },
+    advTime: {
+      short: 'ADV-T',
+      tooltip: 'Advantages Time (Period of Powerplay)'
+    },
+    advTimePP1: {
+      short: 'ADV-T PP1',
+      tooltip: 'Advantages Time (Period of PP1)'
+    },
+    advTimePP2: {
+      short: 'ADV-T PP2',
+      tooltip: 'Advantages Time (Period of PP2)'
+    },
+    ppgf: {
+      short: 'PPGF',
+      tooltip: 'Powerplay Goals For'
+    },
+    shga: {
+      short: 'SHGA',
+      tooltip: 'Shorthanded Goals Against'
+    },
+    ppPercent: {
+      short: 'PP%',
+      tooltip: 'Powerplay Percentage'
     }
   },
   game: {

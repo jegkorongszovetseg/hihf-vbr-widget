@@ -222,6 +222,63 @@ export default {
     totalAttendanceAvg: {
       short: 'Átlag',
       tooltip: 'Összes Néző Átlag'
+    },
+    powerplayDisadvantages: {
+      short: 'DVG',
+      tooltip: 'Emberhátrányok'
+    },
+    dvgTime: {
+      short: 'DVG-T',
+      tooltip: 'Emberhátrányban Töltött Idő'
+    },
+    dvgTimePP1: {
+      short: 'DVG-T PP1',
+      tooltip: 'Szimpla emberhátrányban töltött idő'
+    },
+    dvgTimePP2: {
+      short: 'DVG-T PP2',
+      tooltip: 'Kettős emberhátrányban töltött idő'
+    },
+    ppga: {
+      short: 'PPGA',
+      tooltip: 'Emberhátrányban kapott gólok'
+    },
+    shgf: {
+      short: 'SHGF',
+      tooltip: 'Emberhátrányban szerzett gól'
+    },
+    pkPercent: {
+      short: 'PK%',
+      tooltip: 'Emberhátrány kivédekezés'
+    },
+
+    adv: {
+      short: 'ADV',
+      tooltip: 'Emberelőnyök száma'
+    },
+    advTime: {
+      short: 'ADV-T',
+      tooltip: 'Emberelőnyben töltött idő'
+    },
+    advTimePP1: {
+      short: 'ADV-T PP1',
+      tooltip: 'Szimpla emberelőnyben töltött idő'
+    },
+    advTimePP2: {
+      short: 'ADV-T PP2',
+      tooltip: 'Kettős emberelőnyben töltött idő'
+    },
+    ppgf: {
+      short: 'PPGF',
+      tooltip: 'Emberelőnyben szerzett gólok'
+    },
+    shga: {
+      short: 'SHGA',
+      tooltip: 'Emberelőnyben kapott gólok'
+    },
+    ppPercent: {
+      short: 'PP%',
+      tooltip: 'Emberelőny kihasználás'
     }
   },
   game: {

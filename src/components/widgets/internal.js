@@ -517,8 +517,8 @@ export const COLUMNS_TEAMS_PENALTY_KILLING = {
     sortOrders: [{ target: 'gp', direction: SORT_STATE_DESCEND }]
   },
   dvg: {
-    label: 'table.dvg.short',
-    tooltip: 'table.dvg.tooltip',
+    label: 'table.powerplayDisadvantages.short',
+    tooltip: 'table.powerplayDisadvantages.tooltip',
     sortOrders: [{ target: 'dvg', direction: SORT_STATE_DESCEND }]
   },
   dvgTime: {

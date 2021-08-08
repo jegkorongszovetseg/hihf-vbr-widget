@@ -11,9 +11,9 @@
         :is-loading="isLoading"
         @sort="onSort"
       >
-        <template v-slot:cell-name="{ row }">
+        <template v-slot:cell-teamName="{ row }">
           <ImageBase :class="`${DEFAULT_WIDGET_NAME}-image`" :key="row.id" :src="row.teamLogo" />
-          {{ row.name }}
+          {{ row.teamName }}
         </template>
       </DataTable>
     </ResponsiveTable>

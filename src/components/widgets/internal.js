@@ -20,7 +20,7 @@ export const COLUMNS_STANDINGS_P_3 = {
     label: 'table.blank',
     class: 'text-left'
   },
-  name: {
+  teamName: {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
     class: 'text-left w-auto text-bold',
@@ -82,7 +82,7 @@ export const COLUMNS_STANDINGS_P_2 = {
     label: '#',
     class: 'text-left'
   },
-  name: {
+  teamName: {
     label: 'table.team.short',
     tooltip: 'table.team.tooltip',
     class: 'text-left w-auto text-bold',
@@ -577,7 +577,7 @@ export const COLUMNS_SCORING_EFFICIENCY = {
   minus: {
     label: 'table.goalAgainst.short',
     tooltip: 'table.goalAgainst.tooltip',
-    sortOrders: [{ target: 'minus', direction: SORT_STATE_DESCEND }]
+    sortOrders: [{ target: 'minus', direction: SORT_STATE_ASCEND }]
   },
   gk: {
     label: 'table.goalDiff.short',
@@ -592,7 +592,7 @@ export const COLUMNS_SCORING_EFFICIENCY = {
   GAGP: {
     label: 'table.gagp.short',
     tooltip: 'table.gagp.tooltip',
-    sortOrders: [{ target: 'GAGP', direction: SORT_STATE_DESCEND }]
+    sortOrders: [{ target: 'GAGP', direction: SORT_STATE_ASCEND }]
   },
   Shots: {
     label: 'table.sog.short',
@@ -602,7 +602,7 @@ export const COLUMNS_SCORING_EFFICIENCY = {
   SA: {
     label: 'table.sa.short',
     tooltip: 'table.sa.tooltip',
-    sortOrders: [{ target: 'SA', direction: SORT_STATE_DESCEND }]
+    sortOrders: [{ target: 'SA', direction: SORT_STATE_ASCEND }]
   },
   ShotsGP: {
     label: 'table.sogp.short',
@@ -612,7 +612,7 @@ export const COLUMNS_SCORING_EFFICIENCY = {
   SAGP: {
     label: 'table.sagp.short',
     tooltip: 'table.sagp.tooltip',
-    sortOrders: [{ target: 'SAGP', direction: SORT_STATE_DESCEND }]
+    sortOrders: [{ target: 'SAGP', direction: SORT_STATE_ASCEND }]
   },
   GFShots: {
     label: 'table.sogPercent.short',

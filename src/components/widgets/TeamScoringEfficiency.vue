@@ -40,8 +40,8 @@ export default {
     return {
       columns: COLUMNS_SCORING_EFFICIENCY,
       sort: {
-        sortTarget: 'ppPercent',
-        orders: [{ target: 'ppPercent', direction: SORT_STATE_DESCEND }]
+        sortTarget: 'GFShots',
+        orders: [{ target: 'GFShots', direction: SORT_STATE_DESCEND }]
       }
     };
   },

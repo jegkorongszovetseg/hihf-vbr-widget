@@ -25,7 +25,7 @@ import Standing from './components/widgets/Standings';
 import Schedule from './components/widgets/Schedule';
 import FieldPlayersPenalties from './components/widgets/FieldPlayersPenalties';
 import FieldPlayersLeader from './components/widgets/FieldPlayersLeader';
-import GoaliesLeader from './components/widgets/GoliesLeader';
+import GoaliesLeader from './components/widgets/GoaliesLeader';
 import TeamFairplay from './components/widgets/TeamFairplay';
 import TeamPowerplay from './components/widgets/TeamPowerplay';
 import TeamPenaltyKilling from './components/widgets/TeamPenaltyKilling';

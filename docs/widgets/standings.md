@@ -2,8 +2,8 @@
 
 ## Használat
 ``` html
-<vbr-standings
-  api-key="1234567890"
+<mjsz-vbr-standings
+  api-key="dd8adf5fdb738b3741fa579b5ede5ce69b681f62"
   lang="hu" 
   championship-id="2051"
   division="Alapszakasz"

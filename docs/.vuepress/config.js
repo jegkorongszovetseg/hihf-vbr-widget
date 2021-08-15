@@ -41,20 +41,33 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/'
+        text: 'Widgetek',
+        link: '/widgets/'
       },
       {
-        text: 'Config',
-        link: '/config/'
+        text: 'Stílusok',
+        link: '/styles/'
+      },
+      {
+        text: 'VBR Api',
+        link: '/vbr-api/'
+      },
+      {
+        text: 'GitHub',
+        link: 'https://github.com/Sokamoka/icehockey-vbr-widget'
       }
     ],
     sidebar: {
-      '/guide/': [
+      '/widgets/': [
+        {
+          title: 'Bemutatás',
+          collapsable: false,
+          children: ['', 'using-widget', 'available-widgets']
+        },
         {
           title: 'Widgetek',
           collapsable: false,
-          children: ['', 'using-vue', 'standings']
+          children: ['standings']
         }
       ]
     }

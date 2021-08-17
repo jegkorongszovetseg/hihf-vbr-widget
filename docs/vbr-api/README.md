@@ -26,21 +26,19 @@ curl -X GET "https://api.icehockey.hu/vbr/v1/championshipTeams?championshipId=20
 ```
 ### Javascript - Axios
 ``` js
-// Optionally the request above could also be done as
-axios.get('/user', {
+const fetchVBRData = (path, data) =>
+  axios.get(path, {
     params: {
-      ID: 12345
+      ...data
     }
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });  
+  });
+
+try {
+  const result = await fetchVBRData('', {});
+  if (result.error) console.error(result.error.message);
+} catch (error) {
+  console.error(error.message);
+}
 ```
 
 ### Javascript - Fetch

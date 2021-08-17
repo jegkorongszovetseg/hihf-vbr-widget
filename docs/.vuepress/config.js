@@ -49,7 +49,7 @@ module.exports = {
         link: '/styles/'
       },
       {
-        text: 'VBR Api',
+        text: 'VBR API',
         link: '/vbr-api/'
       },
       {

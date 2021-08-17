@@ -2,14 +2,14 @@
 home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
 tagline: test
-actionText: Quick Start →
-actionLink: /guide/
+actionText: Indulás →
+actionLink: /widgets/
 features:
-- title: Feature 1 Title
+- title: Widgetek
   details: Feature 1 Description
-- title: Feature 2 Title
+- title: Stílusok
   details: Feature 2 Description
-- title: Feature 3 Title
+- title: VBR API elérés
   details: Feature 3 Description
-footer: Made by  with ❤️
+footer: ©2021 Magyar Jégkorong Szövetség
 ---

@@ -12,7 +12,7 @@ module.exports = {
         componentsOptions: {
           InjectAsComment: {
             tag: 'Build version: {version} - {date}',
-            dateFormat: 'dddd, mmmm dS, yyyy, h:MM:ss TT',
+            dateFormat: 'yyyy-mm-dd HH:mm:ss',
             multiLineCommentType: false
           }
         }

@@ -26,7 +26,7 @@
         {{ selectedSeasonId }}
       </div>
       <div class="form-control">
-        <label>Bajnokság azonosító (championshipId):</label>
+        <label>Bajnokság azonosító (championship-id):</label>
         {{ selectedChampionshipIdInt }}
       </div>
       <div class="form-control">

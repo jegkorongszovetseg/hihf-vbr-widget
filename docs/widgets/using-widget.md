@@ -29,4 +29,6 @@ If you are using or demoing components that are not SSR friendly (for example co
 ```
 
 ## Azonosítók lekérdezése
+Ez a kis alkalmazás segít a megfelelő azonosítók lekérdezésésben.
+
 <SeasonIdentifiers></SeasonIdentifiers>

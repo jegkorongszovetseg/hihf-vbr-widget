@@ -1,6 +1,9 @@
 const WebpackAutoInject = require('webpack-auto-inject-version');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 module.exports = {
+  productionSourceMap: false,
   configureWebpack: {
     plugins: [
       new WebpackAutoInject({
@@ -16,6 +19,21 @@ module.exports = {
             multiLineCommentType: false
           }
         }
+      }),
+
+      new CompressionPlugin({
+        filename: '[path][base].gz',
+        algorithm: 'gzip',
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.7
+      }),
+
+      new BrotliPlugin({
+        asset: '[path].br[query]',
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.7
       })
     ]
   }

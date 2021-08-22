@@ -52,7 +52,7 @@ export default {
       selectedChampionshipId: null,
       Sections: [],
       error: '',
-      apiKey: ''
+      apiKey: process.env.VUE_APP_VBR_API_KEY
     };
   },
 

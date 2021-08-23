@@ -6,14 +6,14 @@ Két fájlt kell bellítanod a widgetek eléréséhez:
 
 | Típus           | Link                                                     |
 | --------------- | -------------------------------------------------------- |
-| javascript      | https://api.icehockey.hu/widgets/js/bundle/v1/mjsz-vbr-bundle   |
-| css             | https://api.icehockey.hu/widgets/css/bundle/v1//mjsz-vbr-bundle  |
+| javascript      | [https://api.icehockey.hu/widgets/js/bundle/v1/mjsz-vbr-bundle](https://api.icehockey.hu/widgets/js/bundle/v1/mjsz-vbr-bundle)   |
+| css             | [https://api.icehockey.hu/widgets/css/bundle/v1/mjsz-vbr-bundle](https://api.icehockey.hu/widgets/css/bundle/v1/mjsz-vbr-bundle)  |
 
 A `head` részbe illesztve az alábbi kódot, az oldaladon elérhetővé válnak a widgetek.
 
 ``` html
-<script src="https://api.icehockey.hu/widgets/js/v1/mjsz-vbr-bundle"></script>
-<link rel="stylesheet" href="https://api.icehockey.hu/widgets/css/v1/mjsz-vbr-bundle">
+<script src="https://api.icehockey.hu/widgets/js/bundle/v1/mjsz-vbr-bundle"></script>
+<link rel="stylesheet" href="https://api.icehockey.hu/widgets/css/bundle/v1/mjsz-vbr-bundle">
 ```
 
 ## Használat html fájlokban

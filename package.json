@@ -1,6 +1,7 @@
 {
   "name": "vbr-widget-v1",
   "version": "0.1.0",
+  "description": "MJSZ VBR adatok megjelenítése",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

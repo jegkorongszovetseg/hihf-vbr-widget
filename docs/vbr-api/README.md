@@ -8,7 +8,7 @@ Ha saját megoldást szeretnél készíteni az adatok megjenítésére, akkor az
 Ha kapcsolódni szeretnél a MJSZ Versenybírósági rendszeréhez, kérjük vedd fel a kapcsolatot a Magyar Jégkorong Szövetséggel: [info@icehockey.hu](mailto:info@icehockey.hu)
 :::
 
-Amennyiben rendelkezel a megfelelő jogosultsággal, akkor kapcsolódhatsz a rendszerhez az általunk generelált Api kulcs segítségével.
+Amennyiben rendelkezel a megfelelő jogosultsággal, akkor kapcsolódhatsz a rendszerhez az általunk generelált API kulcs segítségével.
 
 Az API kulcsot a request headerben kell küldeni:
 ``` js

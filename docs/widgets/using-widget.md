@@ -2,13 +2,18 @@
 
 ## Használat
 
-Because VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the [universal code requirements](https://ssr.vuejs.org/en/universal.html). In short, make sure to only access Browser / DOM APIs in `beforeMount` or `mounted` hooks.
+Két fájlt kell bellítanod a widgetek eléréséhez:
 
-If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in `<ClientOnly>` component:
+| Típus           | Link                                                     |
+| --------------- | -------------------------------------------------------- |
+| javascript      | https://api.icehockey.hu/widgets/js/bundle/v1/mjsz-vbr-bundle   |
+| css             | https://api.icehockey.hu/widgets/css/bundle/v1//mjsz-vbr-bundle  |
+
+A `head` részbe illesztve az alábbi kódot, az oldaladon elérhetővé válnak a widgetek.
 
 ``` html
-<script src="https://api.icehockey.hu/widgets/js/v1/vbr-official-bundle"></script>
-<link rel="stylesheet" href="https://api.icehockey.hu/widgets/css/v1/vbr-official-bundle">
+<script src="https://api.icehockey.hu/widgets/js/v1/mjsz-vbr-bundle"></script>
+<link rel="stylesheet" href="https://api.icehockey.hu/widgets/css/v1/mjsz-vbr-bundle">
 ```
 
 ## Használat html fájlokban

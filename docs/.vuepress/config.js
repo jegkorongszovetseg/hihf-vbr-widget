@@ -1,4 +1,4 @@
-const { description } = require('../../package');
+const { description } = require('../../package.json');
 require('dotenv').config({
   path: `./.env${process.env.NODE_ENV === 'production' ? '.production.local' : ''}`
 });
@@ -10,7 +10,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'MJSZ VBR Widgets',
+  title: 'MJSZ VBR Widgetek',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -54,7 +54,7 @@ module.exports = {
       },
       {
         text: 'GitHub',
-        link: 'https://github.com/Sokamoka/icehockey-vbr-widget'
+        link: 'https://github.com/jegkorongszovetseg/hihf-vbr-widget'
       }
     ],
     sidebar: {

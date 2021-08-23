@@ -11,8 +11,8 @@
     "bundle-test": "serve -s server-dist",
     "build-bundle-inline": "vue-cli-service build --inline-vue --target wc --name vbr-official-bundle src/bundle.js",
     "build-bundle": "vue-cli-service build --target wc --name vbr-official-bundle src/bundle.js",
-    "build-custom-bundle": "vue-cli-service build --target lib --name vbr-official-bundle src/custom-bundle.js",
-    "build-custom-inline-bundle": "vue-cli-service build --inline-vue --target lib --name vbr-official-bundle src/custom-bundle.js"
+    "build-custom-bundle": "vue-cli-service build --target lib --name mjsz-vbr-bundle src/custom-bundle.js",
+    "build-custom-inline-bundle": "vue-cli-service build --inline-vue --target lib --name mjsz-vbr-bundle src/custom-bundle.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",

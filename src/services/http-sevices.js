@@ -3,7 +3,6 @@ export const fetchVBRData = async (route, apiKey, data) => {
   return new Promise((resolve, reject) => {
     fetch(url, {
       method: 'GET',
-      // mode: 'cors',
       cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json',
@@ -14,7 +13,7 @@ export const fetchVBRData = async (route, apiKey, data) => {
         return response.json();
       })
       .then(response => {
-        if (hasApiError(response)) return reject(response);
+        if (response.error) return reject(response);
         resolve(response.data);
       })
       .catch(error => {
@@ -27,8 +26,4 @@ const objectToQueryString = obj => {
   return Object.keys(obj)
     .map(key => key + '=' + obj[key])
     .join('&');
-};
-
-const hasApiError = response => {
-  return response && response.error;
 };

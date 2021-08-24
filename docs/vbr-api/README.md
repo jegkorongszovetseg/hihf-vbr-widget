@@ -62,7 +62,7 @@ export const fetchVBRData = async (route, apiKey, data) => {
         return response.json();
       })
       .then(response => {
-        if (hasApiError(response)) return reject(response);
+        if (response.error) return reject(response);
         resolve(response.data);
       })
       .catch(error => {
@@ -76,9 +76,4 @@ const objectToQueryString = obj => {
     .map(key => key + '=' + obj[key])
     .join('&');
 };
-
-const hasApiError = response => {
-  return response && response.error;
-};
-
 ```

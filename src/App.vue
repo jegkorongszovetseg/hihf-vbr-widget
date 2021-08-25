@@ -1,62 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <navigation>
+      <select v-model="selectedRoute">
+        <option v-for="route in routes" :key="route.name">{{ route.name }}</option>
+      </select>
       <button @click="onLocaleChange">Locale: {{ locale }}</button>
       <!-- 5 harmad: 50521 -->
       <!-- Büntetők  56731 -->
       <!-- hosszabítás: 56726 -->
       <!-- <Game game-id="61309" :lang="locale" /> -->
-      <TeamScoringEfficiency :lang="locale" championship-id="2051" division="Alapszakasz" />
-      <TeamAttandance :lang="locale" championship-id="2051" division="Alapszakasz" />
-      <TeamPenaltyKilling :lang="locale" championship-id="2051" division="Alapszakasz" />
-      <TeamPowerplay :lang="locale" championship-id="2051" division="Alapszakasz" />
-      <TeamFairplay :lang="locale" championship-id="2051" division="Alapszakasz" />
-      <Schedule :lang="locale" championship-id="3229" division="Mérkőzés" />
-      <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
-      <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" />
-      <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
-      <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" />
-      <GoaliesLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
-    </div>
-    <router-view />
+    </navigation>
+    <router-view :lang="locale" />
   </div>
 </template>
 
 <script>
-// import Game from './components/widgets/Game';
-import Standing from './components/widgets/Standings';
-import Schedule from './components/widgets/Schedule';
-import FieldPlayersPenalties from './components/widgets/FieldPlayersPenalties';
-import FieldPlayersLeader from './components/widgets/FieldPlayersLeader';
-import GoaliesLeader from './components/widgets/GoaliesLeader';
-import TeamFairplay from './components/widgets/TeamFairplay';
-import TeamPowerplay from './components/widgets/TeamPowerplay';
-import TeamPenaltyKilling from './components/widgets/TeamPenaltyKilling';
-import TeamAttandance from './components/widgets/TeamAttandance';
-import TeamScoringEfficiency from './components/widgets/TeamScoringEfficiency';
+import { routes } from './router';
 
 export default {
   name: 'App',
-  components: {
-    // Game
-    Standing,
-    Schedule,
-    TeamFairplay,
-    GoaliesLeader,
-    TeamPowerplay,
-    TeamAttandance,
-    FieldPlayersLeader,
-    TeamPenaltyKilling,
-    FieldPlayersPenalties,
-    TeamScoringEfficiency
-  },
 
   data() {
     return {
-      locale: this.$i18n.locale
+      locale: this.$i18n.locale,
+      routes
     };
+  },
+
+  computed: {
+    selectedRoute: {
+      get() {
+        return this.$route.name;
+      },
+      set(value) {
+        this.$router.push({ name: value });
+      }
+    }
   },
 
   methods: {
@@ -71,4 +50,25 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+#app {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #eceff1;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
 </style>

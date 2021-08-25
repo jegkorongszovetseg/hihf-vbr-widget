@@ -39,7 +39,7 @@ const fetchVBRData = (path, data) =>
 
 try {
   const result = await fetchVBRData('', {});
-  if (result.error) console.error(result.error.message);
+  if (result.error) console.error(result.message);
 } catch (error) {
   console.error(error.message);
 }

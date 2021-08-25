@@ -1,21 +1,26 @@
 <template>
   <div id="app">
-    <button @click="onLocaleChange">Locale: {{ locale }}</button>
-    <!-- 5 harmad: 50521 -->
-    <!-- Büntetők  56731 -->
-    <!-- hosszabítás: 56726 -->
-    <!-- <Game game-id="61309" :lang="locale" /> -->
-    <TeamScoringEfficiency :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <TeamAttandance :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <TeamPenaltyKilling :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <TeamPowerplay :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <TeamFairplay :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <Schedule :lang="locale" championship-id="3229" division="Mérkőzés" />
-    <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" />
-    <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <GoaliesLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+      <button @click="onLocaleChange">Locale: {{ locale }}</button>
+      <!-- 5 harmad: 50521 -->
+      <!-- Büntetők  56731 -->
+      <!-- hosszabítás: 56726 -->
+      <!-- <Game game-id="61309" :lang="locale" /> -->
+      <TeamScoringEfficiency :lang="locale" championship-id="2051" division="Alapszakasz" />
+      <TeamAttandance :lang="locale" championship-id="2051" division="Alapszakasz" />
+      <TeamPenaltyKilling :lang="locale" championship-id="2051" division="Alapszakasz" />
+      <TeamPowerplay :lang="locale" championship-id="2051" division="Alapszakasz" />
+      <TeamFairplay :lang="locale" championship-id="2051" division="Alapszakasz" />
+      <Schedule :lang="locale" championship-id="3229" division="Mérkőzés" />
+      <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
+      <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" />
+      <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
+      <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" />
+      <GoaliesLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
+    </div>
+    <router-view />
   </div>
 </template>
 

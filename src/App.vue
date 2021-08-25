@@ -10,7 +10,7 @@
     <TeamPenaltyKilling :lang="locale" championship-id="2051" division="Alapszakasz" />
     <TeamPowerplay :lang="locale" championship-id="2051" division="Alapszakasz" />
     <TeamFairplay :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <Schedule :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <Schedule :lang="locale" championship-id="3229" division="Mérkőzés" />
     <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
     <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" />
     <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />

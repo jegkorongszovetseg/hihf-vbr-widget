@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <h2>Elérhető komponensek</h2>
+    <ul>
+      <li v-for="route in routes" :key="route.name">
+        <router-link :to="{ name: route.name }">{{ route.name }}</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue';
+import { routes } from '../router';
 
 export default {
   name: 'Home',
-  components: {
-    // HelloWorld
+
+  data() {
+    return {
+      routes
+    };
   }
 };
 </script>

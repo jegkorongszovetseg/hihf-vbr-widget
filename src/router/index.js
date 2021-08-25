@@ -74,6 +74,12 @@ export const routes = [
       championshipId: '2051',
       division: 'Alapszakasz'
     }
+  },
+  {
+    name: 'Game',
+    props: {
+      gameId: '61309'
+    }
   }
 ];
 

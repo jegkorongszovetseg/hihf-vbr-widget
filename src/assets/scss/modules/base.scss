@@ -16,6 +16,17 @@
     text-align: right;
   }
 
+  .text-accent {
+    color: var(--vbr-widget-secondary-color-500);
+  }
+
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .text-xl{
+    font-size: 1.25rem;
+  }
   
   &-image {
     display: inline-block;

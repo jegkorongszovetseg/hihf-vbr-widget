@@ -61,11 +61,13 @@
       color: var(--vbr-widget-table-active-color);
       background-color: var(--vbr-widget-table-active-bg-color);
     }
-
+    
+    .text-light,
     &.text-light {
       color: var(--vbr-widget-table-cell-light-color);
     }
 
+    .text-dark,
     &.text-dark {
       color: var(--vbr-widget-table-cell-dark-color);
     }
@@ -90,6 +92,10 @@
       &:focus {
         background-color: var(--vbr-widget-popover-trigger-focus-bg-color);
       }
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 

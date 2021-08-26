@@ -13,8 +13,15 @@
         {{ row.awayTeamName }}
       </template>
       <template v-slot:cell-gameResult="{ row }">
-        <span v-if="row.gameStatus === '0'">-:-</span>
-        <a v-else :href="externalBaseUrl + row.id" target="_blank" class="text-dark">{{ row.gameResult }}</a>
+        <span v-if="row.gameStatus === 0" class="text-dark">-:-</span>
+        <a
+          v-else
+          :href="externalBaseUrl + row.id"
+          target="_blank"
+          :class="{ 'text-dark': row.gameStatus !== 1, 'text-accent': row.gameStatus === 1 }"
+        >
+          {{ row.homeTeamScore }}:{{ row.awayTeamScore }}
+        </a>
       </template>
       <template v-slot:cell-broadcast="{ row }">
         <IconBroadcast v-if="row.broadcast" />

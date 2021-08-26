@@ -111,9 +111,10 @@ nav {
   .lang-selector {
     font-size: 14px;
     font-weight: 400;
+    text-transform: uppercase;
 
     &.is-active {
-      color: red;
+      color: #ff1744;
     }
   }
 }

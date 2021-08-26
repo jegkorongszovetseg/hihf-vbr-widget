@@ -289,7 +289,7 @@ export const COLUMNS_SCHEDULE = {
   },
   gameResult: {
     label: '',
-    class: 'text-bold text-dark'
+    class: 'text-bold text-xl'
   },
   gameStatus: {
     label: '',

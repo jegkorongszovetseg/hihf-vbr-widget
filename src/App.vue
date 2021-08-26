@@ -1,64 +1,67 @@
 <template>
   <div id="app">
-    <button @click="onLocaleChange">Locale: {{ locale }}</button>
-    <!-- 5 harmad: 50521 -->
-    <!-- Büntetők  56731 -->
-    <!-- hosszabítás: 56726 -->
-    <!-- <Game game-id="61309" :lang="locale" /> -->
-    <TeamScoringEfficiency :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <TeamAttandance :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <TeamPenaltyKilling :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <TeamPowerplay :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <TeamFairplay :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <Schedule :lang="locale" championship-id="3229" division="Mérkőzés" />
-    <Standing :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <Standing :lang="locale" championship-id="2051" division="Alapszakasz" type="2" />
-    <FieldPlayersLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <FieldPlayersPenalties :lang="locale" championship-id="2051" division="Alapszakasz" />
-    <GoaliesLeader :lang="locale" championship-id="2051" division="Alapszakasz" />
+    <nav>
+      <div class="inner">
+        <div>
+          <router-link to="/">MJSZ VBR Widgetek</router-link>
+          <!-- <button v-if="isSelectVisible" @click="onLocaleChange">Locale: {{ locale }}</button> -->
+        </div>
+        <template v-if="isSelectVisible">
+          <template v-for="lang in languages">
+            <a
+              href="#"
+              :class="['lang-selector', { 'is-active': locale === lang }]"
+              :key="lang"
+              @click.prevent="onLocaleChange(lang)"
+              >{{ lang }}</a
+            >
+          </template>
+        </template>
+        <select v-if="isSelectVisible" v-model="selectedRoute">
+          <option v-for="route in routes" :key="route.name">{{ route.name }}</option>
+        </select>
+      </div>
+    </nav>
+    <router-view :lang="locale" />
   </div>
 </template>
 
 <script>
-// import Game from './components/widgets/Game';
-import Standing from './components/widgets/Standings';
-import Schedule from './components/widgets/Schedule';
-import FieldPlayersPenalties from './components/widgets/FieldPlayersPenalties';
-import FieldPlayersLeader from './components/widgets/FieldPlayersLeader';
-import GoaliesLeader from './components/widgets/GoaliesLeader';
-import TeamFairplay from './components/widgets/TeamFairplay';
-import TeamPowerplay from './components/widgets/TeamPowerplay';
-import TeamPenaltyKilling from './components/widgets/TeamPenaltyKilling';
-import TeamAttandance from './components/widgets/TeamAttandance';
-import TeamScoringEfficiency from './components/widgets/TeamScoringEfficiency';
+import { routes } from './router';
 
 export default {
   name: 'App',
-  components: {
-    // Game
-    Standing,
-    Schedule,
-    TeamFairplay,
-    GoaliesLeader,
-    TeamPowerplay,
-    TeamAttandance,
-    FieldPlayersLeader,
-    TeamPenaltyKilling,
-    FieldPlayersPenalties,
-    TeamScoringEfficiency
-  },
 
   data() {
     return {
-      locale: this.$i18n.locale
+      locale: this.$i18n.locale,
+      routes
     };
   },
 
+  computed: {
+    selectedRoute: {
+      get() {
+        return this.$route.name;
+      },
+      set(value) {
+        this.$router.push({ name: value });
+      }
+    },
+
+    isSelectVisible() {
+      return this.$route.name !== 'Home';
+    },
+
+    languages() {
+      return Object.keys(this.$i18n.messages);
+    }
+  },
+
   methods: {
-    onLocaleChange() {
-      const currentLocale = this.$i18n.locale;
-      this.$i18n.locale = currentLocale === 'hu' ? 'en' : 'hu';
-      this.locale = this.$i18n.locale;
+    onLocaleChange(locale) {
+      this.$i18n.locale = locale;
+      this.locale = locale;
     }
   }
 };
@@ -66,4 +69,53 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+#app {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 100px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  background-color: #eceff1;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+
+  .inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+
+    > div {
+      flex-grow: 1;
+    }
+  }
+
+  a {
+    margin-right: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #37474f;
+  }
+
+  .lang-selector {
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    &.is-active {
+      color: #ff1744;
+    }
+  }
+}
 </style>

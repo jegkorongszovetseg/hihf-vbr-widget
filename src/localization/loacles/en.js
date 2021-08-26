@@ -295,7 +295,7 @@ export default {
     },
     sagp: {
       short: 'SA/GP',
-      tooltip: 'Átlagos kapott lövésszám'
+      tooltip: 'Shots Against per Game'
     }
   },
   game: {

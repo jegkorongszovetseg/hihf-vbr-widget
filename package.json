@@ -1,19 +1,19 @@
 {
   "name": "mjsz-vbr-widget",
   "version": "0.1.0",
-  "description": "MJSZ VBR adatok megjelenítése",
   "private": true,
+  "description": "MJSZ VBR adatok megjelenítése",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "bundle-test": "serve -s server-dist",
-    "build-bundle-inline": "vue-cli-service build --inline-vue --target wc --name vbr-official-bundle src/bundle.js",
     "build-bundle": "vue-cli-service build --target wc --name vbr-official-bundle src/bundle.js",
+    "build-bundle-inline": "vue-cli-service build --inline-vue --target wc --name vbr-official-bundle src/bundle.js",
     "build-custom-bundle": "vue-cli-service build --target lib --name mjsz-vbr-bundle src/custom-bundle.js",
-    "build-custom-inline-bundle": "vue-cli-service build --inline-vue --target lib --name mjsz-vbr-bundle src/custom-bundle.js"
+    "build-custom-inline-bundle": "vue-cli-service build --inline-vue --target lib --name mjsz-vbr-bundle src/custom-bundle.js",
+    "bundle-test": "serve -s server-dist",
+    "docs:build": "vuepress build docs",
+    "docs:dev": "vuepress dev docs"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -23,11 +23,13 @@
     "vue": "^2.6.14",
     "vue-custom-element": "^3.3.0",
     "vue-i18n": "^8.22.1",
+    "vue-router": "^3.2.0",
     "xstate": "^4.19.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "^4.5.13",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
